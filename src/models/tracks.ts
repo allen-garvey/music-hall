@@ -6,6 +6,9 @@ enum Tag {
     piano = 'Piano',
     jazz = 'Jazz',
     rock = 'Rock',
+    funk = 'Funk',
+    rnb = 'RnB',
+    pop = 'Pop',
 };
 
 enum Artist {
@@ -44,18 +47,32 @@ export const trackList: Array<Track | Album> = [
         tags: [Tag.orchestral],
     },
     {
+        title: 'Automate the Trulioo Checks!',
+        artist: Artist.allen,
+        // completion_date: '2022-05-08',
+        year: 2022,
+        tags: [Tag.electronic, Tag.rnb],
+    },
+    {
+        title: 'Out of Sync, Out of Time',
+        artist: Artist.allen,
+        // completion_date: '2022-04-04',
+        year: 2022,
+        tags: [Tag.electronic],
+    },
+    {
         title: 'Dance Rock',
         artist: Artist.allen,
         // completion_date: '2022-09-22',
         year: 2020,
-        tags: [Tag.rock, Tag.electronic],
+        tags: [Tag.electronic, Tag.rock],
     },
     {
         title: 'Mechanized Emotion',
         artist: Artist.allen,
         // completion_date: '2022-10-02',
         year: 2020,
-        tags: [Tag.piano],
+        tags: [Tag.pop, Tag.piano],
     },
     {
         title: 'Voices in the Dark',
@@ -69,7 +86,7 @@ export const trackList: Array<Track | Album> = [
         artist: Artist.allen,
         // completion_date: '2022-09-12',
         year: 2017,
-        tags: [Tag.darkAmbient],
+        tags: [Tag.ambient],
     },
     {
         title: 'Stranger Danger',
