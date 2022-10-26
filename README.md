@@ -21,6 +21,10 @@ Web app to explore an artist's albums and music tracks, built with Vue, using se
 
 * `npm run deploy`
 
+## Attribution
+
+Icons are from [Feather Icons](https://feathericons.com/)
+
 ## License
 
 Music Hall is released under the MIT License. See license.txt for more details.

@@ -15,7 +15,24 @@
                 :key="`${item.title}-${item.year}`"
                 :class="$style.trackRow"
             >
-                <td><button :class="$style.playButton">Play</button></td>
+                <td :class="$style.iconContainer">
+                    <button 
+                        @click="() => trackButtonClicked(idForTrack(item))"
+                        :title="doesTrackMatchId(currentTrackId, item) ? 'Pause' : 'Play'"
+                    >
+                        <svg 
+                            :class="$style.icon"
+                            viewBox="0 0 24 24"
+                        >
+                            <use 
+                                xlink:href="#icon-play"
+                                v-if="!doesTrackMatchId(currentTrackId, item)" />
+                            <use 
+                                xlink:href="#icon-pause"
+                                v-if="doesTrackMatchId(currentTrackId, item)" />
+                        </svg>
+                    </button>
+                </td>
                 <td>{{ item.title }}</td>
                 <td :class="$style.deEmphasizeData">{{ item.artist }}</td>
                 <td>{{ item.year }}</td>
@@ -60,23 +77,49 @@
             .playButton {
                 visibility: visible;
             }
+            .iconContainer {
+                visibility: visible;
+            }
         }
     }
-    .playButton {
+
+    $icon-controls-dimensions: 40px;
+    .iconContainer {
         visibility: hidden;
+        display: inline-block;
+        margin-right: 2rem;
+        height: $icon-controls-dimensions;
+        width: $icon-controls-dimensions;
+    }
+    .icon {
+        max-height: 100%;
+        width: $icon-controls-dimensions;
+        opacity: 0.35;
         cursor: pointer;
+        
+        &:hover {
+            opacity: 1;
+        }
     }
 </style>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { Track, Album } from '../models/tracks';
+import { TrackId, doesTrackMatchId, idForTrack } from '../models/types';
 
 export default defineComponent({
     props: {
         tracks: {
             required: true,
             type: Object as PropType<Array<Track | Album>>,
+        },
+        currentTrackId: {
+            type: Object as PropType<TrackId | undefined>,
+        },
+        trackButtonClicked: {
+            required: true,
+            type: Function as PropType<(trackId: TrackId) => void>,
         }
     },
     components: {
@@ -88,6 +131,8 @@ export default defineComponent({
     computed: {
     },
     methods: {
+        doesTrackMatchId,
+        idForTrack,
     }
 });
 </script>

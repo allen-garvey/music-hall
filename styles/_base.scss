@@ -4,6 +4,23 @@ html, body {
     background-color: #f0fbff;
 }
 
+body {
+    padding-bottom: 10rem;
+}
+
 ul {
     padding: 0;
+}
+
+img{
+    max-width: 100%;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+
+    &:focus-visible {
+        outline: #0f0 solid 2px;
+    }
 }
