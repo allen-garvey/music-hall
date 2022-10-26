@@ -5,7 +5,9 @@
             :key="`${item.title}-${item.year}`"
         >
             <li :class="$style.trackItem">
-                <div>{{ item.title }}</div><div>{{ item.year }}</div>
+                <div>{{ item.title }}</div>
+                <div>{{ item.artist }}</div>
+                <div>{{ item.year }}</div>
             </li>
         </ul>
     </div>

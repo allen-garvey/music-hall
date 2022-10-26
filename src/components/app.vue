@@ -1,9 +1,16 @@
 <template>
-    <div>
+    <div :class="$style.container">
         <h1>Allen Garvey</h1>
         <TrackList :tracks="tracks" />
     </div>
 </template>
+
+<style lang="scss" module>
+    .container {
+        max-width: 1040px;
+        margin: 0 auto;
+    }
+</style>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
