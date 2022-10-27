@@ -23,7 +23,7 @@ interface PlayItem {
 }
 
 export interface Track extends PlayItem {
-    // length: number; // length in seconds
+    length: number; // length in seconds
     filename: string;
 }
 
@@ -40,6 +40,7 @@ export const trackList: Array<Track | Album> = [
         year: 2022,
         tags: [Tag.electronic, Tag.orchestral],
         filename: 'acid-confusion',
+        length: 144,
     },
     {
         title: 'Stirrings of Catharsis',
@@ -48,6 +49,7 @@ export const trackList: Array<Track | Album> = [
         year: 2022,
         tags: [Tag.orchestral],
         filename: 'stirrings-of-catharsis',
+        length: 130,
     },
     {
         title: 'Automate the Trulioo Checks!',
@@ -56,6 +58,7 @@ export const trackList: Array<Track | Album> = [
         year: 2022,
         tags: [Tag.electronic, Tag.rnb],
         filename: 'automate-the-trulioo-checks',
+        length: 188,
     },
     {
         title: 'Out of Sync, Out of Time',
@@ -64,6 +67,7 @@ export const trackList: Array<Track | Album> = [
         year: 2022,
         tags: [Tag.electronic],
         filename: 'out-of-sync-out-of-time',
+        length: 85,
     },
     {
         title: 'Dance Rock',
@@ -72,6 +76,7 @@ export const trackList: Array<Track | Album> = [
         year: 2020,
         tags: [Tag.electronic, Tag.rock],
         filename: 'dance-rock',
+        length: 116,
     },
     {
         title: 'Mechanized Emotion',
@@ -80,6 +85,7 @@ export const trackList: Array<Track | Album> = [
         year: 2020,
         tags: [Tag.pop, Tag.piano],
         filename: 'mechanized-emotion',
+        length: 189,
     },
     {
         title: 'Voices in the Dark',
@@ -88,6 +94,7 @@ export const trackList: Array<Track | Album> = [
         year: 2020,
         tags: [Tag.darkAmbient],
         filename: 'voices-in-the-dark',
+        length: 68,
     },
     {
         title: 'Paths Across The Desert',
@@ -96,6 +103,7 @@ export const trackList: Array<Track | Album> = [
         year: 2017,
         tags: [Tag.ambient],
         filename: 'paths-across-the-desert',
+        length: 150,
     },
     {
         title: 'Stranger Danger',
@@ -104,6 +112,7 @@ export const trackList: Array<Track | Album> = [
         year: 2014,
         tags: [Tag.electronic],
         filename: 'stranger-danger',
+        length: 105,
     },
     {
         title: 'Tuesday Morning',
@@ -112,5 +121,6 @@ export const trackList: Array<Track | Album> = [
         year: 2013,
         tags: [Tag.ambient],
         filename: 'tuesday-morning',
+        length: 281,
     },
 ];
