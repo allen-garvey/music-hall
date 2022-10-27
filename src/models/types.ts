@@ -12,6 +12,10 @@ export interface TrackId {
     year: number;
 };
 
+export const mediaUrlForTrack = (track: Track): string => {
+    return `/media/music/${track.year}/${track.filename}.wav`;
+};
+
 export const idForTrack = (track: Track): TrackId => {
     return {
         slug: track.title,

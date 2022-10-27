@@ -8,7 +8,7 @@
         />
         <MediaControls 
             :current-track="currentTrack" 
-            :play-state="currentPlayState" 
+            :play-state="playState" 
             :audio-volume="volume"
             :button-clicked="mediaControlsButtonClicked"
             :volume-changed="volumeChangeRequested"
@@ -26,7 +26,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { Track, Album, trackList } from '../models/tracks';
-import { PlayState, TrackId, doesTrackMatchId, areTrackIdsEqual } from '../models/types';
+import { PlayState, TrackId, doesTrackMatchId, areTrackIdsEqual, mediaUrlForTrack } from '../models/types';
 import TrackList from './track-list.vue';
 import MediaControls from './media-controls.vue';
 
@@ -35,10 +35,21 @@ export default defineComponent({
         TrackList,
         MediaControls,
     },
+    mounted(){
+        // this.volume = userSettings.getUserVolume();
+        this.audio.addEventListener('loadeddata', () => {
+            this.playState = PlayState.IS_PLAYING;
+            this.audio.volume = this.volume;
+        });
+        this.audio.addEventListener('ended', () => {
+            this.playState = PlayState.IS_PAUSED;
+        });
+    },
     data(){
         return {
+            audio: new Audio(),
             currentTrackId: undefined as TrackId | undefined,
-            currentPlayState: PlayState.IS_EMPTY,
+            playState: PlayState.IS_EMPTY,
             volume: 1,
         };
     },
@@ -54,25 +65,50 @@ export default defineComponent({
         }
     },
     methods: {
+        startAudio(){
+            this.audio.src = mediaUrlForTrack(this.currentTrack as Track);
+            this.playState = PlayState.IS_LOADING;
+            this.audio.load();
+            this.audio.play();
+        },
+        stopAudio(){
+            this.playState = PlayState.IS_PAUSED;
+            this.audio.pause();
+        },
+        restartAudio(){
+            this.playState = PlayState.IS_PLAYING;
+            this.audio.play();
+        },
+        adjustVolume(value){
+            this.audio.volume = value;
+            this.volume = value;
+            // userSettings.saveUserVolume(value);
+        },
         mediaControlsButtonClicked(){
-            if(this.currentPlayState === PlayState.IS_PAUSED){
-                // restart audio
+            if(this.playState === PlayState.IS_PAUSED){
+                this.restartAudio();
             }
             else {
-                // stop audio
+                this.stopAudio();
             }
         },
         volumeChangeRequested(newVolume: number){
             this.volume = newVolume;
-            // change volume level
+            this.audio.volume = newVolume;
+            // userSettings.saveUserVolume(newVolume);
         },
         trackButtonClicked(trackId: TrackId){
             if(areTrackIdsEqual(this.currentTrackId, trackId)){
-                // either pause or restart
+                if(this.playState === PlayState.IS_PAUSED){
+                    this.restartAudio();
+                }
+                else {
+                    this.stopAudio();
+                }
                 return;
             }
             this.currentTrackId = trackId;
-            // play audio
+            this.startAudio();
         },
     }
 });

@@ -24,6 +24,7 @@ interface PlayItem {
 
 export interface Track extends PlayItem {
     // length: number; // length in seconds
+    filename: string;
 }
 
 export interface Album extends PlayItem {
@@ -38,6 +39,7 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-10-20',
         year: 2022,
         tags: [Tag.electronic, Tag.orchestral],
+        filename: 'acid-confusion',
     },
     {
         title: 'Stirrings of Catharsis',
@@ -45,6 +47,7 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-09-06',
         year: 2022,
         tags: [Tag.orchestral],
+        filename: 'stirrings-of-catharsis',
     },
     {
         title: 'Automate the Trulioo Checks!',
@@ -52,6 +55,7 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-05-08',
         year: 2022,
         tags: [Tag.electronic, Tag.rnb],
+        filename: 'automate-the-trulioo-checks',
     },
     {
         title: 'Out of Sync, Out of Time',
@@ -59,6 +63,7 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-04-04',
         year: 2022,
         tags: [Tag.electronic],
+        filename: 'out-of-sync-out-of-time',
     },
     {
         title: 'Dance Rock',
@@ -66,6 +71,7 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-09-22',
         year: 2020,
         tags: [Tag.electronic, Tag.rock],
+        filename: 'dance-rock',
     },
     {
         title: 'Mechanized Emotion',
@@ -73,6 +79,7 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-10-02',
         year: 2020,
         tags: [Tag.pop, Tag.piano],
+        filename: 'mechanized-emotion',
     },
     {
         title: 'Voices in the Dark',
@@ -80,6 +87,7 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-09-14',
         year: 2020,
         tags: [Tag.darkAmbient],
+        filename: 'voices-in-the-dark',
     },
     {
         title: 'Paths Across The Desert',
@@ -87,6 +95,7 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-09-12',
         year: 2017,
         tags: [Tag.ambient],
+        filename: 'paths-across-the-desert',
     },
     {
         title: 'Stranger Danger',
@@ -94,6 +103,7 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-10-25',
         year: 2014,
         tags: [Tag.electronic],
+        filename: 'stranger-danger',
     },
     {
         title: 'Tuesday Morning',
@@ -101,5 +111,6 @@ export const trackList: Array<Track | Album> = [
         // completion_date: '2022-10-03',
         year: 2013,
         tags: [Tag.ambient],
+        filename: 'tuesday-morning',
     },
 ];
