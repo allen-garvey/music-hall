@@ -2,7 +2,7 @@
     <div :class="$style.container">
         <h1>Allen Garvey</h1>
         <TrackList 
-            :tracks="tracks"
+            :albums="albums"
             :current-track-id="currentTrackId"
             :track-button-clicked="trackButtonClicked"
         />
@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { Track, Album, trackList } from '../models/tracks';
+import { Track, Album, albums } from '../models/tracks';
 import { PlayState, TrackId, doesTrackMatchId, areTrackIdsEqual, mediaUrlForTrack } from '../models/types';
 import TrackList from './track-list.vue';
 import MediaControls from './media-controls.vue';
@@ -54,14 +54,14 @@ export default defineComponent({
         };
     },
     computed: {
-        tracks(): Array<Track | Album>{
-            return trackList;
+        albums(): Album[]{
+            return albums;
         },
-        trackListFlat(): Array<Track>{
-            return trackList.flatMap((item) => 'tracks' in item ? item.tracks : item);
+        tracks(): Track[]{
+            return albums.flatMap(album => album.tracks);
         },
         currentTrack(): Track | undefined{
-            return this.trackListFlat.find(track => doesTrackMatchId(this.currentTrackId, track));
+            return this.tracks.find(track => doesTrackMatchId(this.currentTrackId, track));
         }
     },
     methods: {

@@ -1,47 +1,59 @@
 <template>
-    <table :class="$style.table">
-        <thead>
-            <tr>
-                <th :class="$style.playButtonColumn"></th>
-                <th :class="$style.titleColumn">Title</th>
-                <th :class="$style.artistColumn">Artist</th>
-                <th :class="$style.yearColumn">Time</th>
-                <th :class="$style.yearColumn">Year</th>
-                <th :class="$style.tagsColumn">Tags</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr 
-                v-for="item in tracks" 
-                :key="`${item.title}-${item.year}`"
-                :class="$style.trackRow"
-            >
-                <td :class="$style.iconContainer">
-                    <button 
-                        @click="() => trackButtonClicked(idForTrack((item as Track)))"
-                        :title="doesTrackMatchId(currentTrackId, (item as Track)) ? 'Pause' : 'Play'"
-                    >
-                        <svg 
-                            :class="$style.icon"
-                            viewBox="0 0 24 24"
+<div>
+    <div
+        v-for="album in albums" 
+        :key="`${album.meta?.title || 'untitle-album'}-${album.tracks.length}`"
+    >
+        <div v-if="'meta' in album">
+            <h3>{{ album.meta?.title }}</h3>
+            <div>{{ album.meta?.year }}</div>
+            <div>{{ album.meta?.tags.join(' ') }}</div>
+        </div>
+        <table :class="$style.table">
+            <thead>
+                <tr>
+                    <th :class="$style.playButtonColumn"></th>
+                    <th :class="$style.titleColumn">Title</th>
+                    <th :class="$style.artistColumn">Artist</th>
+                    <th :class="$style.yearColumn">Time</th>
+                    <th :class="$style.yearColumn">Year</th>
+                    <th :class="$style.tagsColumn">Tags</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    v-for="track in album.tracks" 
+                    :key="`${track.title}-${track.year}`"
+                    :class="$style.trackRow"
+                >
+                    <td :class="$style.iconContainer">
+                        <button 
+                            @click="() => trackButtonClicked(idForTrack(track))"
+                            :title="doesTrackMatchId(currentTrackId, track) ? 'Pause' : 'Play'"
                         >
-                            <use 
-                                xlink:href="#icon-play"
-                                v-if="!doesTrackMatchId(currentTrackId, (item as Track))" />
-                            <use 
-                                xlink:href="#icon-pause"
-                                v-if="doesTrackMatchId(currentTrackId, (item as Track))" />
-                        </svg>
-                    </button>
-                </td>
-                <td>{{ item.title }}</td>
-                <td :class="$style.deEmphasizeData">{{ item.artist }}</td>
-                <td>{{ formatSeconds((item as Track).length) }}</td>
-                <td>{{ item.year }}</td>
-                <td>{{ item.tags.join(' ') }}</td>
-            </tr>
-        </tbody>
-    </table>
+                            <svg 
+                                :class="$style.icon"
+                                viewBox="0 0 24 24"
+                            >
+                                <use 
+                                    xlink:href="#icon-play"
+                                    v-if="!doesTrackMatchId(currentTrackId, track)" />
+                                <use 
+                                    xlink:href="#icon-pause"
+                                    v-if="doesTrackMatchId(currentTrackId, track)" />
+                            </svg>
+                        </button>
+                    </td>
+                    <td>{{ track.title }}</td>
+                    <td :class="$style.deEmphasizeData">{{ track.artist }}</td>
+                    <td>{{ formatSeconds(track.length) }}</td>
+                    <td>{{ track.year }}</td>
+                    <td>{{ track.tags.join(' ') }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </template>
 
 <style lang="scss" module>
@@ -107,15 +119,15 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { Track, Album } from '../models/tracks';
+import { Album } from '../models/tracks';
 import { TrackId, doesTrackMatchId, idForTrack } from '../models/types';
 import { formatSeconds } from '../view-helpers/time';
 
 export default defineComponent({
     props: {
-        tracks: {
+        albums: {
             required: true,
-            type: Object as PropType<Array<Track | Album>>,
+            type: Object as PropType<Array<Album>>,
         },
         currentTrackId: {
             type: Object as PropType<TrackId | undefined>,
