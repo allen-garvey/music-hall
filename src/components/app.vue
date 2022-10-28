@@ -37,9 +37,10 @@ export default defineComponent({
     },
     mounted(){
         // this.volume = userSettings.getUserVolume();
+        this.audio = new Audio();
         this.audio.addEventListener('loadeddata', () => {
             this.playState = PlayState.IS_PLAYING;
-            this.audio.volume = this.volume;
+            (this.audio as HTMLAudioElement).volume = this.volume;
         });
         this.audio.addEventListener('ended', () => {
             this.playState = PlayState.IS_PAUSED;
@@ -47,7 +48,7 @@ export default defineComponent({
     },
     data(){
         return {
-            audio: new Audio(),
+            audio: undefined as HTMLAudioElement | undefined,
             currentTrackId: undefined as TrackId | undefined,
             playState: PlayState.IS_EMPTY,
             volume: 1,
@@ -66,21 +67,21 @@ export default defineComponent({
     },
     methods: {
         startAudio(){
-            this.audio.src = mediaUrlForTrack(this.currentTrack as Track);
+            (this.audio as HTMLAudioElement).src = mediaUrlForTrack(this.currentTrack as Track);
             this.playState = PlayState.IS_LOADING;
-            this.audio.load();
-            this.audio.play();
+            (this.audio as HTMLAudioElement).load();
+            (this.audio as HTMLAudioElement).play();
         },
         stopAudio(){
             this.playState = PlayState.IS_PAUSED;
-            this.audio.pause();
+            (this.audio as HTMLAudioElement).pause();
         },
         restartAudio(){
             this.playState = PlayState.IS_PLAYING;
-            this.audio.play();
+            (this.audio as HTMLAudioElement).play();
         },
         adjustVolume(value){
-            this.audio.volume = value;
+            (this.audio as HTMLAudioElement).volume = value;
             this.volume = value;
             // userSettings.saveUserVolume(value);
         },
@@ -94,7 +95,7 @@ export default defineComponent({
         },
         volumeChangeRequested(newVolume: number){
             this.volume = newVolume;
-            this.audio.volume = newVolume;
+            (this.audio as HTMLAudioElement).volume = newVolume;
             // userSettings.saveUserVolume(newVolume);
         },
         trackButtonClicked(trackId: TrackId){
