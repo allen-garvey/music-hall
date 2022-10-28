@@ -19,11 +19,11 @@ enum Artist {
 interface PlayItem {
     title: string;
     artist: Artist;
-    year: number;
     tags: Tag[];
 }
 
 export interface Track extends PlayItem {
+    year: number;
     length: number; // length in seconds
     filename: string;
 }
@@ -41,15 +41,6 @@ export const albums: Album[] = [
     {
         tracks: [
             {
-                title: 'Acid Confusion',
-                artist: Artist.allen,
-                // completion_date: '2022-10-20',
-                year: 2022,
-                tags: [Tag.electronic, Tag.orchestral],
-                filename: 'secondary-colors/acid-confusion',
-                length: 145,
-            },
-            {
                 title: 'Stirrings of Catharsis',
                 artist: Artist.allen,
                 // completion_date: '2022-09-06',
@@ -66,6 +57,59 @@ export const albums: Album[] = [
                 tags: [Tag.electronic, Tag.rnb],
                 filename: 'lightspeed/automate-the-trulioo-checks',
                 length: 189,
+            },
+            {
+                title: 'Adieu',
+                artist: Artist.allen,
+                // completion_date: '2020-06-25',
+                year: 2020,
+                tags: [Tag.classical, Tag.piano],
+                filename: 'classical/adieu',
+                length: 102,
+            },
+            {
+                title: 'A New World',
+                artist: Artist.allen,
+                // completion_date: '2022-07-02',
+                year: 2015,
+                tags: [Tag.electronic, Tag.orchestral],
+                filename: 'video-scoring/a-new-world',
+                length: 212,
+            },
+            {
+                title: 'The Last Battle',
+                artist: Artist.allen,
+                // completion_date: '2014-01-28',
+                year: 2014,
+                tags: [Tag.electronic, Tag.orchestral],
+                filename: 'video-scoring/the-last-battle',
+                length: 335,
+            },
+            {
+                title: 'A Dance of Love and Death',
+                artist: Artist.allen,
+                year: 2013,
+                tags: [Tag.classical, Tag.orchestral],
+                filename: 'classical/a-dance-of-love-and-death',
+                length: 372,
+            },
+        ]
+    },
+    {
+        meta: {
+            title: 'Secondary Colors',
+            artist: Artist.allen,
+            tags: [Tag.electronic],
+        },
+        tracks: [
+            {
+                title: 'Acid Confusion',
+                artist: Artist.allen,
+                // completion_date: '2022-10-20',
+                year: 2022,
+                tags: [Tag.electronic, Tag.orchestral],
+                filename: 'secondary-colors/acid-confusion',
+                length: 145,
             },
             {
                 title: 'Out of Sync, Out of Time',
@@ -154,15 +198,6 @@ export const albums: Album[] = [
                 length: 117,
             },
             {
-                title: 'Sound of My Voice',
-                artist: Artist.allen,
-                // completion_date: '2020-07-02',
-                year: 2020,
-                tags: [Tag.darkAmbient],
-                filename: 'nightscapes-dreamscapes/sound-of-my-voice',
-                length: 157,
-            },
-            {
                 title: 'Anxiety Jukebox',
                 artist: Artist.allen,
                 year: 2020,
@@ -172,13 +207,32 @@ export const albums: Album[] = [
                 length: 160,
             },
             {
-                title: 'Adieu',
+                title: 'Stranger Danger',
                 artist: Artist.allen,
-                // completion_date: '2020-06-25',
+                // completion_date: '2022-10-25',
+                year: 2014,
+                tags: [Tag.electronic],
+                filename: 'secondary-colors/stranger-danger',
+                length: 106,
+            },
+
+        ],
+    },
+    {
+        meta: {
+            title: 'Nightscapes:Dreamscapes',
+            artist: Artist.allen,
+            tags: [Tag.ambient],
+        },
+        tracks: [
+            {
+                title: 'Sound of My Voice',
+                artist: Artist.allen,
+                // completion_date: '2020-07-02',
                 year: 2020,
-                tags: [Tag.classical, Tag.piano],
-                filename: 'classical/adieu',
-                length: 102,
+                tags: [Tag.darkAmbient],
+                filename: 'nightscapes-dreamscapes/sound-of-my-voice',
+                length: 157,
             },
             {
                 title: 'Sunrise Inserpolation',
@@ -208,33 +262,6 @@ export const albums: Album[] = [
                 length: 151,
             },
             {
-                title: 'A New World',
-                artist: Artist.allen,
-                // completion_date: '2022-07-02',
-                year: 2015,
-                tags: [Tag.electronic, Tag.orchestral],
-                filename: 'video-scoring/a-new-world',
-                length: 212,
-            },
-            {
-                title: 'Stranger Danger',
-                artist: Artist.allen,
-                // completion_date: '2022-10-25',
-                year: 2014,
-                tags: [Tag.electronic],
-                filename: 'secondary-colors/stranger-danger',
-                length: 106,
-            },
-            {
-                title: 'The Last Battle',
-                artist: Artist.allen,
-                // completion_date: '2014-01-28',
-                year: 2014,
-                tags: [Tag.electronic, Tag.orchestral],
-                filename: 'video-scoring/the-last-battle',
-                length: 335,
-            },
-            {
                 title: 'Tuesday Morning',
                 artist: Artist.allen,
                 // completion_date: '2022-10-03',
@@ -243,21 +270,13 @@ export const albums: Album[] = [
                 filename: 'nightscapes-dreamscapes/tuesday-morning',
                 length: 282,
             },
-            {
-                title: 'A Dance of Love and Death',
-                artist: Artist.allen,
-                year: 2013,
-                tags: [Tag.classical, Tag.orchestral],
-                filename: 'classical/a-dance-of-love-and-death',
-                length: 372,
-            },
-        ]
+
+        ],
     },
     {
         meta: {
             title: 'Primary Colors',
             artist: Artist.allen,
-            year: 2014,
             tags: [Tag.electronic],
         },
         tracks: [
@@ -277,7 +296,6 @@ export const albums: Album[] = [
         meta: {
             title: 'Senior Composition Recital',
             artist: Artist.allen,
-            year: 2009,
             tags: [Tag.classical, Tag.jazz],
         },
         tracks: [],
@@ -286,7 +304,6 @@ export const albums: Album[] = [
         meta: {
             title: 'The Departure of Adam Pin',
             artist: Artist.allen,
-            year: 2008,
             tags: [Tag.jazz],
         },
         tracks: [],
@@ -295,7 +312,6 @@ export const albums: Album[] = [
         meta: {
             title: 'Junior Composition Recital',
             artist: Artist.allen,
-            year: 2008,
             tags: [Tag.classical, Tag.jazz],
         },
         tracks: [],
@@ -304,7 +320,6 @@ export const albums: Album[] = [
         meta: {
             title: 'Feldergarb Trio w/ Jen Wells',
             artist: Artist.allen,
-            year: 2008,
             tags: [Tag.jazz],
         },
         tracks: [],
@@ -313,7 +328,6 @@ export const albums: Album[] = [
         meta: {
             title: 'Feldergarb Trio',
             artist: Artist.allen,
-            year: 2007,
             tags: [Tag.jazz],
         },
         tracks: [],

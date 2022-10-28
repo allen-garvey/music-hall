@@ -6,7 +6,7 @@
     >
         <div v-if="'meta' in album">
             <h3>{{ album.meta?.title }}</h3>
-            <div>{{ album.meta?.year }}</div>
+            <div>{{ yearDescriptionForAlbum(album) }}</div>
             <div>{{ album.meta?.tags.join(' ') }}</div>
         </div>
         <table :class="$style.table">
@@ -121,6 +121,7 @@
 import { defineComponent, PropType } from 'vue';
 import { Album } from '../models/tracks';
 import { TrackId, doesTrackMatchId, idForTrack } from '../models/types';
+import { yearDescriptionForAlbum } from '../models/album-helpers';
 import { formatSeconds } from '../view-helpers/time';
 
 export default defineComponent({
@@ -149,6 +150,7 @@ export default defineComponent({
         doesTrackMatchId,
         idForTrack,
         formatSeconds,
+        yearDescriptionForAlbum,
     }
 });
 </script>
