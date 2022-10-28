@@ -33,12 +33,17 @@ interface AlbumMeta extends PlayItem {
 }
 
 export interface Album {
-    meta?: AlbumMeta;
+    meta: AlbumMeta;
     tracks: Track[];
 }
 
 export const albums: Album[] = [
     {
+        meta: {
+            title: 'Rise and Fall',
+            artist: Artist.allen,
+            tags: [Tag.electronic, Tag.classical],
+        },
         tracks: [
             {
                 title: 'Stirrings of Catharsis',
@@ -48,24 +53,6 @@ export const albums: Album[] = [
                 tags: [Tag.orchestral],
                 filename: 'electronic-orchestral/stirrings-of-catharsis',
                 length: 131,
-            },
-            {
-                title: 'Automate the Trulioo Checks!',
-                artist: Artist.allen,
-                // completion_date: '2022-05-08',
-                year: 2022,
-                tags: [Tag.electronic, Tag.rnb],
-                filename: 'lightspeed/automate-the-trulioo-checks',
-                length: 189,
-            },
-            {
-                title: 'Adieu',
-                artist: Artist.allen,
-                // completion_date: '2020-06-25',
-                year: 2020,
-                tags: [Tag.classical, Tag.piano],
-                filename: 'classical/adieu',
-                length: 102,
             },
             {
                 title: 'A New World',
@@ -84,6 +71,15 @@ export const albums: Album[] = [
                 tags: [Tag.electronic, Tag.orchestral],
                 filename: 'video-scoring/the-last-battle',
                 length: 335,
+            },
+            {
+                title: 'Adieu',
+                artist: Artist.allen,
+                // completion_date: '2020-06-25',
+                year: 2020,
+                tags: [Tag.classical, Tag.piano],
+                filename: 'classical/adieu',
+                length: 102,
             },
             {
                 title: 'A Dance of Love and Death',
@@ -205,6 +201,15 @@ export const albums: Album[] = [
                 tags: [Tag.electronic],
                 filename: 'secondary-colors/anxiety-jukebox',
                 length: 160,
+            },
+            {
+                title: 'Automate the Trulioo Checks!',
+                artist: Artist.allen,
+                // completion_date: '2022-05-08',
+                year: 2022,
+                tags: [Tag.electronic, Tag.rnb],
+                filename: 'lightspeed/automate-the-trulioo-checks',
+                length: 189,
             },
             {
                 title: 'Stranger Danger',

@@ -2,12 +2,12 @@
 <div>
     <div
         v-for="album in albums" 
-        :key="`${album.meta?.title || 'untitle-album'}-${album.tracks.length}`"
+        :key="album.meta.title"
     >
-        <div v-if="'meta' in album">
-            <h3>{{ album.meta?.title }}</h3>
+        <div>
+            <h3>{{ album.meta.title }}</h3>
             <div>{{ yearDescriptionForAlbum(album) }}</div>
-            <div>{{ album.meta?.tags.join(' ') }}</div>
+            <div>{{ album.meta.tags.join(', ') }}</div>
         </div>
         <table :class="$style.table">
             <thead>
@@ -85,7 +85,7 @@
     }
     .trackRow {
         td {
-            padding: 1em 0;
+            padding: 0.75em 0;
         }
 
         &:hover {
