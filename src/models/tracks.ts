@@ -162,7 +162,7 @@ export const albums: Album[] = [
                 title: 'Automate the Trulioo Checks!',
                 // completion_date: '2022-05-08',
                 year: 2022,
-                filename: 'lightspeed/automate-the-trulioo-checks',
+                filename: 'secondary-colors/automate-the-trulioo-checks',
                 length: 189,
             },
             {
