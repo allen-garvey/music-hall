@@ -11,9 +11,8 @@
                 <tr>
                     <th :class="$style.playButtonColumn"></th>
                     <th :class="$style.titleColumn">Title</th>
-                    <th :class="$style.yearColumn">Time</th>
+                    <th :class="$style.timeColumn">Time</th>
                     <th :class="$style.yearColumn">Year</th>
-                    <th :class="$style.tagsColumn">Tags</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +44,6 @@
                     <td>{{ track.title }}</td>
                     <td>{{ formatSeconds(track.length) }}</td>
                     <td>{{ track.year }}</td>
-                    <td>{{ track.tags.join(' ') }}</td>
                 </tr>
             </tbody>
         </table>
@@ -69,13 +67,13 @@
         width: 60px;
     }
     .titleColumn {
-        width: 27em;
+        width: 35em;
+    }
+    .timeColumn {
+        width: 6em;
     }
     .yearColumn {
         width: 5em;
-    }
-    .tagsColumn {
-        width: 12em;
     }
     .trackRow {
         td {
