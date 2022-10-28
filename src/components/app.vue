@@ -14,6 +14,7 @@
             :button-clicked="mediaControlsButtonClicked"
             :volume-changed="volumeChangeRequested"
             :elapsed-time="elapsedTime"
+            :on-track-seek-requested="setCurrentTrackTime"
         />
     </div>
 </template>
@@ -91,6 +92,9 @@ export default defineComponent({
             (this.audio as HTMLAudioElement).volume = value;
             this.volume = value;
             // userSettings.saveUserVolume(value);
+        },
+        setCurrentTrackTime(seconds: number){
+            (this.audio as HTMLAudioElement).currentTime = seconds;
         },
         mediaControlsButtonClicked(){
             if(this.playState === PlayState.IS_PAUSED){

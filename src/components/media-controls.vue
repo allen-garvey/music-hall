@@ -1,6 +1,16 @@
 <template>
 <div :class="$style.container">
-    <div v-if="currentTrack">
+    <template v-if="currentTrack">
+        <div :class="$style.progressBarContainer">
+            <input 
+                type="range" 
+                min="0" 
+                :max="(currentTrack as Track).length" 
+                step="1" 
+                :value="elapsedTime"
+                @input="progressBarUpdated"
+            />
+        </div>
         <div :class="$style.mobileTitle">
             <span>{{ currentTrack?.title }}</span>
             <span :class="$style.time">
@@ -59,7 +69,7 @@
                 />
             </div>
         </div>
-    </div>
+    </template>
 </div>
 </template>
     
@@ -112,6 +122,16 @@ $breakpoint: 600px;
 
 .time {
     margin-left: 1em;
+}
+
+.progressBarContainer {
+    width: calc(100% - 20px);
+    position: relative;
+    top: -8px;
+    
+    input[type="range"] {
+        width: 100%;
+    }
 }
 
 .buttonContainer {
@@ -223,6 +243,15 @@ export default defineComponent({
             type: Function as PropType<(volume: number) => void>,
             required: true,
         },
+        onTrackSeekRequested: {
+            type: Function as PropType<(volume: number) => void>,
+            required: true,
+        },
+    },
+    data(){
+        return {
+            trackSeekTimeout: undefined as NodeJS.Timeout | undefined,
+        };
     },
     computed: {
         isAudioEmpty(){
@@ -243,6 +272,13 @@ export default defineComponent({
     },
     methods: {
         formatSeconds,
+        progressBarUpdated(e: InputEvent){
+            clearTimeout(this.trackSeekTimeout);
+            const time = parseInt((e.target as HTMLInputElement).value);
+            this.trackSeekTimeout = setTimeout(() => {
+                this.onTrackSeekRequested(time);
+            }, 300);
+        },
     }
 });
 </script>
