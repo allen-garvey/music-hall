@@ -3,12 +3,9 @@
     <div
         v-for="album in albums" 
         :key="album.meta.title"
+        :class="$style.overallTrackContainer"
     >
-        <div>
-            <h3>{{ album.meta.title }}</h3>
-            <div>{{ yearDescriptionForAlbum(album) }}</div>
-            <div>{{ album.meta.tags.join(', ') }}</div>
-        </div>
+        <AlbumHeader :album="album" />
         <table :class="$style.table">
             <thead>
                 <tr>
@@ -59,6 +56,11 @@
 </template>
 
 <style lang="scss" module>
+    .overallTrackContainer {
+        & + & {
+            margin-top: 4rem;
+        }
+    }
     .table {
         border-collapse: collapse;
         th {
@@ -135,6 +137,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
+import AlbumHeader from './album-header.vue';
 import { Album } from '../models/tracks';
 import { TrackId, doesTrackMatchId, idForTrack, PlayState } from '../models/types';
 import { yearDescriptionForAlbum } from '../models/album-helpers';
@@ -159,6 +162,7 @@ export default defineComponent({
         },
     },
     components: {
+        AlbumHeader,
     },
     data(){
         return {
