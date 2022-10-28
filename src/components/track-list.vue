@@ -150,7 +150,7 @@ export default defineComponent({
     },
     computed: {
         isCurrentlyPlaying(): boolean{
-            return this.playState === PlayState.IS_PLAYING;
+            return this.playState === PlayState.IS_PLAYING || this.playState === PlayState.IS_LOADING;
         },
     },
     methods: {
