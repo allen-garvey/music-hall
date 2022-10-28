@@ -51,7 +51,7 @@ export const albums: Album[] = [
                 // completion_date: '2022-09-06',
                 year: 2022,
                 tags: [Tag.orchestral],
-                filename: 'electronic-orchestral/stirrings-of-catharsis',
+                filename: 'rise-and-fall/stirrings-of-catharsis',
                 length: 131,
             },
             {
@@ -60,7 +60,7 @@ export const albums: Album[] = [
                 // completion_date: '2022-07-02',
                 year: 2015,
                 tags: [Tag.electronic, Tag.orchestral],
-                filename: 'video-scoring/a-new-world',
+                filename: 'rise-and-fall/a-new-world',
                 length: 212,
             },
             {
@@ -69,7 +69,7 @@ export const albums: Album[] = [
                 // completion_date: '2014-01-28',
                 year: 2014,
                 tags: [Tag.electronic, Tag.orchestral],
-                filename: 'video-scoring/the-last-battle',
+                filename: 'rise-and-fall/the-last-battle',
                 length: 335,
             },
             {
@@ -78,7 +78,7 @@ export const albums: Album[] = [
                 // completion_date: '2020-06-25',
                 year: 2020,
                 tags: [Tag.classical, Tag.piano],
-                filename: 'classical/adieu',
+                filename: 'rise-and-fall/adieu',
                 length: 102,
             },
             {
@@ -86,7 +86,7 @@ export const albums: Album[] = [
                 artist: Artist.allen,
                 year: 2013,
                 tags: [Tag.classical, Tag.orchestral],
-                filename: 'classical/a-dance-of-love-and-death',
+                filename: 'rise-and-fall/a-dance-of-love-and-death',
                 length: 372,
             },
         ]

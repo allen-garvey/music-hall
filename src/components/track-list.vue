@@ -11,7 +11,6 @@
                 <tr>
                     <th :class="$style.playButtonColumn"></th>
                     <th :class="$style.titleColumn">Title</th>
-                    <th :class="$style.artistColumn">Artist</th>
                     <th :class="$style.yearColumn">Time</th>
                     <th :class="$style.yearColumn">Year</th>
                     <th :class="$style.tagsColumn">Tags</th>
@@ -20,7 +19,7 @@
             <tbody>
                 <tr 
                     v-for="(track, i) in album.tracks" 
-                    :key="`${track.title}-${track.year}`"
+                    :key="`${album.meta.title}-${track.title}`"
                     :class="$style.trackRow"
                 >
                     <td :class="$style.iconContainer">
@@ -44,7 +43,6 @@
                         <span :class="$style.trackNumber">{{ i + 1 }}</span>
                     </td>
                     <td>{{ track.title }}</td>
-                    <td :class="$style.deEmphasizeData">{{ track.artist }}</td>
                     <td>{{ formatSeconds(track.length) }}</td>
                     <td>{{ track.year }}</td>
                     <td>{{ track.tags.join(' ') }}</td>
@@ -71,19 +69,13 @@
         width: 60px;
     }
     .titleColumn {
-        width: 24em;
-    }
-    .artistColumn {
-        width: 10em;
+        width: 27em;
     }
     .yearColumn {
         width: 5em;
     }
     .tagsColumn {
         width: 12em;
-    }
-    .deEmphasizeData {
-        opacity: 0.4;
     }
     .trackRow {
         td {
