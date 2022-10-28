@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 <tr 
-                    v-for="track in album.tracks" 
+                    v-for="(track, i) in album.tracks" 
                     :key="`${track.title}-${track.year}`"
                     :class="$style.trackRow"
                 >
@@ -30,6 +30,7 @@
                         <button 
                             @click="() => trackButtonClicked(idForTrack(track))"
                             :title="doesTrackMatchId(currentTrackId, track) ? 'Pause' : 'Play'"
+                            :class="$style.trackButton"
                         >
                             <svg 
                                 :class="$style.icon"
@@ -43,6 +44,7 @@
                                     v-else />
                             </svg>
                         </button>
+                        <span :class="$style.trackNumber">{{ i + 1 }}</span>
                     </td>
                     <td>{{ track.title }}</td>
                     <td :class="$style.deEmphasizeData">{{ track.artist }}</td>
@@ -88,22 +90,36 @@
 
         &:hover {
             background-color: #bdeeff;
-            .playButton {
+            .trackButton {
                 visibility: visible;
             }
-            .iconContainer {
-                visibility: visible;
+            .trackNumber {
+                display: none;
             }
         }
     }
 
     $icon-controls-dimensions: 40px;
     .iconContainer {
-        visibility: hidden;
         display: inline-block;
+        position: relative;
         margin-right: 2rem;
         height: $icon-controls-dimensions;
         width: $icon-controls-dimensions;
+    }
+    .trackButton {
+        visibility: hidden;
+    }
+    .trackNumber {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.25;
     }
     .icon {
         max-height: 100%;
