@@ -36,11 +36,11 @@
                                 viewBox="0 0 24 24"
                             >
                                 <use 
-                                    xlink:href="#icon-play"
-                                    v-if="!doesTrackMatchId(currentTrackId, track)" />
-                                <use 
                                     xlink:href="#icon-pause"
-                                    v-if="doesTrackMatchId(currentTrackId, track)" />
+                                    v-if="doesTrackMatchId(currentTrackId, track) && isCurrentlyPlaying" />
+                                <use 
+                                    xlink:href="#icon-play"
+                                    v-else />
                             </svg>
                         </button>
                     </td>
@@ -120,7 +120,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { Album } from '../models/tracks';
-import { TrackId, doesTrackMatchId, idForTrack } from '../models/types';
+import { TrackId, doesTrackMatchId, idForTrack, PlayState } from '../models/types';
 import { yearDescriptionForAlbum } from '../models/album-helpers';
 import { formatSeconds } from '../view-helpers/time';
 
@@ -136,7 +136,11 @@ export default defineComponent({
         trackButtonClicked: {
             required: true,
             type: Function as PropType<(trackId: TrackId) => void>,
-        }
+        },
+        playState: {
+            type: Number,
+            required: true,
+        },
     },
     components: {
     },
@@ -145,6 +149,9 @@ export default defineComponent({
         };
     },
     computed: {
+        isCurrentlyPlaying(): boolean{
+            return this.playState === PlayState.IS_PLAYING;
+        },
     },
     methods: {
         doesTrackMatchId,

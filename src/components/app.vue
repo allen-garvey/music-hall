@@ -5,6 +5,7 @@
             :albums="albums"
             :current-track-id="currentTrackId"
             :track-button-clicked="trackButtonClicked"
+            :play-state="playState"
         />
         <MediaControls 
             :current-track="currentTrack" 
