@@ -1,7 +1,11 @@
 <template>
-    <div :class="$style.container">
+<div :class="$style.container">
+    <div v-if="currentTrack">
         <div :class="$style.mobileTitle">
-            {{ currentTrack?.title }}
+            <span>{{ currentTrack?.title }}</span>
+            <span :class="$style.time">
+                {{ formatSeconds(elapsedTime) }} - {{ formatSeconds((currentTrack as Track).length) }}
+            </span>
         </div>
         <div :class="$style.innerContainer">
             <div
@@ -24,6 +28,9 @@
             </div>
             <div :class="$style.desktopTitle">
                 {{ currentTrack?.title }}
+            </div>
+            <div :class="$style.desktopTitle">
+                {{ formatSeconds(elapsedTime) }} - {{ formatSeconds((currentTrack as Track).length) }}
             </div>
             <div :class="$style.volumeContainer" v-show="!isAudioEmpty">
                 <svg 
@@ -53,6 +60,7 @@
             </div>
         </div>
     </div>
+</div>
 </template>
     
 <style lang="scss" module>
@@ -87,7 +95,7 @@ $breakpoint: 600px;
 }
 
 .mobileTitle {
-    margin: 0 0 5px;
+    margin: 0 0 0.75rem;
     
     @media screen and (min-width: $breakpoint) {
         display: none;
@@ -100,6 +108,10 @@ $breakpoint: 600px;
     @media screen and (max-width: $breakpoint) {
         display: none;
     }
+}
+
+.time {
+    margin-left: 1em;
 }
 
 .buttonContainer {
@@ -184,6 +196,7 @@ $volume-slider-range-color: #dbd9d6;
 import { defineComponent, PropType } from 'vue';
 import { PlayState } from '../models/types';
 import { Track } from '../models/tracks';
+import { formatSeconds } from '../view-helpers/time';
 
 export default defineComponent({
     props: {
@@ -195,6 +208,10 @@ export default defineComponent({
             required: true,
         },
         audioVolume: {
+            type: Number,
+            required: true,
+        },
+        elapsedTime: {
             type: Number,
             required: true,
         },
@@ -225,6 +242,7 @@ export default defineComponent({
         // },
     },
     methods: {
+        formatSeconds,
     }
 });
 </script>

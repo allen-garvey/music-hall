@@ -13,6 +13,7 @@
             :audio-volume="volume"
             :button-clicked="mediaControlsButtonClicked"
             :volume-changed="volumeChangeRequested"
+            :elapsed-time="elapsedTime"
         />
     </div>
 </template>
@@ -46,6 +47,9 @@ export default defineComponent({
         this.audio.addEventListener('ended', () => {
             this.playState = PlayState.IS_PAUSED;
         });
+        this.audio.addEventListener('timeupdate', (e) => {
+			this.elapsedTime = Math.floor((e.target as HTMLAudioElement).currentTime);
+		});
     },
     data(){
         return {
@@ -53,6 +57,7 @@ export default defineComponent({
             currentTrackId: undefined as TrackId | undefined,
             playState: PlayState.IS_EMPTY,
             volume: 1,
+            elapsedTime: 0,
         };
     },
     computed: {
@@ -70,6 +75,7 @@ export default defineComponent({
         startAudio(){
             (this.audio as HTMLAudioElement).src = mediaUrlForTrack(this.currentTrack as Track);
             this.playState = PlayState.IS_LOADING;
+            this.elapsedTime = 0;
             (this.audio as HTMLAudioElement).load();
             (this.audio as HTMLAudioElement).play();
         },
