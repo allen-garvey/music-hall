@@ -24,8 +24,9 @@ export interface Track {
 
 interface AlbumMeta {
     title: string;
-    description?: string;
     artist: Artist;
+    description?: string;
+    coverImage: string;
     tags: Tag[];
 }
 
@@ -39,6 +40,7 @@ export const albums: Album[] = [
         meta: {
             title: 'Rise and Fall',
             artist: Artist.allen,
+            coverImage: 'rise-and-fall.webp',
             tags: [Tag.electronic, Tag.classical],
         },
         tracks: [
@@ -82,6 +84,7 @@ export const albums: Album[] = [
         meta: {
             title: 'Secondary Colors',
             artist: Artist.allen,
+            coverImage: 'secondary-colors.webp',
             tags: [Tag.electronic],
         },
         tracks: [
@@ -178,6 +181,7 @@ export const albums: Album[] = [
         meta: {
             title: 'Nightscapes:Dreamscapes',
             artist: Artist.allen,
+            coverImage: 'nightscapes-dreamscapes.webp',
             tags: [Tag.ambient],
         },
         tracks: [
@@ -230,6 +234,7 @@ export const albums: Album[] = [
         meta: {
             title: 'Primary Colors',
             artist: Artist.allen,
+            coverImage: 'primary-colors.webp',
             tags: [Tag.electronic],
         },
         tracks: [
@@ -247,6 +252,7 @@ export const albums: Album[] = [
         meta: {
             title: 'Senior Composition Recital',
             artist: Artist.allen,
+            coverImage: 'allen-garvey-senior-composition-recital.webp',
             tags: [Tag.classical, Tag.jazz],
         },
         tracks: [],
@@ -255,6 +261,7 @@ export const albums: Album[] = [
         meta: {
             title: 'The Departure of Adam Pin',
             artist: Artist.allen,
+            coverImage: 'departure-of-adam-pin.webp',
             tags: [Tag.jazz],
         },
         tracks: [],
@@ -263,6 +270,7 @@ export const albums: Album[] = [
         meta: {
             title: 'Junior Composition Recital',
             artist: Artist.allen,
+            coverImage: 'allen-garvey-junior-composition-recital.webp',
             tags: [Tag.classical, Tag.jazz],
         },
         tracks: [],
@@ -271,6 +279,7 @@ export const albums: Album[] = [
         meta: {
             title: 'Feldergarb Trio w/ Jen Wells',
             artist: Artist.allen,
+            coverImage: 'feldergarb-trio-with-jen-wells.webp',
             tags: [Tag.jazz],
         },
         tracks: [],
@@ -279,6 +288,7 @@ export const albums: Album[] = [
         meta: {
             title: 'Feldergarb Trio',
             artist: Artist.allen,
+            coverImage: 'feldergarb-trio.webp',
             tags: [Tag.jazz],
         },
         tracks: [],

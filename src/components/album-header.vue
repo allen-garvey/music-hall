@@ -8,6 +8,14 @@
             <div :class="$style.artist">{{ album.meta.artist }}</div>
             <div :class="$style.tags">{{ album.meta.tags.join(', ') }}</div>
         </div>
+        <div>
+            <img 
+                :src="`/media/images/${album.meta.coverImage}`" 
+                :alt="album.meta.title" 
+                :class="$style.coverImage"
+                loading="lazy"
+            />
+        </div>
     </div>
 </template>
     
@@ -36,6 +44,9 @@
     }
     .tags {
         opacity: 0.5;
+    }
+    .coverImage {
+        width: 220px;
     }
 </style>
 
