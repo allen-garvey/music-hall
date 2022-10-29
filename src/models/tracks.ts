@@ -353,20 +353,18 @@ export const albums: Album[] = [
                 length: 1,
             },
             {
-                // TODO completion_date, master and length
                 title: 'All That Glitters',
-                // completion_date: '2013-10-25',
+                // completion_date: '2013-06-03',
                 year: 2013,
                 filename: 'primary-colors/all-that-glitters',
-                length: 1,
+                length: 129,
             },
             {
-                // TODO completion_date, master and length
                 title: 'Toys in the Attic',
-                // completion_date: '2013-10-25',
+                // completion_date: '2013-06-03',
                 year: 2013,
                 filename: 'primary-colors/toys-in-the-attic',
-                length: 1,
+                length: 89,
             },
             {
                 title: 'Looking Back From A Distance',
@@ -391,7 +389,6 @@ export const albums: Album[] = [
                 length: 222,
             },
             {
-                // TODO master and length
                 title: 'Sunrise on the Moebius Strip',
                 // completion_date: '2013-12-21',
                 year: 2013,
@@ -399,7 +396,6 @@ export const albums: Album[] = [
                 length: 256,
             },
             {
-                // TODO master and length
                 title: 'Graduation',
                 // completion_date: '2014-03-18',
                 year: 2014,
