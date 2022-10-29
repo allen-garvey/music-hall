@@ -14,6 +14,9 @@ enum Tag {
 
 enum Artist {
     allen = 'Allen Garvey',
+    feldergarb = 'Feldergarb Trio',
+    feldergarbWJWells = 'Feldergarb Trio w/ Jen Wells',
+    superbad = 'Superbad Quartet',
 }
 export interface Track {
     title: string;
@@ -71,6 +74,14 @@ export const albums: Album[] = [
                 year: 2020,
                 filename: 'rise-and-fall/adieu',
                 length: 102,
+            },
+            {
+                // TODO master and length
+                title: 'Marching Orders',
+                // completion_date: '2014-01-05',
+                year: 2014,
+                filename: 'rise-and-fall/marching-orders',
+                length: 372,
             },
             {
                 title: 'A Dance of Love and Death',
@@ -239,12 +250,170 @@ export const albums: Album[] = [
         },
         tracks: [
             {
-                title: 'Stranger Danger',
-                // completion_date: '2022-10-25',
+                title: 'Invocation',
+                // completion_date: '2014-04-13',
                 year: 2014,
-                filename: 'primary-colors/stranger-danger',
-                length: 106,
+                filename: 'primary-colors/invocation',
+                length: 131,
             },
+            {
+                title: 'Just Doin\' What I Do',
+                // completion_date: '2013-09-02',
+                year: 2013,
+                filename: 'primary-colors/just-doin-what-i-do',
+                length: 148,
+            },
+            {
+                title: 'Trouble in the Urban Jungle',
+                // completion_date: '2013-08-29',
+                year: 2013,
+                filename: 'primary-colors/trouble-in-the-urban-jungle',
+                length: 136,
+            },
+            {
+                title: 'Another World',
+                // completion_date: '2013-09-08',
+                year: 2013,
+                filename: 'primary-colors/another-world',
+                length: 135,
+            },
+            {
+                title: 'Race Against Time',
+                // completion_date: '2013-08-28',
+                year: 2013,
+                filename: 'primary-colors/race-against-time',
+                length: 171,
+            },
+            {
+                // TODO completion_date, master and length
+                title: 'This Could Be The Start Of Something',
+                // completion_date: '2013-10-25',
+                year: 2013,
+                filename: 'primary-colors/this-could-be-the-start-of-something',
+                length: 1,
+            },
+            {
+                title: 'Laid Back Trance',
+                // completion_date: '2014-03-21',
+                year: 2014,
+                filename: 'primary-colors/laid-back-trance',
+                length: 277,
+            },
+            {
+                title: 'Porta Del Paradiso',
+                // completion_date: '2014-03-20',
+                year: 2014,
+                filename: 'primary-colors/porta-del-paradiso',
+                length: 298,
+            },
+            {
+                // TODO completion_date, master and length
+                title: 'Return of the ___',
+                // completion_date: '2013-10-25',
+                year: 2013,
+                filename: 'primary-colors/return-of-the-___',
+                length: 1,
+            },
+            {
+                title: 'Darksides',
+                // completion_date: '2014-01-03',
+                year: 2014,
+                filename: 'primary-colors/darksides',
+                length: 260,
+            },
+            {
+                // TODO completion_date, master and length
+                title: 'By The Seashore',
+                // completion_date: '2013-10-25',
+                year: 2013,
+                filename: 'primary-colors/by-the-seashore',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Sometimes I Miss You So Much',
+                // completion_date: '2014-01-16',
+                year: 2014,
+                filename: 'primary-colors/sometimes-i-miss-you-so-much',
+                length: 1,
+            },
+            {
+                title: 'After the Storm',
+                // completion_date: '2014-01-16',
+                year: 2014,
+                filename: 'primary-colors/after-the-storm',
+                length: 306,
+            },
+            {
+                // TODO completion_date, master and length
+                title: 'Interstellar Funk',
+                // completion_date: '2013-10-25',
+                year: 2013,
+                filename: 'primary-colors/interstellar-funk',
+                length: 1,
+            },
+            {
+                // TODO completion_date, master and length
+                title: 'All That Glitters',
+                // completion_date: '2013-10-25',
+                year: 2013,
+                filename: 'primary-colors/all-that-glitters',
+                length: 1,
+            },
+            {
+                // TODO completion_date, master and length
+                title: 'Toys in the Attic',
+                // completion_date: '2013-10-25',
+                year: 2013,
+                filename: 'primary-colors/toys-in-the-attic',
+                length: 1,
+            },
+            {
+                title: 'Looking Back From A Distance',
+                // completion_date: '2013-10-25',
+                year: 2013,
+                filename: 'primary-colors/looking-back-from-a-distance',
+                length: 153,
+            },
+            {
+                // TODO completion_date, master and length
+                title: 'Dream',
+                // completion_date: '2013-10-25',
+                year: 2013,
+                filename: 'primary-colors/dream',
+                length: 1,
+            },
+            {
+                title: 'Last Night',
+                // completion_date: '2014-01-01',
+                year: 2014,
+                filename: 'primary-colors/last-night',
+                length: 222,
+            },
+            {
+                // TODO master and length
+                title: 'Sunrise on the Moebius Strip',
+                // completion_date: '2013-12-21',
+                year: 2013,
+                filename: 'primary-colors/sunrise-on-the-moebius-strip',
+                length: 256,
+            },
+            {
+                // TODO master and length
+                title: 'Graduation',
+                // completion_date: '2014-03-18',
+                year: 2014,
+                filename: 'primary-colors/graduation',
+                length: 243,
+            },
+            // {
+            //     // TODO master and length
+            //     title: 'Like So Many Grains of Sand',
+            //     // completion_date: '2014-03-18',
+            //     year: 2014,
+            //     filename: 'primary-colors/like-so-many-grains-of-sand',
+            //     length: 1,
+            // },
 
         ],
     },
@@ -260,7 +429,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: 'The Departure of Adam Pin',
-            artist: Artist.allen,
+            artist: Artist.superbad,
             coverImage: 'departure-of-adam-pin.webp',
             tags: [Tag.jazz],
         },
@@ -277,20 +446,165 @@ export const albums: Album[] = [
     },
     {
         meta: {
-            title: 'Feldergarb Trio w/ Jen Wells',
-            artist: Artist.allen,
-            coverImage: 'feldergarb-trio-with-jen-wells.webp',
-            tags: [Tag.jazz],
-        },
-        tracks: [],
-    },
-    {
-        meta: {
-            title: 'Feldergarb Trio',
-            artist: Artist.allen,
+            title: '5/16/08 Jam',
+            artist: Artist.feldergarb,
             coverImage: 'feldergarb-trio.webp',
             tags: [Tag.jazz],
         },
-        tracks: [],
+        tracks: [
+            {
+                // TODO master and length
+                title: 'Nostalgia in Times Square',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/nostalgia-in-times-square',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'There Is No Greater Love',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/there-is-no-greater-love',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Blue Bossa',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/blue-bossa',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Pent-Up House',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/pent-up-house',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Misty',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/misty',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Tenor Madness (take 1)',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/tenor-madness-take-1',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Tenor Madness (take 2)',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/tenor-madness-take-2',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Just Friends',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/just-friends',
+                length: 1,
+            },
+        ],
+    },
+    {
+        meta: {
+            title: '1/28/08 Jam',
+            artist: Artist.feldergarbWJWells,
+            coverImage: 'feldergarb-trio-with-jen-wells.webp',
+            tags: [Tag.jazz],
+        },
+        tracks: [
+            {
+                // TODO master and length
+                title: 'Someday My Prince Will Come',
+                year: 2008,
+                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/someday-my-prince-will-come',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Scrapple From The Apple',
+                year: 2008,
+                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/scrapple-from-the-apple',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'There Is No Greater Love',
+                year: 2008,
+                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/there-is-no-greater-love',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Someday My Prince Will Come',
+                year: 2008,
+                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/someday-my-prince-will-come',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'All Blues',
+                year: 2008,
+                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/all-blues',
+                length: 1,
+            },
+        ],
+    },
+    {
+        meta: {
+            title: '10/13/07 Jam',
+            artist: Artist.feldergarb,
+            coverImage: 'feldergarb-trio.webp',
+            tags: [Tag.jazz],
+        },
+        tracks: [
+            {
+                // TODO master and length
+                title: 'Now\'s The Times The Time',
+                year: 2007,
+                filename: 'feldergarb-trio/10-13-07-jam/nows-the-times-the-time',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Ladybird (take 1)',
+                year: 2007,
+                filename: 'feldergarb-trio/10-13-07-jam/ladybird-take-1',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Ladybird (take 2)',
+                year: 2007,
+                filename: 'feldergarb-trio/10-13-07-jam/ladybird-take-2',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Take The A Train',
+                year: 2007,
+                filename: 'feldergarb-trio/10-13-07-jam/take-the-a-train',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Romper Stomper',
+                year: 2007,
+                filename: 'feldergarb-trio/10-13-07-jam/romper-stomper',
+                length: 1,
+            },
+            {
+                // TODO master and length
+                title: 'Someday My Prince Will Come',
+                year: 2007,
+                filename: 'feldergarb-trio/10-13-07-jam/someday-my-prince-will-come',
+                length: 1,
+            },
+        ],
     },
 ];
