@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-function buildConfig(){
+function buildConfig({ isWatch }){
     return {
         mode: 'development',
         module: {
@@ -50,6 +50,7 @@ function buildConfig(){
                     exclude: /node_modules/,
                     options: {
                         appendTsSuffixTo: [/\.vue$/],
+                        transpileOnly: isWatch,
                     },
                 },
             ]
