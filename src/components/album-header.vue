@@ -47,6 +47,7 @@
     }
     .coverImage {
         width: 220px;
+        height: 220px;
     }
 </style>
 
