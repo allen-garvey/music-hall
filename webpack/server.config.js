@@ -11,16 +11,19 @@ config.node = {
     __dirname: true,
 };
 config.entry = {
-    build: path.join(__dirname, '..', 'build', 'build.ts'),
+    app: path.join(__dirname, '..', 'src', 'components', 'app.vue'),
 };
 config.output = {
     path: path.join(__dirname, '..', 'dist'),
+    library: {
+      type: 'commonjs2'
+    }
 };
 config.externals = [nodeExternals()];
 config.plugins.push({
     apply: (compiler) => {
       compiler.hooks.afterEmit.tap('BuildIndexHTMLPlugin', (compilation) => {
-        exec(`node ${__dirname}/../dist/build.js`, (err, stdout, stderr) => {
+        exec(`node ${__dirname}/../build/build.js`, (err, stdout, stderr) => {
           if (stdout) {
               const outDir = `${__dirname}/../public_html`;
               fs.mkdirSync(outDir, {recursive: true});
