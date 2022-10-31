@@ -23,6 +23,7 @@ export interface Track {
     year: number;
     length: number; // length in seconds
     filename: string;
+    isMp3?: boolean;
 }
 
 interface AlbumMeta {
@@ -350,6 +351,7 @@ export const albums: Album[] = [
                 // completion_date: '2013-10-25',
                 year: 2013,
                 filename: 'primary-colors/interstellar-funk',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -453,6 +455,7 @@ export const albums: Album[] = [
                 title: 'Nostalgia in Times Square',
                 year: 2008,
                 filename: 'feldergarb-trio/5-16-08-jam/nostalgia-in-times-square',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -460,6 +463,7 @@ export const albums: Album[] = [
                 title: 'There Is No Greater Love',
                 year: 2008,
                 filename: 'feldergarb-trio/5-16-08-jam/there-is-no-greater-love',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -467,6 +471,7 @@ export const albums: Album[] = [
                 title: 'Blue Bossa',
                 year: 2008,
                 filename: 'feldergarb-trio/5-16-08-jam/blue-bossa',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -474,6 +479,7 @@ export const albums: Album[] = [
                 title: 'Pent-Up House',
                 year: 2008,
                 filename: 'feldergarb-trio/5-16-08-jam/pent-up-house',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -481,6 +487,7 @@ export const albums: Album[] = [
                 title: 'Misty',
                 year: 2008,
                 filename: 'feldergarb-trio/5-16-08-jam/misty',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -488,6 +495,7 @@ export const albums: Album[] = [
                 title: 'Tenor Madness (take 1)',
                 year: 2008,
                 filename: 'feldergarb-trio/5-16-08-jam/tenor-madness-take-1',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -495,6 +503,7 @@ export const albums: Album[] = [
                 title: 'Tenor Madness (take 2)',
                 year: 2008,
                 filename: 'feldergarb-trio/5-16-08-jam/tenor-madness-take-2',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -502,6 +511,7 @@ export const albums: Album[] = [
                 title: 'Just Friends',
                 year: 2008,
                 filename: 'feldergarb-trio/5-16-08-jam/just-friends',
+                isMp3: true,
                 length: 1,
             },
         ],
@@ -519,6 +529,7 @@ export const albums: Album[] = [
                 title: 'Someday My Prince Will Come',
                 year: 2008,
                 filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/someday-my-prince-will-come',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -526,6 +537,7 @@ export const albums: Album[] = [
                 title: 'Scrapple From The Apple',
                 year: 2008,
                 filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/scrapple-from-the-apple',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -533,6 +545,7 @@ export const albums: Album[] = [
                 title: 'There Is No Greater Love',
                 year: 2008,
                 filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/there-is-no-greater-love',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -540,6 +553,7 @@ export const albums: Album[] = [
                 title: 'Someday My Prince Will Come',
                 year: 2008,
                 filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/someday-my-prince-will-come',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -547,6 +561,7 @@ export const albums: Album[] = [
                 title: 'All Blues',
                 year: 2008,
                 filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/all-blues',
+                isMp3: true,
                 length: 1,
             },
         ],
@@ -564,6 +579,7 @@ export const albums: Album[] = [
                 title: 'Now\'s The Times The Time',
                 year: 2007,
                 filename: 'feldergarb-trio/10-13-07-jam/nows-the-times-the-time',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -571,6 +587,7 @@ export const albums: Album[] = [
                 title: 'Ladybird (take 1)',
                 year: 2007,
                 filename: 'feldergarb-trio/10-13-07-jam/ladybird-take-1',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -578,6 +595,7 @@ export const albums: Album[] = [
                 title: 'Ladybird (take 2)',
                 year: 2007,
                 filename: 'feldergarb-trio/10-13-07-jam/ladybird-take-2',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -585,6 +603,7 @@ export const albums: Album[] = [
                 title: 'Take The A Train',
                 year: 2007,
                 filename: 'feldergarb-trio/10-13-07-jam/take-the-a-train',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -592,6 +611,7 @@ export const albums: Album[] = [
                 title: 'Romper Stomper',
                 year: 2007,
                 filename: 'feldergarb-trio/10-13-07-jam/romper-stomper',
+                isMp3: true,
                 length: 1,
             },
             {
@@ -599,6 +619,7 @@ export const albums: Album[] = [
                 title: 'Someday My Prince Will Come',
                 year: 2007,
                 filename: 'feldergarb-trio/10-13-07-jam/someday-my-prince-will-come',
+                isMp3: true,
                 length: 1,
             },
         ],

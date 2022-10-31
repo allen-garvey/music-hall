@@ -13,7 +13,8 @@ export interface TrackId {
 };
 
 export const mediaUrlForTrack = (track: Track): string => {
-    return `/media/music/${track.filename}.wav`;
+    const extension = track.isMp3 ? 'mp3' : 'wav';
+    return `/media/music/${track.filename}.${extension}`;
 };
 
 export const idForTrack = (track: Track): TrackId => {
