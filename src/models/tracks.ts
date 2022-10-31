@@ -376,12 +376,11 @@ export const albums: Album[] = [
                 length: 153,
             },
             {
-                // TODO completion_date, master and length
                 title: 'Dream',
-                // completion_date: '2013-10-25',
+                // completion_date: '2013-06-10',
                 year: 2013,
                 filename: 'primary-colors/dream',
-                length: 1,
+                length: 225,
             },
             {
                 title: 'Last Night',
@@ -525,45 +524,40 @@ export const albums: Album[] = [
         },
         tracks: [
             {
-                // TODO master and length
-                title: 'Someday My Prince Will Come',
-                year: 2008,
-                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/someday-my-prince-will-come',
-                isMp3: true,
-                length: 1,
+                "title": "Someday My Prince Will Come",
+                "year": 2008,
+                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/01%20Someday%20My%20Prince%20Will%20Come",
+                "isMp3": true,
+                "length": 458,
             },
             {
-                // TODO master and length
-                title: 'Scrapple From The Apple',
-                year: 2008,
-                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/scrapple-from-the-apple',
-                isMp3: true,
-                length: 1,
+                "title": "Scrapple From The Apple",
+                "year": 2008,
+                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/02%20Scrapple%20From%20The%20Apple",
+                "isMp3": true,
+                "length": 435,
             },
             {
-                // TODO master and length
-                title: 'There Is No Greater Love',
-                year: 2008,
-                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/there-is-no-greater-love',
-                isMp3: true,
-                length: 1,
+                "title": "There Is No Greater Love",
+                "year": 2008,
+                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/03%20There%20Is%20No%20Greater%20Love",
+                "isMp3": true,
+                "length": 432,
             },
             {
-                // TODO master and length
-                title: 'Someday My Prince Will Come',
-                year: 2008,
-                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/someday-my-prince-will-come',
-                isMp3: true,
-                length: 1,
+                "title": "Someday My Prince Will Come",
+                "year": 2008,
+                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/04%20Someday%20My%20Prince%20Will%20Come",
+                "isMp3": true,
+                "length": 445,
             },
             {
-                // TODO master and length
-                title: 'All Blues',
-                year: 2008,
-                filename: 'feldergarb-trio-with-jen-wells/1-28-08-jam/all-blues',
-                isMp3: true,
-                length: 1,
-            },
+                "title": "All Blues",
+                "year": 2008,
+                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/05%20All%20Blues",
+                "isMp3": true,
+                "length": 1554,
+            }
         ],
     },
     {
@@ -575,52 +569,39 @@ export const albums: Album[] = [
         },
         tracks: [
             {
-                // TODO master and length
-                title: 'Now\'s The Times The Time',
-                year: 2007,
-                filename: 'feldergarb-trio/10-13-07-jam/nows-the-times-the-time',
-                isMp3: true,
-                length: 1,
+                "title": "Now's The Time",
+                "year": 2007,
+                "filename": "feldergarb-trio/10-13-07-jam/01%20Now's%20The%20Time",
+                "isMp3": true,
+                "length": 381
             },
             {
-                // TODO master and length
-                title: 'Ladybird (take 1)',
-                year: 2007,
-                filename: 'feldergarb-trio/10-13-07-jam/ladybird-take-1',
-                isMp3: true,
-                length: 1,
+                "title": "Ladybird (take 1)",
+                "year": 2007,
+                "filename": "feldergarb-trio/10-13-07-jam/02%20Ladybird%20(take%201)",
+                "isMp3": true,
+                "length": 264
             },
             {
-                // TODO master and length
-                title: 'Ladybird (take 2)',
-                year: 2007,
-                filename: 'feldergarb-trio/10-13-07-jam/ladybird-take-2',
-                isMp3: true,
-                length: 1,
+                "title": "Ladybird (take 2)",
+                "year": 2007,
+                "filename": "feldergarb-trio/10-13-07-jam/03%20Ladybird%20(take%202)",
+                "isMp3": true,
+                "length": 295
             },
             {
-                // TODO master and length
-                title: 'Take The A Train',
-                year: 2007,
-                filename: 'feldergarb-trio/10-13-07-jam/take-the-a-train',
-                isMp3: true,
-                length: 1,
+                "title": "Take The A Train",
+                "year": 2007,
+                "filename": "feldergarb-trio/10-13-07-jam/04%20Take%20The%20A%20Train",
+                "isMp3": true,
+                "length": 422
             },
             {
-                // TODO master and length
-                title: 'Romper Stomper',
-                year: 2007,
-                filename: 'feldergarb-trio/10-13-07-jam/romper-stomper',
-                isMp3: true,
-                length: 1,
-            },
-            {
-                // TODO master and length
-                title: 'Someday My Prince Will Come',
-                year: 2007,
-                filename: 'feldergarb-trio/10-13-07-jam/someday-my-prince-will-come',
-                isMp3: true,
-                length: 1,
+                "title": "Romper Stomper",
+                "year": 2007,
+                "filename": "feldergarb-trio/10-13-07-jam/05%20Romper%20Stomper",
+                "isMp3": true,
+                "length": 1115
             },
         ],
     },
