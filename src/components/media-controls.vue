@@ -214,7 +214,7 @@ $volume-slider-range-color: #dbd9d6;
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { PlayState } from '../models/types';
+import { PlayState } from '../models/media-helpers';
 import { Track } from '../models/tracks';
 import { formatSeconds } from '../view-helpers/time';
 

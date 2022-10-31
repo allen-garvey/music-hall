@@ -29,7 +29,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { Track, Album, albums } from '../models/tracks';
-import { PlayState, mediaUrlForTrack } from '../models/types';
+import { PlayState, mediaUrlForTrack } from '../models/media-helpers';
 import TrackList from './track-list.vue';
 import MediaControls from './media-controls.vue';
 

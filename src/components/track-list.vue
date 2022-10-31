@@ -129,7 +129,7 @@
 import { defineComponent, PropType } from 'vue';
 import AlbumHeader from './album-header.vue';
 import { Album } from '../models/tracks';
-import { PlayState } from '../models/types';
+import { PlayState } from '../models/media-helpers';
 import { yearDescriptionForAlbum } from '../models/album-helpers';
 import { formatSeconds } from '../view-helpers/time';
 
