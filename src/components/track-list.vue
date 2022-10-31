@@ -54,7 +54,7 @@
 <style lang="scss" module>
     .overallTrackContainer {
         & + & {
-            margin-top: 4rem;
+            margin-top: 6rem;
         }
     }
     .table {
