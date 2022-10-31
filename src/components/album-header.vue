@@ -1,13 +1,5 @@
 <template>
     <div :class="$style.container">
-        <div :class="$style.titleContainer">
-            <h3 :class="$style.title">{{ album.meta.title }}</h3>
-            <div :class="$style.year">{{ yearDescriptionForAlbum(album) }}</div>
-        </div>
-        <div :class="$style.secondaryContainer">
-            <div :class="$style.artist">{{ album.meta.artist }}</div>
-            <div :class="$style.tags">{{ album.meta.tags.join(', ') }}</div>
-        </div>
         <div>
             <img 
                 :src="`/media/images/${album.meta.coverImage}`" 
@@ -16,34 +8,40 @@
                 loading="lazy"
             />
         </div>
+        <div>
+        <table :class="$style.table">
+            <tr>
+                <td><h3 :class="$style.title">{{ album.meta.title }}</h3></td>
+                <td :class="$style.secondaryInfo">{{ yearDescriptionForAlbum(album) }}</td>
+            </tr>
+            <tr>
+                <td>{{ album.meta.artist }}</td>
+                <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
+            </tr>
+        </table>
+        </div>
     </div>
 </template>
     
 <style lang="scss" module>
     .container {
         margin-bottom: 2rem;
-    }
-    .titleContainer {
         display: flex;
-        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+    .table {
+        padding: 0 1rem;
+
+        td {
+            height: 1em;
+        }
     }
     .title {
         margin: 0;
     }
-    .year {
+    .secondaryInfo {
         opacity: 0.5;
-        margin-left: 1rem;
-    }
-    .secondaryContainer {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    .artist {
-
-    }
-    .tags {
-        opacity: 0.5;
+        padding-left: 1rem;
     }
     .coverImage {
         width: 220px;
@@ -62,8 +60,6 @@ export default defineComponent({
             required: true,
             type: Object as PropType<Album>,
         },
-    },
-    components: {
     },
     computed: {
     },
