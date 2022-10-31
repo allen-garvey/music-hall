@@ -18,13 +18,13 @@
             <tbody>
                 <tr 
                     v-for="(track, i) in album.tracks" 
-                    :key="`${album.meta.title}-${track.title}`"
+                    :key="`${album.meta.title}-${track.filename}-${track.title}`"
                     :class="$style.trackRow"
                 >
                     <td :class="$style.iconContainer">
                         <button 
-                            @click="() => trackButtonClicked(idForTrack(track))"
-                            :title="doesTrackMatchId(currentTrackId, track) ? 'Pause' : 'Play'"
+                            @click="() => trackButtonClicked(track.filename)"
+                            :title="track.filename === currentTrackFilename ? 'Pause' : 'Play'"
                             :class="$style.trackButton"
                         >
                             <svg 
@@ -33,7 +33,7 @@
                             >
                                 <use 
                                     xlink:href="#icon-pause"
-                                    v-if="doesTrackMatchId(currentTrackId, track) && isCurrentlyPlaying" />
+                                    v-if="track.filename === currentTrackFilename && isCurrentlyPlaying" />
                                 <use 
                                     xlink:href="#icon-play"
                                     v-else />
@@ -129,7 +129,7 @@
 import { defineComponent, PropType } from 'vue';
 import AlbumHeader from './album-header.vue';
 import { Album } from '../models/tracks';
-import { TrackId, doesTrackMatchId, idForTrack, PlayState } from '../models/types';
+import { PlayState } from '../models/types';
 import { yearDescriptionForAlbum } from '../models/album-helpers';
 import { formatSeconds } from '../view-helpers/time';
 
@@ -139,12 +139,12 @@ export default defineComponent({
             required: true,
             type: Object as PropType<Array<Album>>,
         },
-        currentTrackId: {
-            type: Object as PropType<TrackId | undefined>,
+        currentTrackFilename: {
+            type: String,
         },
         trackButtonClicked: {
             required: true,
-            type: Function as PropType<(trackId: TrackId) => void>,
+            type: Function as PropType<(filename: string) => void>,
         },
         playState: {
             type: Number,
@@ -164,8 +164,6 @@ export default defineComponent({
         },
     },
     methods: {
-        doesTrackMatchId,
-        idForTrack,
         formatSeconds,
         yearDescriptionForAlbum,
     }

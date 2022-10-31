@@ -3,7 +3,7 @@
         <h1>Allen Garvey</h1>
         <TrackList 
             :albums="albums"
-            :current-track-id="currentTrackId"
+            :current-track-filename="currentTrackFilename"
             :track-button-clicked="trackButtonClicked"
             :play-state="playState"
         />
@@ -29,7 +29,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { Track, Album, albums } from '../models/tracks';
-import { PlayState, TrackId, doesTrackMatchId, areTrackIdsEqual, mediaUrlForTrack } from '../models/types';
+import { PlayState, mediaUrlForTrack } from '../models/types';
 import TrackList from './track-list.vue';
 import MediaControls from './media-controls.vue';
 
@@ -55,7 +55,7 @@ export default defineComponent({
     data(){
         return {
             audio: undefined as HTMLAudioElement | undefined,
-            currentTrackId: undefined as TrackId | undefined,
+            currentTrackFilename: undefined as string | undefined,
             playState: PlayState.IS_EMPTY,
             volume: 1,
             elapsedTime: 0,
@@ -69,7 +69,7 @@ export default defineComponent({
             return albums.flatMap(album => album.tracks);
         },
         currentTrack(): Track | undefined{
-            return this.tracks.find(track => doesTrackMatchId(this.currentTrackId, track));
+            return this.tracks.find(track => track.filename === this.currentTrackFilename);
         }
     },
     methods: {
@@ -109,8 +109,8 @@ export default defineComponent({
             (this.audio as HTMLAudioElement).volume = newVolume;
             // userSettings.saveUserVolume(newVolume);
         },
-        trackButtonClicked(trackId: TrackId){
-            if(areTrackIdsEqual(this.currentTrackId, trackId)){
+        trackButtonClicked(trackFilename: string){
+            if(trackFilename === this.currentTrackFilename){
                 if(this.playState === PlayState.IS_PAUSED){
                     this.restartAudio();
                 }
@@ -119,7 +119,7 @@ export default defineComponent({
                 }
                 return;
             }
-            this.currentTrackId = trackId;
+            this.currentTrackFilename = trackFilename;
             this.startAudio();
         },
     }

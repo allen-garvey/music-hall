@@ -7,33 +7,7 @@ export enum PlayState {
     IS_EMPTY = 4,
 };
 
-export interface TrackId {
-    slug: string;
-    year: number;
-};
-
 export const mediaUrlForTrack = (track: Track): string => {
     const extension = track.isMp3 ? 'mp3' : 'wav';
     return `/media/music/${track.filename}.${extension}`;
 };
-
-export const idForTrack = (track: Track): TrackId => {
-    return {
-        slug: track.title,
-        year: track.year,
-    };
-};
-
-export const doesTrackMatchId = (trackId: TrackId | undefined, track: Track): boolean => {
-    if(trackId === undefined){
-        return false;
-    }
-    return trackId.year === track.year && trackId.slug === track.title;
-};
-
-export const areTrackIdsEqual = (trackId1: TrackId | undefined, trackId2: TrackId): boolean => {
-    if(trackId1 === undefined){
-        return false;
-    }
-    return trackId1.year === trackId2.year && trackId1.slug === trackId2.slug;
-}
