@@ -78,12 +78,11 @@ export const albums: Album[] = [
                 length: 102,
             },
             {
-                // TODO master and length
                 title: 'Marching Orders',
                 // completion_date: '2014-01-05',
                 year: 2014,
                 filename: 'rise-and-fall/marching-orders',
-                length: 372,
+                length: 225,
             },
             {
                 title: 'A Dance of Love and Death',
