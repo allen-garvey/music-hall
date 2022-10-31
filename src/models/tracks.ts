@@ -17,6 +17,7 @@ enum Artist {
     feldergarb = 'Feldergarb Trio',
     feldergarbWJWells = 'Feldergarb Trio w/ Jen Wells',
     superbad = 'Superbad Quartet',
+    superbadQuintet = 'Superbad Quintet',
 }
 export interface Track {
     title: string;
@@ -425,12 +426,94 @@ export const albums: Album[] = [
     },
     {
         meta: {
+            title: '5/13/09 Jam',
+            artist: Artist.superbadQuintet,
+            coverImage: 'departure-of-adam-pin.webp',
+            tags: [Tag.jazz],
+        },
+        tracks: [
+            {
+                title: 'Have You Met Miss Jones?',
+                year: 2009,
+                filename: 'superbad-quartet/5-13-09-jam/Have%20You%20Met%20Miss%20Jones',
+                isMp3: true,
+                length: 545,
+            },
+            {
+                title: 'Eye of the Hurricane',
+                year: 2009,
+                filename: 'superbad-quartet/5-13-09-jam/Eye%20of%20the%20Hurricane',
+                isMp3: true,
+                length: 767,
+            },
+            {
+                title: 'Longing',
+                year: 2009,
+                filename: 'superbad-quartet/5-13-09-jam/Longing',
+                isMp3: true,
+                length: 578,
+            },
+        ],
+    },
+    {
+        meta: {
             title: 'The Departure of Adam Pin',
             artist: Artist.superbad,
             coverImage: 'departure-of-adam-pin.webp',
             tags: [Tag.jazz],
+            // date: '2008-12'
         },
-        tracks: [],
+        tracks: [
+            {
+                "title": "Speak No Evil",
+                "year": 2008,
+                "filename": "superbad-quartet/the-departure-of-adam-pin/01%20Speak%20No%20Evil",
+                "isMp3": true,
+                "length": 577,
+            },
+            {
+                "title": "Blue In Green (take 2)",
+                "year": 2008,
+                "filename": "superbad-quartet/the-departure-of-adam-pin/02%20Blue%20In%20Green%20(take%202)",
+                "isMp3": true,
+                "length": 1282,
+            },
+            {
+                "title": "Blue In Green (take 1)",
+                "year": 2008,
+                "filename": "superbad-quartet/the-departure-of-adam-pin/03%20Blue%20In%20Green%20(take%201)",
+                "isMp3": true,
+                "length": 178,
+            },
+            {
+                "title": "Night And Day (take 1)",
+                "year": 2008,
+                "filename": "superbad-quartet/the-departure-of-adam-pin/04%20Night%20And%20Day%20(take%201)",
+                "isMp3": true,
+                "length": 701,
+            },
+            {
+                "title": "Night And Day (take 2)",
+                "year": 2008,
+                "filename": "superbad-quartet/the-departure-of-adam-pin/05%20Night%20And%20Day%20(take%202)",
+                "isMp3": true,
+                "length": 477,
+            },
+            {
+                "title": "Pent-Up House",
+                "year": 2008,
+                "filename": "superbad-quartet/the-departure-of-adam-pin/06%20Pent-Up%20House",
+                "isMp3": true,
+                "length": 602,
+            },
+            {
+                "title": "C-Jam Blues",
+                "year": 2008,
+                "filename": "superbad-quartet/the-departure-of-adam-pin/07%20C-Jam%20Blues",
+                "isMp3": true,
+                "length": 681,
+            }
+        ],
     },
     {
         meta: {
@@ -450,69 +533,61 @@ export const albums: Album[] = [
         },
         tracks: [
             {
-                // TODO master and length
-                title: 'Nostalgia in Times Square',
-                year: 2008,
-                filename: 'feldergarb-trio/5-16-08-jam/nostalgia-in-times-square',
-                isMp3: true,
-                length: 1,
+                "title": "Nostalgia in Times Square",
+                "year": 2008,
+                "filename": "feldergarb-trio/5-16-08-jam/01%20Nostalgia%20in%20Times%20Square",
+                "isMp3": true,
+                "length": 370
             },
             {
-                // TODO master and length
-                title: 'There Is No Greater Love',
-                year: 2008,
-                filename: 'feldergarb-trio/5-16-08-jam/there-is-no-greater-love',
-                isMp3: true,
-                length: 1,
+                "title": "There Is No Greater Love",
+                "year": 2008,
+                "filename": "feldergarb-trio/5-16-08-jam/02%20There%20Is%20No%20Greater%20Love",
+                "isMp3": true,
+                "length": 485
             },
             {
-                // TODO master and length
-                title: 'Blue Bossa',
-                year: 2008,
-                filename: 'feldergarb-trio/5-16-08-jam/blue-bossa',
-                isMp3: true,
-                length: 1,
+                "title": "Blue Bossa",
+                "year": 2008,
+                "filename": "feldergarb-trio/5-16-08-jam/03%20Blue%20Bossa",
+                "isMp3": true,
+                "length": 406
             },
             {
-                // TODO master and length
-                title: 'Pent-Up House',
-                year: 2008,
-                filename: 'feldergarb-trio/5-16-08-jam/pent-up-house',
-                isMp3: true,
-                length: 1,
+                "title": "Pent-Up House",
+                "year": 2008,
+                "filename": "feldergarb-trio/5-16-08-jam/04%20Pent-Up%20House",
+                "isMp3": true,
+                "length": 393
             },
             {
-                // TODO master and length
-                title: 'Misty',
-                year: 2008,
-                filename: 'feldergarb-trio/5-16-08-jam/misty',
-                isMp3: true,
-                length: 1,
+                "title": "Misty",
+                "year": 2008,
+                "filename": "feldergarb-trio/5-16-08-jam/05%20Misty",
+                "isMp3": true,
+                "length": 589
             },
             {
-                // TODO master and length
-                title: 'Tenor Madness (take 1)',
-                year: 2008,
-                filename: 'feldergarb-trio/5-16-08-jam/tenor-madness-take-1',
-                isMp3: true,
-                length: 1,
+                "title": "Tenor Madness (take 1)",
+                "year": 2008,
+                "filename": "feldergarb-trio/5-16-08-jam/06%20Tenor%20Madness%20(take%201)",
+                "isMp3": true,
+                "length": 385
             },
             {
-                // TODO master and length
-                title: 'Tenor Madness (take 2)',
-                year: 2008,
-                filename: 'feldergarb-trio/5-16-08-jam/tenor-madness-take-2',
-                isMp3: true,
-                length: 1,
+                "title": "Tenor Madness (take 2)",
+                "year": 2008,
+                "filename": "feldergarb-trio/5-16-08-jam/07%20Tenor%20Madness%20(take%202)",
+                "isMp3": true,
+                "length": 255
             },
             {
-                // TODO master and length
-                title: 'Just Friends',
-                year: 2008,
-                filename: 'feldergarb-trio/5-16-08-jam/just-friends',
-                isMp3: true,
-                length: 1,
-            },
+                "title": "Just Friends",
+                "year": 2008,
+                "filename": "feldergarb-trio/5-16-08-jam/08%20Just%20Friends",
+                "isMp3": true,
+                "length": 539
+            }
         ],
     },
     {
