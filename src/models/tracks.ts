@@ -430,6 +430,7 @@ export const albums: Album[] = [
             artist: Artist.superbadQuintet,
             coverImage: 'departure-of-adam-pin.webp',
             tags: [Tag.jazz],
+            description: `Trumpet: Dan Wendelken\nSax: Brian Carter\nPiano: Tim Zerone\nBass: Allen Garvey\nDrums: Jordan Chiolis`,
         },
         tracks: [
             {
@@ -461,6 +462,7 @@ export const albums: Album[] = [
             artist: Artist.superbad,
             coverImage: 'departure-of-adam-pin.webp',
             tags: [Tag.jazz],
+            description: `Sax: Brian Carter\nPiano: Tim Zerone\nBass: Allen Garvey\nDrums: Adam Pin`,
             // date: '2008-12'
         },
         tracks: [
@@ -530,6 +532,7 @@ export const albums: Album[] = [
             artist: Artist.feldergarb,
             coverImage: 'feldergarb-trio.webp',
             tags: [Tag.jazz],
+            description: `Guitar: Dave Powell\nBass: Allen Garvey\nDrums: Adam Pin`,
         },
         tracks: [
             {
@@ -596,6 +599,7 @@ export const albums: Album[] = [
             artist: Artist.feldergarbWJWells,
             coverImage: 'feldergarb-trio-with-jen-wells.webp',
             tags: [Tag.jazz],
+            description: `Guitar: Dave Powell\nPiano: Jen Wells\nBass: Allen Garvey\nDrums: Adam Pin`,
         },
         tracks: [
             {
@@ -641,6 +645,7 @@ export const albums: Album[] = [
             artist: Artist.feldergarb,
             coverImage: 'feldergarb-trio.webp',
             tags: [Tag.jazz],
+            description: `Guitar: Dave Powell\nBass: Allen Garvey\nDrums: Adam Pin`,
         },
         tracks: [
             {

@@ -18,6 +18,9 @@
                 <td>{{ album.meta.artist }}</td>
                 <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
             </tr>
+            <tr v-if="album.meta.description">
+                <td rowspan="2"><pre>{{ album.meta.description }}</pre></td>
+            </tr>
         </table>
         </div>
     </div>
