@@ -25,6 +25,7 @@ export interface Track {
     length: number; // length in seconds
     filename: string;
     isMp3?: boolean;
+    isAac?: boolean;
 }
 
 interface AlbumMeta {
@@ -286,12 +287,12 @@ export const albums: Album[] = [
                 length: 171,
             },
             {
-                // TODO completion_date, master and length
                 title: 'This Could Be The Start Of Something',
                 // completion_date: '2013-10-25',
                 year: 2013,
-                filename: 'primary-colors/this-could-be-the-start-of-something',
-                length: 1,
+                filename: 'primary-colors/This%20Could%20Be%20The%20Start%20Of%20Something',
+                isAac: true,
+                length: 239,
             },
             {
                 title: 'Laid Back Trance',
@@ -308,12 +309,12 @@ export const albums: Album[] = [
                 length: 298,
             },
             {
-                // TODO completion_date, master and length
                 title: 'Return of the ___',
                 // completion_date: '2013-10-25',
                 year: 2013,
-                filename: 'primary-colors/return-of-the-___',
-                length: 1,
+                filename: 'primary-colors/Return%20of%20the ___',
+                isMp3: true,
+                length: 156,
             },
             {
                 title: 'Darksides',
@@ -323,20 +324,20 @@ export const albums: Album[] = [
                 length: 260,
             },
             {
-                // TODO completion_date, master and length
                 title: 'By The Seashore',
                 // completion_date: '2013-10-25',
                 year: 2013,
-                filename: 'primary-colors/by-the-seashore',
-                length: 1,
+                filename: 'primary-colors/By%20The%20Seashore',
+                isAac: true,
+                length: 253,
             },
             {
-                // TODO master and length
                 title: 'Sometimes I Miss You So Much',
                 // completion_date: '2014-01-16',
                 year: 2014,
-                filename: 'primary-colors/sometimes-i-miss-you-so-much',
-                length: 1,
+                filename: 'primary-colors/Sometimes%20I%20Miss%20You%20So%20Much',
+                isAac: true,
+                length: 257,
             },
             {
                 title: 'After the Storm',
@@ -346,13 +347,12 @@ export const albums: Album[] = [
                 length: 306,
             },
             {
-                // TODO completion_date, master and length
                 title: 'Interstellar Funk',
                 // completion_date: '2013-10-25',
                 year: 2013,
-                filename: 'primary-colors/interstellar-funk',
+                filename: 'primary-colors/Interstellar%20Funk',
                 isMp3: true,
-                length: 1,
+                length: 227,
             },
             {
                 title: 'All That Glitters',
