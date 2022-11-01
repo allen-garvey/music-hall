@@ -94,11 +94,6 @@ export default defineComponent({
             this.playState = PlayState.IS_PLAYING;
             (this.audio as HTMLAudioElement).play();
         },
-        adjustVolume(value){
-            (this.audio as HTMLAudioElement).volume = value;
-            this.volume = value;
-            // userSettings.saveUserVolume(value);
-        },
         setCurrentTrackTime(seconds: number){
             (this.audio as HTMLAudioElement).currentTime = seconds;
         },
