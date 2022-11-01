@@ -30,6 +30,7 @@
 import { defineComponent } from 'vue';
 import { Track, Album, albums } from '../models/tracks';
 import { PlayState, mediaUrlForTrack } from '../models/media-helpers';
+import { getUserVolume, saveUserVolume } from '../models/user-settings';
 import TrackList from './track-list.vue';
 import MediaControls from './media-controls.vue';
 
@@ -39,7 +40,7 @@ export default defineComponent({
         MediaControls,
     },
     mounted(){
-        // this.volume = userSettings.getUserVolume();
+        this.volume = getUserVolume();
         this.audio = new Audio();
         this.audio.addEventListener('loadeddata', () => {
             this.playState = PlayState.IS_PLAYING;
@@ -109,7 +110,7 @@ export default defineComponent({
         volumeChangeRequested(newVolume: number){
             this.volume = newVolume;
             (this.audio as HTMLAudioElement).volume = newVolume;
-            // userSettings.saveUserVolume(newVolume);
+            saveUserVolume(newVolume);
         },
         trackButtonClicked(trackFilename: string){
             if(trackFilename === this.currentTrackFilename){
