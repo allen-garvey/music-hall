@@ -16,6 +16,7 @@ enum Artist {
     allen = 'Allen Garvey',
     feldergarb = 'Feldergarb Trio',
     feldergarbWJWells = 'Feldergarb Trio w/ Jen Wells',
+    hofstraBigBand = 'Hofstra University Jazz Ensemble',
     superbad = 'Superbad Quartet',
     superbadQuintet = 'Superbad Quintet',
 }
@@ -425,6 +426,31 @@ export const albums: Album[] = [
     },
     {
         meta: {
+            title: 'With the Hofstra University Jazz Ensemble',
+            artist: Artist.hofstraBigBand,
+            coverImage: 'allen-garvey-junior-composition-recital.webp',
+            tags: [Tag.jazz],
+            description: 'Surprise Party - Symphony No. 94 Mvt. II by Joseph Haydn arr. by Allen Garvey',
+        },
+        tracks: [
+            {
+                title: 'Summer in New England',
+                year: 2008,
+                filename: 'hofstra-big-band/Summer%20in%20New%20England',
+                isMp3: true,
+                length: 240,
+            },
+            {
+                title: 'Surprise Party',
+                year: 2009,
+                filename: 'hofstra-big-band/Surprise%20Party',
+                isMp3: true,
+                length: 371,
+            },
+        ],
+    },
+    {
+        meta: {
             title: '5/13/09 Jam',
             artist: Artist.superbadQuintet,
             coverImage: 'departure-of-adam-pin.webp',
@@ -515,15 +541,6 @@ export const albums: Album[] = [
                 "length": 681,
             }
         ],
-    },
-    {
-        meta: {
-            title: 'Junior Composition Recital',
-            artist: Artist.allen,
-            coverImage: 'allen-garvey-junior-composition-recital.webp',
-            tags: [Tag.classical, Tag.jazz],
-        },
-        tracks: [],
     },
     {
         meta: {
