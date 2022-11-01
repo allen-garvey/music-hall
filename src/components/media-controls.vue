@@ -267,9 +267,6 @@ export default defineComponent({
         isPaused(){
             return this.playState === PlayState.IS_PAUSED;
         },
-        // isLoading(){
-        //     return this.playState === PlayStates.IS_LOADING;
-        // },
     },
     methods: {
         formatSeconds,

@@ -162,10 +162,6 @@ export default defineComponent({
     components: {
         AlbumHeader,
     },
-    data(){
-        return {
-        };
-    },
     computed: {
         isCurrentlyPlaying(): boolean{
             return this.playState === PlayState.IS_PLAYING || this.playState === PlayState.IS_LOADING;

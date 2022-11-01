@@ -15,6 +15,7 @@
             :volume-changed="volumeChangeRequested"
             :elapsed-time="elapsedTime"
             :on-track-seek-requested="setCurrentTrackTime"
+            v-if="currentTrack"
         />
     </div>
 </template>

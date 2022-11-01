@@ -100,8 +100,6 @@ export default defineComponent({
             type: Object as PropType<Album>,
         },
     },
-    computed: {
-    },
     methods: {
         yearDescriptionForAlbum,
     }
