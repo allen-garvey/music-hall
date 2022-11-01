@@ -1,7 +1,7 @@
 <template>
 <div>
     <div
-        v-for="album in albums" 
+        v-for="(album, albumIndex) in albums" 
         :key="album.meta.title"
         :class="$style.overallTrackContainer"
     >
@@ -17,14 +17,14 @@
             </thead>
             <tbody>
                 <tr 
-                    v-for="(track, i) in album.tracks" 
+                    v-for="(track, trackIndex) in album.tracks" 
                     :key="`${album.meta.title}-${track.filename}-${track.title}`"
                     :class="$style.trackRow"
                 >
                     <td :class="$style.iconContainer">
                         <button 
-                            @click="() => trackButtonClicked(track.filename)"
-                            :title="track.filename === currentTrackFilename ? 'Pause' : 'Play'"
+                            @click="() => trackButtonClicked({albumIndex, trackIndex})"
+                            :title="isCurrentTrack({albumIndex, trackIndex}) ? 'Pause' : 'Play'"
                             :class="$style.trackButton"
                         >
                             <svg 
@@ -33,13 +33,13 @@
                             >
                                 <use 
                                     xlink:href="#icon-pause"
-                                    v-if="track.filename === currentTrackFilename && isCurrentlyPlaying" />
+                                    v-if="isCurrentTrack({albumIndex, trackIndex}) && isCurrentlyPlaying" />
                                 <use 
                                     xlink:href="#icon-play"
                                     v-else />
                             </svg>
                         </button>
-                        <span :class="$style.trackNumber">{{ i + 1 }}</span>
+                        <span :class="$style.trackNumber">{{ trackIndex + 1 }}</span>
                     </td>
                     <td>{{ track.title }}</td>
                     <td>{{ formatSeconds(track.length) }}</td>
@@ -137,7 +137,7 @@
 import { defineComponent, PropType } from 'vue';
 import AlbumHeader from './album-header.vue';
 import { Album } from '../models/tracks';
-import { PlayState } from '../models/media-helpers';
+import { PlayState, TrackIndex, areTrackIndexesEqual } from '../models/media-helpers';
 import { yearDescriptionForAlbum } from '../models/album-helpers';
 import { formatSeconds } from '../view-helpers/time';
 
@@ -147,12 +147,12 @@ export default defineComponent({
             required: true,
             type: Object as PropType<Array<Album>>,
         },
-        currentTrackFilename: {
-            type: String,
+        currentTrackIndex: {
+            type: Object as PropType<TrackIndex | undefined>,
         },
         trackButtonClicked: {
             required: true,
-            type: Function as PropType<(filename: string) => void>,
+            type: Function as PropType<(trackIndex: TrackIndex) => void>,
         },
         playState: {
             type: Number,
@@ -174,6 +174,9 @@ export default defineComponent({
     methods: {
         formatSeconds,
         yearDescriptionForAlbum,
+        isCurrentTrack(trackIndex: TrackIndex): boolean{
+            return areTrackIndexesEqual(this.currentTrackIndex, trackIndex);
+        },
     }
 });
 </script>

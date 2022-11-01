@@ -3,7 +3,7 @@
         <h1 :class="$style.title">Allen Garvey</h1>
         <TrackList 
             :albums="albums"
-            :current-track-filename="currentTrackFilename"
+            :current-track-index="currentTrackIndex"
             :track-button-clicked="trackButtonClicked"
             :play-state="playState"
         />
@@ -32,7 +32,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { Track, Album, albums } from '../models/tracks';
-import { PlayState, mediaUrlForTrack } from '../models/media-helpers';
+import { PlayState, mediaUrlForTrack, TrackIndex, areTrackIndexesEqual } from '../models/media-helpers';
 import { getUserVolume, saveUserVolume } from '../models/user-settings';
 import TrackList from './track-list.vue';
 import MediaControls from './media-controls.vue';
@@ -61,7 +61,7 @@ export default defineComponent({
         return {
             audio: undefined as HTMLAudioElement | undefined,
             canPlayOpus: true,
-            currentTrackFilename: undefined as string | undefined,
+            currentTrackIndex: undefined as TrackIndex | undefined,
             playState: PlayState.IS_EMPTY,
             volume: 1,
             elapsedTime: 0,
@@ -71,11 +71,11 @@ export default defineComponent({
         albums(): Album[]{
             return albums;
         },
-        tracks(): Track[]{
-            return albums.flatMap(album => album.tracks);
-        },
         currentTrack(): Track | undefined{
-            return this.tracks.find(track => track.filename === this.currentTrackFilename);
+            if(this.currentTrackIndex === undefined){
+                return undefined;
+            }
+            return albums[this.currentTrackIndex.albumIndex].tracks[this.currentTrackIndex.trackIndex];
         }
     },
     methods: {
@@ -115,8 +115,8 @@ export default defineComponent({
             (this.audio as HTMLAudioElement).volume = newVolume;
             saveUserVolume(newVolume);
         },
-        trackButtonClicked(trackFilename: string){
-            if(trackFilename === this.currentTrackFilename){
+        trackButtonClicked(trackIndex: TrackIndex){
+            if(areTrackIndexesEqual(this.currentTrackIndex, trackIndex)){
                 if(this.playState === PlayState.IS_PAUSED){
                     this.restartAudio();
                 }
@@ -125,7 +125,7 @@ export default defineComponent({
                 }
                 return;
             }
-            this.currentTrackFilename = trackFilename;
+            this.currentTrackIndex = trackIndex;
             this.startAudio();
         },
     }
