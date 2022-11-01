@@ -3,7 +3,7 @@
         <div>
             <img 
                 :src="`/media/images/${album.meta.coverImage}`" 
-                :alt="album.meta.title" 
+                :alt="`${album.meta.title} by ${album.meta.artist} album cover`" 
                 :class="$style.coverImage"
                 loading="lazy"
             />
