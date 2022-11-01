@@ -1,6 +1,6 @@
 <template>
     <div :class="$style.container">
-        <h1>Allen Garvey</h1>
+        <h1 :class="$style.title">Allen Garvey</h1>
         <TrackList 
             :albums="albums"
             :current-track-filename="currentTrackFilename"
@@ -23,6 +23,9 @@
     .container {
         max-width: 1040px;
         margin: 0 auto;
+    }
+    .title {
+        padding: 0 1rem;
     }
 </style>
 

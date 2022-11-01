@@ -1,6 +1,6 @@
 <template>
     <div :class="$style.container">
-        <div>
+        <div :class="$style.imageContainer">
             <img 
                 :src="`/media/images/${album.meta.coverImage}`" 
                 :alt="`${album.meta.title} by ${album.meta.artist} album cover`" 
@@ -34,12 +34,10 @@
     $cover-image-width: 220px;
 
     .container {
-        margin-bottom: 2rem;
-        display: flex;
-        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
     }
-    .infoContainer {
-        flex-basis: calc(100% - #{$cover-image-width});
+    .imageContainer {
+        padding-left: 1rem;
     }
     .table {
         padding: 0 1rem;
@@ -68,6 +66,24 @@
 
         li {
             min-height: 1em; // for empty rows for spacing purposes
+        }
+    }
+
+    $breakpoint: 650px;
+    
+    @media screen and (min-width: $breakpoint) {
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .infoContainer {
+            flex-basis: calc(100% - #{$cover-image-width} - 1rem);
+        }
+    }
+
+    @media screen and (max-width: ($breakpoint - 1px)) {
+        .secondaryInfo {
+            display: none;
         }
     }
 </style>

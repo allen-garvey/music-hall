@@ -83,7 +83,7 @@ $breakpoint: 600px;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,6 +92,7 @@ $breakpoint: 600px;
     color: #fff;
     text-align: center;
     box-shadow: 0 -5px 15px rgba(84, 22, 8, 0.2);
+    padding: 0.5rem 0 0;
 
     @media screen and (max-width: $breakpoint) {
         height: 104px;
@@ -126,8 +127,8 @@ $breakpoint: 600px;
 
 .progressBarContainer {
     width: calc(100% - 20px);
-    position: relative;
-    top: -8px;
+    position: absolute;
+    top: -6px;
     
     input[type="range"] {
         width: 100%;

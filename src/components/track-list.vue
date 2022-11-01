@@ -54,7 +54,7 @@
 <style lang="scss" module>
     .overallTrackContainer {
         & + & {
-            margin-top: 6rem;
+            margin-top: 5rem;
         }
     }
     .table {
@@ -77,7 +77,7 @@
     }
     .trackRow {
         td {
-            padding: 0.75em 0;
+            padding: 0.75em 0.25em;
         }
 
         &:hover {
@@ -95,7 +95,6 @@
     .iconContainer {
         display: inline-block;
         position: relative;
-        margin-right: 2rem;
         height: $icon-controls-dimensions;
         width: $icon-controls-dimensions;
     }
@@ -121,6 +120,15 @@
         
         &:hover {
             opacity: 1;
+        }
+    }
+
+    @media (hover: none) {
+        .trackNumber {
+            display: none;
+        }
+        .trackButton {
+            visibility: visible;
         }
     }
 </style>
