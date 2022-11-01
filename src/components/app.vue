@@ -51,7 +51,19 @@ export default defineComponent({
             (this.audio as HTMLAudioElement).volume = this.volume;
         });
         this.audio.addEventListener('ended', () => {
-            this.playState = PlayState.IS_PAUSED;
+            const currentTrackIndex = (this.currentTrackIndex as TrackIndex);
+            const nextTrackIndex = currentTrackIndex.trackIndex + 1;
+            
+            if(albums[currentTrackIndex.albumIndex].tracks.length > nextTrackIndex){
+                this.currentTrackIndex = {
+                    ...currentTrackIndex,
+                    trackIndex: nextTrackIndex,
+                };
+                this.startAudio();
+            }
+            else {
+                this.playState = PlayState.IS_PAUSED;
+            }
         });
         this.audio.addEventListener('timeupdate', (e) => {
 			this.elapsedTime = Math.floor((e.target as HTMLAudioElement).currentTime);
