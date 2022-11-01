@@ -32,7 +32,7 @@ export interface Track {
 interface AlbumMeta {
     title: string;
     artist: Artist;
-    description?: string;
+    description?: string[];
     coverImage: string;
     tags: Tag[];
 }
@@ -430,7 +430,7 @@ export const albums: Album[] = [
             artist: Artist.hofstraBigBand,
             coverImage: 'allen-garvey-junior-composition-recital.webp',
             tags: [Tag.jazz],
-            description: 'Surprise Party - Symphony No. 94 Mvt. II by Joseph Haydn arr. by Allen Garvey',
+            description: ['Surprise Party - Symphony No. 94 Mvt. II by Joseph Haydn arr. by Allen Garvey'],
         },
         tracks: [
             {
@@ -455,7 +455,13 @@ export const albums: Album[] = [
             artist: Artist.superbadQuintet,
             coverImage: 'departure-of-adam-pin.webp',
             tags: [Tag.jazz],
-            description: `Trumpet: Dan Wendelken\nSax: Brian Carter\nPiano: Tim Zerone\nBass: Allen Garvey\nDrums: Jordan Chiolis`,
+            description: [
+                'Trumpet: Dan Wendelken',
+                'Sax: Brian Carter',
+                'Piano: Tim Zerone',
+                'Bass: Allen Garvey',
+                'Drums: Jordan Chiolis',
+            ],
         },
         tracks: [
             {
@@ -487,7 +493,12 @@ export const albums: Album[] = [
             artist: Artist.superbad,
             coverImage: 'departure-of-adam-pin.webp',
             tags: [Tag.jazz],
-            description: `Sax: Brian Carter\nPiano: Tim Zerone\nBass: Allen Garvey\nDrums: Adam Pin`,
+            description: [
+                'Sax: Brian Carter',
+                'Piano: Tim Zerone',
+                'Bass: Allen Garvey',
+                'Drums: Adam Pin',
+            ],
             // date: '2008-12'
         },
         tracks: [
@@ -548,7 +559,11 @@ export const albums: Album[] = [
             artist: Artist.feldergarb,
             coverImage: 'feldergarb-trio.webp',
             tags: [Tag.jazz],
-            description: `Guitar: Dave Powell\nBass: Allen Garvey\nDrums: Adam Pin`,
+            description: [
+                'Guitar: Dave Powell',
+                'Bass: Allen Garvey',
+                'Drums: Adam Pin'
+            ],
         },
         tracks: [
             {
@@ -615,7 +630,12 @@ export const albums: Album[] = [
             artist: Artist.feldergarbWJWells,
             coverImage: 'feldergarb-trio-with-jen-wells.webp',
             tags: [Tag.jazz],
-            description: `Guitar: Dave Powell\nPiano: Jen Wells\nBass: Allen Garvey\nDrums: Adam Pin`,
+            description: [
+                'Guitar: Dave Powell',
+                'Piano: Jen Wells',
+                'Bass: Allen Garvey',
+                'Drums: Adam Pin',
+            ],
         },
         tracks: [
             {
@@ -661,7 +681,11 @@ export const albums: Album[] = [
             artist: Artist.feldergarb,
             coverImage: 'feldergarb-trio.webp',
             tags: [Tag.jazz],
-            description: `Guitar: Dave Powell\nBass: Allen Garvey\nDrums: Adam Pin`,
+            description: [
+                'Guitar: Dave Powell',
+                'Bass: Allen Garvey',
+                'Drums: Adam Pin'
+            ],
         },
         tracks: [
             {

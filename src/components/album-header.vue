@@ -19,7 +19,11 @@
                 <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
             </tr>
             <tr v-if="album.meta.description">
-                <td rowspan="2"><pre>{{ album.meta.description }}</pre></td>
+                <td rowspan="2">
+                    <ul :class="$style.description">
+                        <li v-for="row in album.meta.description">{{ row }}</li>
+                    </ul>
+                </td>
             </tr>
         </table>
         </div>
@@ -49,6 +53,13 @@
     .coverImage {
         width: 220px;
         height: 220px;
+    }
+    .description {
+        list-style-type: none;
+        font-family: monospace;
+        font-size: 0.8rem;
+        padding: 1em 0;
+        margin: 0;
     }
 </style>
 
