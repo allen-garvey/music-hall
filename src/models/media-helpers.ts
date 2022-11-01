@@ -7,7 +7,17 @@ export enum PlayState {
     IS_EMPTY = 4,
 };
 
-export const mediaUrlForTrack = (track: Track): string => {
-    const extension = track.isMp3 ? 'mp3' : 'wav';
+const extensionForTrack = (isMp3: boolean, canPlayOpus: boolean): string => {
+    if(isMp3){
+        return 'mp3';
+    }
+    if(canPlayOpus){
+        return 'wav';
+    }
+    return 'wav';
+};
+
+export const mediaUrlForTrack = (track: Track, canPlayOpus: boolean): string => {
+    const extension = extensionForTrack(track.isMp3, canPlayOpus);
     return `/media/music/${track.filename}.${extension}`;
 };

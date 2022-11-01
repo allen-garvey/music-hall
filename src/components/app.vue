@@ -51,10 +51,12 @@ export default defineComponent({
         this.audio.addEventListener('timeupdate', (e) => {
 			this.elapsedTime = Math.floor((e.target as HTMLAudioElement).currentTime);
 		});
+        this.canPlayOpus = this.audio.canPlayType('audio/ogg') !== '';
     },
     data(){
         return {
             audio: undefined as HTMLAudioElement | undefined,
+            canPlayOpus: true,
             currentTrackFilename: undefined as string | undefined,
             playState: PlayState.IS_EMPTY,
             volume: 1,
@@ -74,7 +76,7 @@ export default defineComponent({
     },
     methods: {
         startAudio(){
-            (this.audio as HTMLAudioElement).src = mediaUrlForTrack(this.currentTrack as Track);
+            (this.audio as HTMLAudioElement).src = mediaUrlForTrack(this.currentTrack as Track, this.canPlayOpus);
             this.playState = PlayState.IS_LOADING;
             this.elapsedTime = 0;
             (this.audio as HTMLAudioElement).load();
