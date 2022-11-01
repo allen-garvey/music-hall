@@ -421,8 +421,42 @@ export const albums: Album[] = [
             artist: Artist.allen,
             coverImage: 'allen-garvey-senior-composition-recital.webp',
             tags: [Tag.classical, Tag.jazz],
+            description: [
+                'Sky Meditation: Kathleen Vermaelen - flute',
+                'Prelude to the Rest of Your Life: David Salazar, AnnMarie Buonaspina - violins, Steve Baker - electric guitar, Francisco Salazar - cello',
+                'Nighthawk, I Need A Vacation: Hofstra University Jazz Dectet'
+            ],
         },
-        tracks: [],
+        tracks: [
+            {
+                title: 'Sky Meditation',
+                year: 2009,
+                filename: 'senior-recital/Sky%20Meditation',
+                isMp3: true,
+                length: 278,
+            },
+            {
+                title: 'Prelude to the Rest of Your Life',
+                year: 2009,
+                filename: 'senior-recital/Prelude%20to%20the%20Rest%20of%20Your%20Life',
+                isMp3: true,
+                length: 235,
+            },
+            {
+                title: 'Nighthawk',
+                year: 2009,
+                filename: 'senior-recital/Nighthawk',
+                isMp3: true,
+                length: 322,
+            },
+            {
+                title: 'I Need A Vacation',
+                year: 2009,
+                filename: 'senior-recital/I%20Need%20A%20Vacation',
+                isMp3: true,
+                length: 183,
+            },
+        ],
     },
     {
         meta: {

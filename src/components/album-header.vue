@@ -60,6 +60,10 @@
         font-size: 0.8rem;
         padding: 1em 0;
         margin: 0;
+
+        li {
+            min-height: 1em; // for empty rows for spacing purposes
+        }
     }
 </style>
 
