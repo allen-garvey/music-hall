@@ -10,6 +10,11 @@ Dir.glob("#{SRC_ROOT_DIR}/**/*").each do |file|
     end
 
     extension = File.extname(file)
+    
+    unless ['.wav', '.mp3', '.m4a'].include? extension
+        next
+    end
+
     filename = file.chomp(extension)
     # get directory relative to SRC_ROOT
     parent_dir = filename.reverse.chomp(SRC_ROOT_DIR.reverse).reverse
@@ -17,26 +22,24 @@ Dir.glob("#{SRC_ROOT_DIR}/**/*").each do |file|
     filename_base_dest = File.expand_path(File.join(DEST_ROOT_DIR, parent_dir))
     parent_dir_dest = File.dirname(filename_base_dest)
 
+    puts file
+
     `mkdir -p "#{parent_dir_dest}"`
 
-    case extension
-        when ".wav"
-            # if wav convert to opus 128k and aac 196k
-            unless File.exist?("#{filename_base_dest}.opus")
-                `ffmpeg -i "#{file}" -c:a libopus -b:a 128k -vbr:a on -strict -2 -y "#{filename_base_dest}.opus"`
-            end
-            puts "#{filename} is wav"
-        when ".m4a"
-            # if m4a copy and convert to opus 96k bitrate
-            unless File.exist?("#{filename_base_dest}.opus")
-                `ffmpeg -i "#{file}" -c:a libopus -b:a 96k -vbr:a on -strict -2 -y "#{filename_base_dest}.opus"`
-            end
+    unless File.exist?("#{filename_base_dest}.opus")
+        opus_bitrate = extension == '.wav' ? '128k' : '96k'
+        `ffmpeg -i "#{file}" -c:a libopus -b:a #{opus_bitrate} -vbr:a on -strict -2 -y "#{filename_base_dest}.opus"`
+    end
+
+    if extension === '.wav'
+        # if .wav convert to aac as fallback
+        unless File.exist?("#{filename_base_dest}.m4a")
+            `ffmpeg -i "#{file}" -c:a aac -b:a 196k -y "#{filename_base_dest}.m4a"`
+        end
+    else
+        # copy .mp3 and .m4a to destination as a fallback
+        unless File.exist?("#{filename_base_dest}#{extension}")
             `cp "#{file}" "#{filename_base_dest}#{extension}"`
-        when ".mp3"
-            # if mp3 copy and convert to opus 96k bitrate
-            unless File.exist?("#{filename_base_dest}.opus")
-                `ffmpeg -i "#{file}" -c:a libopus -b:a 96k -vbr:a on -strict -2 -y "#{filename_base_dest}.opus"`
-            end
-            `cp "#{file}" "#{filename_base_dest}#{extension}"`
+        end
     end
 end
