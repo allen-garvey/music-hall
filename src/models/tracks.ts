@@ -483,7 +483,7 @@ export const albums: Album[] = [
         meta: {
             title: '5/13/09 Jam',
             artist: Artist.superbadQuintet,
-            coverImage: 'departure-of-adam-pin.webp',
+            coverImage: 'superbad-2009-05.webp',
             tags: [Tag.jazz],
             description: [
                 'Trumpet: Dan Wendelken',
