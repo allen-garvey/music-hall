@@ -20,20 +20,17 @@ export const areTrackIndexesEqual = (currentTrackIndex: TrackIndex | undefined, 
         && currentTrackIndex.trackIndex === trackIndex.trackIndex;
 };
 
-const extensionForTrack = (isMp3: boolean, isAac: boolean, canPlayOpus: boolean): string => {
+const extensionForTrack = (isMp3: boolean, canPlayOpus: boolean): string => {
+    if(canPlayOpus){
+        return 'opus';
+    }
     if(isMp3){
         return 'mp3';
     }
-    if(isAac){
-        return 'm4a';
-    }
-    if(canPlayOpus){
-        return 'wav';
-    }
-    return 'wav';
+    return 'm4a';
 };
 
 export const mediaUrlForTrack = (track: Track, canPlayOpus: boolean): string => {
-    const extension = extensionForTrack(!!track.isMp3, !!track.isAac, canPlayOpus);
+    const extension = extensionForTrack(!!track.isMp3, canPlayOpus);
     return `/media/music/${track.filename}.${extension}`;
 };

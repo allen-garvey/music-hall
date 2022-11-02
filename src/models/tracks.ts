@@ -26,7 +26,6 @@ export interface Track {
     length: number; // length in seconds
     filename: string;
     isMp3?: boolean;
-    isAac?: boolean;
 }
 
 interface AlbumMeta {
@@ -292,7 +291,6 @@ export const albums: Album[] = [
                 // completion_date: '2013-10-25',
                 year: 2013,
                 filename: 'primary-colors/This%20Could%20Be%20The%20Start%20Of%20Something',
-                isAac: true,
                 length: 239,
             },
             {
@@ -329,7 +327,6 @@ export const albums: Album[] = [
                 // completion_date: '2013-10-25',
                 year: 2013,
                 filename: 'primary-colors/By%20The%20Seashore',
-                isAac: true,
                 length: 253,
             },
             {
@@ -337,7 +334,6 @@ export const albums: Album[] = [
                 // completion_date: '2014-01-16',
                 year: 2014,
                 filename: 'primary-colors/Sometimes%20I%20Miss%20You%20So%20Much',
-                isAac: true,
                 length: 257,
             },
             {
