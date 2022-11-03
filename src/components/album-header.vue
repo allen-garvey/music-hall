@@ -11,7 +11,9 @@
         <div :class="$style.infoContainer">
             <table :class="$style.table">
                 <tr>
-                    <td><h3 :class="$style.title">{{ album.meta.title }}</h3></td>
+                    <td>
+                        <h3 :class="$style.title">{{ album.meta.title }}</h3>
+                    </td>
                     <td :class="$style.secondaryInfo">{{ yearDescriptionForAlbum(album) }}</td>
                 </tr>
                 <tr>
@@ -19,7 +21,7 @@
                     <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
                 </tr>
                 <tr v-if="album.meta.description">
-                    <td rowspan="2">
+                    <td colspan="2">
                         <ul :class="$style.description">
                             <li v-for="row in album.meta.description">{{ row }}</li>
                         </ul>
@@ -35,12 +37,14 @@
 
     .container {
         margin-bottom: 1.5rem;
+        max-width: 784px;
     }
     .imageContainer {
         padding-left: 1rem;
     }
     .table {
         padding: 0 1rem;
+        width: 100%;
 
         td {
             height: 1em;
@@ -51,7 +55,8 @@
     }
     .secondaryInfo {
         opacity: 0.5;
-        padding-left: 1rem;
+        padding-left: 2.5rem;
+        text-align: right;
     }
     .coverImage {
         width: $cover-image-width;
