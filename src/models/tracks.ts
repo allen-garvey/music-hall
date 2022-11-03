@@ -199,6 +199,13 @@ export const albums: Album[] = [
         },
         tracks: [
             {
+                title: 'Pyschic Cleansing',
+                // completion_date: '2022-11-02',
+                year: 2019,
+                filename: 'nightscapes-dreamscapes/psychic-cleansing',
+                length: 80,
+            },
+            {
                 title: 'Paths Across The Desert',
                 // completion_date: '2022-09-12',
                 year: 2017,
