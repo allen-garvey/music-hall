@@ -245,7 +245,7 @@ export const albums: Album[] = [
                 // completion_date: '2020-06-25',
                 year: 2019,
                 filename: 'nightscapes-dreamscapes/sunrise-interpolation',
-                length: 102,
+                length: 62,
             },
 
         ],
