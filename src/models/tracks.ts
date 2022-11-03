@@ -10,7 +10,7 @@ enum Tag {
     rnb = 'RnB',
     pop = 'Pop',
     classical = 'Classical',
-};
+}
 
 enum Artist {
     allen = 'Allen Garvey',
@@ -91,7 +91,7 @@ export const albums: Album[] = [
                 filename: 'rise-and-fall/a-dance-of-love-and-death',
                 length: 372,
             },
-        ]
+        ],
     },
     {
         meta: {
@@ -247,7 +247,6 @@ export const albums: Album[] = [
                 filename: 'nightscapes-dreamscapes/sunrise-interpolation',
                 length: 62,
             },
-
         ],
     },
     {
@@ -266,7 +265,7 @@ export const albums: Album[] = [
                 length: 131,
             },
             {
-                title: 'Just Doin\' What I Do',
+                title: "Just Doin' What I Do",
                 // completion_date: '2013-09-02',
                 year: 2013,
                 filename: 'primary-colors/just-doin-what-i-do',
@@ -297,7 +296,8 @@ export const albums: Album[] = [
                 title: 'This Could Be The Start Of Something',
                 // completion_date: '2013-10-25',
                 year: 2013,
-                filename: 'primary-colors/This%20Could%20Be%20The%20Start%20Of%20Something',
+                filename:
+                    'primary-colors/This%20Could%20Be%20The%20Start%20Of%20Something',
                 length: 239,
             },
             {
@@ -340,7 +340,8 @@ export const albums: Album[] = [
                 title: 'Sometimes I Miss You So Much',
                 // completion_date: '2014-01-16',
                 year: 2014,
-                filename: 'primary-colors/Sometimes%20I%20Miss%20You%20So%20Much',
+                filename:
+                    'primary-colors/Sometimes%20I%20Miss%20You%20So%20Much',
                 length: 257,
             },
             {
@@ -415,7 +416,6 @@ export const albums: Album[] = [
             //     filename: 'primary-colors/like-so-many-grains-of-sand',
             //     length: 1,
             // },
-
         ],
     },
     {
@@ -427,7 +427,7 @@ export const albums: Album[] = [
             description: [
                 'Sky Meditation: Kathleen Vermaelen - flute',
                 'Prelude to the Rest of Your Life: David Salazar, AnnMarie Buonaspina - violins, Steve Baker - electric guitar, Francisco Salazar - cello',
-                'Nighthawk, I Need A Vacation: Hofstra University Jazz Dectet'
+                'Nighthawk, I Need A Vacation: Hofstra University Jazz Dectet',
             ],
         },
         tracks: [
@@ -441,7 +441,8 @@ export const albums: Album[] = [
             {
                 title: 'Prelude to the Rest of Your Life',
                 year: 2009,
-                filename: 'senior-recital/Prelude%20to%20the%20Rest%20of%20Your%20Life',
+                filename:
+                    'senior-recital/Prelude%20to%20the%20Rest%20of%20Your%20Life',
                 isMp3: true,
                 length: 235,
             },
@@ -467,7 +468,9 @@ export const albums: Album[] = [
             artist: Artist.hofstraBigBand,
             coverImage: 'allen-garvey-junior-composition-recital.webp',
             tags: [Tag.jazz],
-            description: ['Surprise Party - Symphony No. 94 Mvt. II by Joseph Haydn arr. by Allen Garvey'],
+            description: [
+                'Surprise Party - Symphony No. 94 Mvt. II by Joseph Haydn arr. by Allen Garvey',
+            ],
         },
         tracks: [
             {
@@ -504,14 +507,16 @@ export const albums: Album[] = [
             {
                 title: 'Have You Met Miss Jones?',
                 year: 2009,
-                filename: 'superbad-quartet/5-13-09-jam/Have%20You%20Met%20Miss%20Jones',
+                filename:
+                    'superbad-quartet/5-13-09-jam/Have%20You%20Met%20Miss%20Jones',
                 isMp3: true,
                 length: 545,
             },
             {
                 title: 'Eye of the Hurricane',
                 year: 2009,
-                filename: 'superbad-quartet/5-13-09-jam/Eye%20of%20the%20Hurricane',
+                filename:
+                    'superbad-quartet/5-13-09-jam/Eye%20of%20the%20Hurricane',
                 isMp3: true,
                 length: 767,
             },
@@ -540,54 +545,61 @@ export const albums: Album[] = [
         },
         tracks: [
             {
-                "title": "Speak No Evil",
-                "year": 2008,
-                "filename": "superbad-quartet/the-departure-of-adam-pin/01%20Speak%20No%20Evil",
-                "isMp3": true,
-                "length": 577,
+                title: 'Speak No Evil',
+                year: 2008,
+                filename:
+                    'superbad-quartet/the-departure-of-adam-pin/01%20Speak%20No%20Evil',
+                isMp3: true,
+                length: 577,
             },
             {
-                "title": "Blue In Green (take 2)",
-                "year": 2008,
-                "filename": "superbad-quartet/the-departure-of-adam-pin/02%20Blue%20In%20Green%20(take%202)",
-                "isMp3": true,
-                "length": 1282,
+                title: 'Blue In Green (take 2)',
+                year: 2008,
+                filename:
+                    'superbad-quartet/the-departure-of-adam-pin/02%20Blue%20In%20Green%20(take%202)',
+                isMp3: true,
+                length: 1282,
             },
             {
-                "title": "Blue In Green (take 1)",
-                "year": 2008,
-                "filename": "superbad-quartet/the-departure-of-adam-pin/03%20Blue%20In%20Green%20(take%201)",
-                "isMp3": true,
-                "length": 178,
+                title: 'Blue In Green (take 1)',
+                year: 2008,
+                filename:
+                    'superbad-quartet/the-departure-of-adam-pin/03%20Blue%20In%20Green%20(take%201)',
+                isMp3: true,
+                length: 178,
             },
             {
-                "title": "Night And Day (take 1)",
-                "year": 2008,
-                "filename": "superbad-quartet/the-departure-of-adam-pin/04%20Night%20And%20Day%20(take%201)",
-                "isMp3": true,
-                "length": 701,
+                title: 'Night And Day (take 1)',
+                year: 2008,
+                filename:
+                    'superbad-quartet/the-departure-of-adam-pin/04%20Night%20And%20Day%20(take%201)',
+                isMp3: true,
+                length: 701,
             },
             {
-                "title": "Night And Day (take 2)",
-                "year": 2008,
-                "filename": "superbad-quartet/the-departure-of-adam-pin/05%20Night%20And%20Day%20(take%202)",
-                "isMp3": true,
-                "length": 477,
+                title: 'Night And Day (take 2)',
+                year: 2008,
+                filename:
+                    'superbad-quartet/the-departure-of-adam-pin/05%20Night%20And%20Day%20(take%202)',
+                isMp3: true,
+                length: 477,
             },
             {
-                "title": "Pent-Up House",
-                "year": 2008,
-                "filename": "superbad-quartet/the-departure-of-adam-pin/06%20Pent-Up%20House",
-                "isMp3": true,
-                "length": 602,
+                title: 'Pent-Up House',
+                year: 2008,
+                filename:
+                    'superbad-quartet/the-departure-of-adam-pin/06%20Pent-Up%20House',
+                isMp3: true,
+                length: 602,
             },
             {
-                "title": "C-Jam Blues",
-                "year": 2008,
-                "filename": "superbad-quartet/the-departure-of-adam-pin/07%20C-Jam%20Blues",
-                "isMp3": true,
-                "length": 681,
-            }
+                title: 'C-Jam Blues',
+                year: 2008,
+                filename:
+                    'superbad-quartet/the-departure-of-adam-pin/07%20C-Jam%20Blues',
+                isMp3: true,
+                length: 681,
+            },
         ],
     },
     {
@@ -599,66 +611,70 @@ export const albums: Album[] = [
             description: [
                 'Guitar: Dave Powell',
                 'Bass: Allen Garvey',
-                'Drums: Adam Pin'
+                'Drums: Adam Pin',
             ],
         },
         tracks: [
             {
-                "title": "Nostalgia in Times Square",
-                "year": 2008,
-                "filename": "feldergarb-trio/5-16-08-jam/01%20Nostalgia%20in%20Times%20Square",
-                "isMp3": true,
-                "length": 370
+                title: 'Nostalgia in Times Square',
+                year: 2008,
+                filename:
+                    'feldergarb-trio/5-16-08-jam/01%20Nostalgia%20in%20Times%20Square',
+                isMp3: true,
+                length: 370,
             },
             {
-                "title": "There Is No Greater Love",
-                "year": 2008,
-                "filename": "feldergarb-trio/5-16-08-jam/02%20There%20Is%20No%20Greater%20Love",
-                "isMp3": true,
-                "length": 485
+                title: 'There Is No Greater Love',
+                year: 2008,
+                filename:
+                    'feldergarb-trio/5-16-08-jam/02%20There%20Is%20No%20Greater%20Love',
+                isMp3: true,
+                length: 485,
             },
             {
-                "title": "Blue Bossa",
-                "year": 2008,
-                "filename": "feldergarb-trio/5-16-08-jam/03%20Blue%20Bossa",
-                "isMp3": true,
-                "length": 406
+                title: 'Blue Bossa',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/03%20Blue%20Bossa',
+                isMp3: true,
+                length: 406,
             },
             {
-                "title": "Pent-Up House",
-                "year": 2008,
-                "filename": "feldergarb-trio/5-16-08-jam/04%20Pent-Up%20House",
-                "isMp3": true,
-                "length": 393
+                title: 'Pent-Up House',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/04%20Pent-Up%20House',
+                isMp3: true,
+                length: 393,
             },
             {
-                "title": "Misty",
-                "year": 2008,
-                "filename": "feldergarb-trio/5-16-08-jam/05%20Misty",
-                "isMp3": true,
-                "length": 589
+                title: 'Misty',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/05%20Misty',
+                isMp3: true,
+                length: 589,
             },
             {
-                "title": "Tenor Madness (take 1)",
-                "year": 2008,
-                "filename": "feldergarb-trio/5-16-08-jam/06%20Tenor%20Madness%20(take%201)",
-                "isMp3": true,
-                "length": 385
+                title: 'Tenor Madness (take 1)',
+                year: 2008,
+                filename:
+                    'feldergarb-trio/5-16-08-jam/06%20Tenor%20Madness%20(take%201)',
+                isMp3: true,
+                length: 385,
             },
             {
-                "title": "Tenor Madness (take 2)",
-                "year": 2008,
-                "filename": "feldergarb-trio/5-16-08-jam/07%20Tenor%20Madness%20(take%202)",
-                "isMp3": true,
-                "length": 255
+                title: 'Tenor Madness (take 2)',
+                year: 2008,
+                filename:
+                    'feldergarb-trio/5-16-08-jam/07%20Tenor%20Madness%20(take%202)',
+                isMp3: true,
+                length: 255,
             },
             {
-                "title": "Just Friends",
-                "year": 2008,
-                "filename": "feldergarb-trio/5-16-08-jam/08%20Just%20Friends",
-                "isMp3": true,
-                "length": 539
-            }
+                title: 'Just Friends',
+                year: 2008,
+                filename: 'feldergarb-trio/5-16-08-jam/08%20Just%20Friends',
+                isMp3: true,
+                length: 539,
+            },
         ],
     },
     {
@@ -676,40 +692,45 @@ export const albums: Album[] = [
         },
         tracks: [
             {
-                "title": "Someday My Prince Will Come",
-                "year": 2008,
-                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/01%20Someday%20My%20Prince%20Will%20Come",
-                "isMp3": true,
-                "length": 458,
+                title: 'Someday My Prince Will Come',
+                year: 2008,
+                filename:
+                    'feldergarb-trio-w-jen-wells/1-28-08-jam/01%20Someday%20My%20Prince%20Will%20Come',
+                isMp3: true,
+                length: 458,
             },
             {
-                "title": "Scrapple From The Apple",
-                "year": 2008,
-                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/02%20Scrapple%20From%20The%20Apple",
-                "isMp3": true,
-                "length": 435,
+                title: 'Scrapple From The Apple',
+                year: 2008,
+                filename:
+                    'feldergarb-trio-w-jen-wells/1-28-08-jam/02%20Scrapple%20From%20The%20Apple',
+                isMp3: true,
+                length: 435,
             },
             {
-                "title": "There Is No Greater Love",
-                "year": 2008,
-                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/03%20There%20Is%20No%20Greater%20Love",
-                "isMp3": true,
-                "length": 432,
+                title: 'There Is No Greater Love',
+                year: 2008,
+                filename:
+                    'feldergarb-trio-w-jen-wells/1-28-08-jam/03%20There%20Is%20No%20Greater%20Love',
+                isMp3: true,
+                length: 432,
             },
             {
-                "title": "Someday My Prince Will Come",
-                "year": 2008,
-                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/04%20Someday%20My%20Prince%20Will%20Come",
-                "isMp3": true,
-                "length": 445,
+                title: 'Someday My Prince Will Come',
+                year: 2008,
+                filename:
+                    'feldergarb-trio-w-jen-wells/1-28-08-jam/04%20Someday%20My%20Prince%20Will%20Come',
+                isMp3: true,
+                length: 445,
             },
             {
-                "title": "All Blues",
-                "year": 2008,
-                "filename": "feldergarb-trio-w-jen-wells/1-28-08-jam/05%20All%20Blues",
-                "isMp3": true,
-                "length": 1554,
-            }
+                title: 'All Blues',
+                year: 2008,
+                filename:
+                    'feldergarb-trio-w-jen-wells/1-28-08-jam/05%20All%20Blues',
+                isMp3: true,
+                length: 1554,
+            },
         ],
     },
     {
@@ -721,44 +742,49 @@ export const albums: Album[] = [
             description: [
                 'Guitar: Dave Powell',
                 'Bass: Allen Garvey',
-                'Drums: Adam Pin'
+                'Drums: Adam Pin',
             ],
         },
         tracks: [
             {
-                "title": "Now's The Time",
-                "year": 2007,
-                "filename": "feldergarb-trio/10-13-07-jam/01%20Now's%20The%20Time",
-                "isMp3": true,
-                "length": 381
+                title: "Now's The Time",
+                year: 2007,
+                filename:
+                    "feldergarb-trio/10-13-07-jam/01%20Now's%20The%20Time",
+                isMp3: true,
+                length: 381,
             },
             {
-                "title": "Ladybird (take 1)",
-                "year": 2007,
-                "filename": "feldergarb-trio/10-13-07-jam/02%20Ladybird%20(take%201)",
-                "isMp3": true,
-                "length": 264
+                title: 'Ladybird (take 1)',
+                year: 2007,
+                filename:
+                    'feldergarb-trio/10-13-07-jam/02%20Ladybird%20(take%201)',
+                isMp3: true,
+                length: 264,
             },
             {
-                "title": "Ladybird (take 2)",
-                "year": 2007,
-                "filename": "feldergarb-trio/10-13-07-jam/03%20Ladybird%20(take%202)",
-                "isMp3": true,
-                "length": 295
+                title: 'Ladybird (take 2)',
+                year: 2007,
+                filename:
+                    'feldergarb-trio/10-13-07-jam/03%20Ladybird%20(take%202)',
+                isMp3: true,
+                length: 295,
             },
             {
-                "title": "Take The A Train",
-                "year": 2007,
-                "filename": "feldergarb-trio/10-13-07-jam/04%20Take%20The%20A%20Train",
-                "isMp3": true,
-                "length": 422
+                title: 'Take The A Train',
+                year: 2007,
+                filename:
+                    'feldergarb-trio/10-13-07-jam/04%20Take%20The%20A%20Train',
+                isMp3: true,
+                length: 422,
             },
             {
-                "title": "Romper Stomper",
-                "year": 2007,
-                "filename": "feldergarb-trio/10-13-07-jam/05%20Romper%20Stomper",
-                "isMp3": true,
-                "length": 1115
+                title: 'Romper Stomper',
+                year: 2007,
+                filename:
+                    'feldergarb-102trio/10-13-07-jam/05%20Romper%20Stomper',
+                isMp3: true,
+                length: 1115,
             },
         ],
     },
