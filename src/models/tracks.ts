@@ -192,7 +192,7 @@ export const albums: Album[] = [
     },
     {
         meta: {
-            title: 'Nightscapes:Dreamscapes',
+            title: 'nightscapes:dreamscapes',
             artist: Artist.allen,
             coverImage: 'nightscapes-dreamscapes.webp',
             tags: [Tag.ambient],
@@ -606,7 +606,7 @@ export const albums: Album[] = [
         meta: {
             title: '5/16/08 Jam',
             artist: Artist.feldergarb,
-            coverImage: 'feldergarb-trio.webp',
+            coverImage: 'feldergarb-trio-bridge.webp',
             tags: [Tag.jazz],
             description: [
                 'Guitar: Dave Powell',
