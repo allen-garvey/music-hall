@@ -51,11 +51,11 @@ export const albums: Album[] = [
         },
         tracks: [
             {
-                title: 'Stirrings of Catharsis',
-                // completion_date: '2022-09-06',
-                year: 2022,
-                filename: 'rise-and-fall/stirrings-of-catharsis',
-                length: 131,
+                title: 'Adieu',
+                // completion_date: '2020-06-25',
+                year: 2020,
+                filename: 'rise-and-fall/adieu',
+                length: 102,
             },
             {
                 title: 'A New World',
@@ -65,18 +65,18 @@ export const albums: Album[] = [
                 length: 212,
             },
             {
+                title: 'Stirrings of Catharsis',
+                // completion_date: '2022-09-06',
+                year: 2022,
+                filename: 'rise-and-fall/stirrings-of-catharsis',
+                length: 131,
+            },
+            {
                 title: 'The Last Battle',
                 // completion_date: '2014-01-28',
                 year: 2014,
                 filename: 'rise-and-fall/the-last-battle',
                 length: 335,
-            },
-            {
-                title: 'Adieu',
-                // completion_date: '2020-06-25',
-                year: 2020,
-                filename: 'rise-and-fall/adieu',
-                length: 102,
             },
             {
                 title: 'Marching Orders',
