@@ -121,7 +121,7 @@ export default defineComponent({
                     descriptionMap.set(track.description, [track.title]);
                     return true;
                 })
-                .map(track => `${(descriptionMap.get(track.description as string) as string[]).join(', ')}: ${track.description}`);
+                .map(track => `${descriptionMap.get(track.description as string)?.join(', ')}: ${track.description}`);
 
             return (this.album.meta.description || []).concat(trackDescriptions);
         }
