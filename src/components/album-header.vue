@@ -107,9 +107,21 @@ export default defineComponent({
     },
     computed: {
         descriptionRows(): string[]{
+            const descriptionMap: Map<string, string[]> = new Map();
+            
             const trackDescriptions: string[] = this.album.tracks
-                .filter(track => track.description)
-                .map(track => `${track.title}: ${track.description}`);
+                .filter(track => {
+                    if(!track.description){
+                        return false;
+                    }
+                    if(descriptionMap.has(track.description)){
+                        descriptionMap.get(track.description)?.push(track.title);
+                        return false;
+                    }
+                    descriptionMap.set(track.description, [track.title]);
+                    return true;
+                })
+                .map(track => `${(descriptionMap.get(track.description as string) as string[]).join(', ')}: ${track.description}`);
 
             return (this.album.meta.description || []).concat(trackDescriptions);
         }
