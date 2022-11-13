@@ -25,6 +25,7 @@ export interface Track {
     year: number;
     length: number; // length in seconds
     filename: string;
+    description?: string;
     isMp3?: boolean;
 }
 
@@ -424,11 +425,6 @@ export const albums: Album[] = [
             artist: Artist.allen,
             coverImage: 'allen-garvey-senior-composition-recital.webp',
             tags: [Tag.classical, Tag.jazz],
-            description: [
-                'Sky Meditation: Kathleen Vermaelen - flute',
-                'Prelude to the Rest of Your Life: David Salazar, AnnMarie Buonaspina - violins, Steve Baker - electric guitar, Francisco Salazar - cello',
-                'Nighthawk, I Need A Vacation: Hofstra University Jazz Dectet',
-            ],
         },
         tracks: [
             {
@@ -437,6 +433,7 @@ export const albums: Album[] = [
                 filename: 'senior-recital/Sky%20Meditation',
                 isMp3: true,
                 length: 277,
+                description: 'Kathleen Vermaelen - flute',
             },
             {
                 title: 'Prelude to the Rest of Your Life',
@@ -445,6 +442,7 @@ export const albums: Album[] = [
                     'senior-recital/Prelude%20to%20the%20Rest%20of%20Your%20Life',
                 isMp3: true,
                 length: 234,
+                description: 'David Salazar, AnnMarie Buonaspina - violins, Steve Baker - electric guitar, Francisco Salazar - cello',
             },
             {
                 title: 'Nighthawk',
@@ -452,6 +450,7 @@ export const albums: Album[] = [
                 filename: 'senior-recital/Nighthawk',
                 isMp3: true,
                 length: 321,
+                description: 'Hofstra University Jazz Dectet',
             },
             {
                 title: 'I Need A Vacation',
@@ -459,6 +458,7 @@ export const albums: Album[] = [
                 filename: 'senior-recital/I%20Need%20A%20Vacation',
                 isMp3: true,
                 length: 182,
+                description: 'Hofstra University Jazz Dectet',
             },
         ],
     },
@@ -468,9 +468,6 @@ export const albums: Album[] = [
             artist: Artist.hofstraBigBand,
             coverImage: 'allen-garvey-junior-composition-recital.webp',
             tags: [Tag.jazz],
-            description: [
-                'Surprise Party - Symphony No. 94 Mvt. II by Joseph Haydn arr. by Allen Garvey',
-            ],
         },
         tracks: [
             {
@@ -486,6 +483,7 @@ export const albums: Album[] = [
                 filename: 'hofstra-big-band/Surprise%20Party',
                 isMp3: true,
                 length: 370,
+                description: 'Symphony No. 94 Mvt. II by Joseph Haydn arr. by Allen Garvey',
             },
         ],
     },

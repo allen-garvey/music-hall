@@ -20,10 +20,10 @@
                     <td>{{ album.meta.artist }}</td>
                     <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
                 </tr>
-                <tr v-if="album.meta.description">
+                <tr v-if="descriptionRows.length > 0">
                     <td colspan="2">
                         <ul :class="$style.description">
-                            <li v-for="row in album.meta.description">{{ row }}</li>
+                            <li v-for="row in descriptionRows">{{ row }}</li>
                         </ul>
                     </td>
                 </tr>
@@ -104,6 +104,15 @@ export default defineComponent({
             required: true,
             type: Object as PropType<Album>,
         },
+    },
+    computed: {
+        descriptionRows(): string[]{
+            const trackDescriptions: string[] = this.album.tracks
+                .filter(track => track.description)
+                .map(track => `${track.title}: ${track.description}`);
+
+            return (this.album.meta.description || []).concat(trackDescriptions);
+        }
     },
     methods: {
         yearDescriptionForAlbum,
