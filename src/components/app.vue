@@ -1,5 +1,5 @@
 <template>
-    <Page v-slot="slotProps: PageSlotProps">
+    <Page :albums="albums" v-slot="slotProps: PageSlotProps">
         <TrackList 
             :albums="slotProps.albums"
             :current-track-index="slotProps.currentTrackIndex"
@@ -12,6 +12,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { PageSlotProps } from '../models/component-props';
+import { Album, albums } from '../models/tracks';
 import Page from './page.vue';
 import TrackList from './track-list.vue';
 
@@ -19,6 +20,11 @@ export default defineComponent({
     components: {
         Page,
         TrackList,
+    },
+    computed: {
+        albums(): Album[]{
+            return albums;
+        },
     },
 });
 </script>

@@ -31,13 +31,19 @@
 </style>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { Track, Album, albums } from '../models/tracks';
+import { defineComponent, PropType } from 'vue';
+import { Track, Album } from '../models/tracks';
 import { PlayState, mediaUrlForTrack, TrackIndex, areTrackIndexesEqual } from '../models/media-helpers';
 import { getUserVolume, saveUserVolume } from '../models/user-settings';
 import MediaControls from './media-controls.vue';
 
 export default defineComponent({
+    props: {
+        albums: {
+            required: true,
+            type: Object as PropType<Array<Album>>,
+        },
+    },
     components: {
         MediaControls,
     },
@@ -52,7 +58,7 @@ export default defineComponent({
             const currentTrackIndex = (this.currentTrackIndex as TrackIndex);
             const nextTrackIndex = currentTrackIndex.trackIndex + 1;
             
-            if(albums[currentTrackIndex.albumIndex].tracks.length > nextTrackIndex){
+            if(this.albums[currentTrackIndex.albumIndex].tracks.length > nextTrackIndex){
                 this.currentTrackIndex = {
                     ...currentTrackIndex,
                     trackIndex: nextTrackIndex,
@@ -79,14 +85,11 @@ export default defineComponent({
         };
     },
     computed: {
-        albums(): Album[]{
-            return albums;
-        },
         currentTrack(): Track | undefined{
             if(this.currentTrackIndex === undefined){
                 return undefined;
             }
-            return albums[this.currentTrackIndex.albumIndex].tracks[this.currentTrackIndex.trackIndex];
+            return this.albums[this.currentTrackIndex.albumIndex].tracks[this.currentTrackIndex.trackIndex];
         }
     },
     methods: {
