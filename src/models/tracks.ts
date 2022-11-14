@@ -412,7 +412,7 @@ export const albums: Album[] = [
                 // completion_date: '2014-03-18',
                 year: 2014,
                 filename: 'primary-colors/graduation',
-                length: 242,
+                length: 282,
             },
             // {
             //     // TODO master and length
