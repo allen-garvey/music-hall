@@ -31,6 +31,7 @@ export interface Track {
 
 interface AlbumMeta {
     title: string;
+    slug: string;
     artist: Artist;
     description?: string[];
     coverImage: string;
@@ -46,6 +47,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: 'Rise and Fall',
+            slug: 'rise-and-fall',
             artist: Artist.allen,
             coverImage: 'rise-and-fall.webp',
             tags: [Tag.electronic, Tag.classical],
@@ -97,6 +99,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: 'Secondary Colors',
+            slug: 'secondary-colors',
             artist: Artist.allen,
             coverImage: 'secondary-colors.webp',
             tags: [Tag.electronic],
@@ -194,6 +197,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: 'nightscapes:dreamscapes',
+            slug: 'nightscapes-dreamscapes',
             artist: Artist.allen,
             coverImage: 'nightscapes-dreamscapes.webp',
             tags: [Tag.ambient],
@@ -253,6 +257,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: 'Primary Colors',
+            slug: 'primary-colors',
             artist: Artist.allen,
             coverImage: 'primary-colors.webp',
             tags: [Tag.electronic],
@@ -422,6 +427,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: 'Senior Composition Recital',
+            slug: 'senior-composition-recital',
             artist: Artist.allen,
             coverImage: 'allen-garvey-senior-composition-recital.webp',
             tags: [Tag.classical, Tag.jazz],
@@ -465,6 +471,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: 'With the Hofstra University Jazz Ensemble',
+            slug: 'with-the-hofstra-jazz-ensemble',
             artist: Artist.hofstraBigBand,
             coverImage: 'allen-garvey-junior-composition-recital.webp',
             tags: [Tag.jazz],
@@ -490,6 +497,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: '5/13/09 Jam',
+            slug: 'superbad-05-13-09-jam',
             artist: Artist.superbadQuintet,
             coverImage: 'superbad-2009-05.webp',
             tags: [Tag.jazz],
@@ -530,6 +538,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: 'The Departure of Adam Pin',
+            slug: 'superbad-the-departure-of-adam-pin',
             artist: Artist.superbad,
             coverImage: 'departure-of-adam-pin.webp',
             tags: [Tag.jazz],
@@ -603,6 +612,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: '5/16/08 Jam',
+            slug: 'feldergarb-5-16-08-jam',
             artist: Artist.feldergarb,
             coverImage: 'feldergarb-trio-bridge.webp',
             tags: [Tag.jazz],
@@ -678,6 +688,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: '1/28/08 Jam',
+            slug: 'feldergarb-w-jen-wells-1-28-08-jam',
             artist: Artist.feldergarbWJWells,
             coverImage: 'feldergarb-trio-with-jen-wells.webp',
             tags: [Tag.jazz],
@@ -734,6 +745,7 @@ export const albums: Album[] = [
     {
         meta: {
             title: '10/13/07 Jam',
+            slug: 'feldergarb-10-13-07-jam',
             artist: Artist.feldergarb,
             coverImage: 'feldergarb-trio.webp',
             tags: [Tag.jazz],

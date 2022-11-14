@@ -14,15 +14,26 @@ export const routes: RouteRecordRaw[] = [
                 path: '',
                 name: 'home',
                 component: Player,
-                props(): PageProps{
+                props(): PageProps {
                     return { albums };
+                },
+            },
+            {
+                path: 'album/:slug',
+                name: 'albumShow',
+                component: Player,
+                props(route): PageProps {
+                    const album = albums.find(album => album.meta.slug === route.params.slug);
+                    return { 
+                        albums: album ? [album] : albums,
+                    };
                 },
             },
             {
                 path: 'track/:filename(.*)',
                 name: 'trackShow',
                 component: Player,
-                props(route): PageProps{
+                props(route): PageProps {
                     let currentTrackFilename: string | undefined = route.params.filename as string;
                     if(!currentTrackFilename){
                         return { albums };
@@ -50,6 +61,13 @@ export const routes: RouteRecordRaw[] = [
                     }
                 },
             },
+            {
+                path: '/:pathMatch(.*)*',
+                component: Player,
+                props(): PageProps {
+                    return { albums };
+                },
+            }
         ]
     },
 ];
