@@ -4,6 +4,7 @@ import Player from '../components/player.vue';
 
 interface PageProps {
     albums: Album[];
+    shouldShowTrackShareLinks?: boolean;
 };
 
 export const routes: RouteRecordRaw[] = [
@@ -58,6 +59,7 @@ export const routes: RouteRecordRaw[] = [
                                 tracks: currentTracks,
                             }
                         ],
+                        shouldShowTrackShareLinks: false,
                     }
                 },
             },

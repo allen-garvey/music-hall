@@ -9,6 +9,7 @@
                 :current-track="slotProps.currentTrack"
                 :track-button-clicked="slotProps.trackButtonClicked"
                 :play-state="slotProps.playState"
+                :show-share-links="true"
             />
         </template>
     </Page>

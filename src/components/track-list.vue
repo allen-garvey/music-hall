@@ -17,6 +17,7 @@
                     <th :class="$style.titleColumn">Title</th>
                     <th :class="$style.timeColumn">Time</th>
                     <th :class="$style.yearColumn">Year</th>
+                    <th :class="$style.shareColumn" v-if="showShareLinks"></th>
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +33,7 @@
                             :class="$style.trackButton"
                         >
                             <svg 
-                                :class="$style.icon"
+                                :class="[$style.icon, $style.playIcon]"
                                 viewBox="0 0 24 24"
                             >
                                 <use 
@@ -48,6 +49,20 @@
                     <td>{{ track.title }}</td>
                     <td>{{ formatSeconds(track.length) }}</td>
                     <td>{{ track.year }}</td>
+                    <td v-if="showShareLinks">
+                        <a 
+                            :class="$style.shareLink"
+                            :href="shareLinkForTrack(track)" 
+                            target="_blank"
+                        >
+                            <svg 
+                                :class="$style.icon"
+                                viewBox="0 0 24 24"
+                            >
+                                <use xlink:href="#icon-share" />
+                            </svg>
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -79,6 +94,9 @@
     .yearColumn {
         width: 5em;
     }
+    .shareColumn {
+        width: 28px;
+    }
     .trackRow {
         td {
             padding: 0.75em 0.25em;
@@ -86,7 +104,7 @@
 
         &:hover {
             background-color: #bdeeff;
-            .trackButton {
+            .trackButton, .shareLink {
                 visibility: visible;
             }
             .trackNumber {
@@ -117,14 +135,20 @@
         opacity: 0.25;
     }
     .icon {
-        max-height: 100%;
-        width: $icon-controls-dimensions;
+        color: #000;
         opacity: 0.35;
         cursor: pointer;
         
         &:hover {
             opacity: 1;
         }
+    }
+    .shareLink {
+        visibility: hidden;
+    }
+    .playIcon {
+        max-height: 100%;
+        width: $icon-controls-dimensions;
     }
 
     @media (hover: none) {
@@ -162,6 +186,10 @@ export default defineComponent({
             type: Number,
             required: true,
         },
+        showShareLinks: {
+            type: Boolean,
+            default: false,
+        },
     },
     components: {
         AlbumHeader,
@@ -176,6 +204,9 @@ export default defineComponent({
         yearDescriptionForAlbum,
         isCurrentTrack(track: Track): boolean{
             return areTracksEqual(this.currentTrack, track);
+        },
+        shareLinkForTrack(track: Track): string{
+            return `/player/track/${track.filename}`;
         },
     }
 });

@@ -11,6 +11,7 @@
                 :current-track="slotProps.currentTrack"
                 :track-button-clicked="slotProps.trackButtonClicked"
                 :play-state="slotProps.playState"
+                :show-share-links="shouldShowTrackShareLinks"
             />
         </template>
     </Page>
@@ -32,6 +33,10 @@ export default defineComponent({
         albums: {
             required: true,
             type: Object as PropType<Array<Album>>,
+        },
+        shouldShowTrackShareLinks: {
+            type: Boolean,
+            default: true,
         },
     },
 });
