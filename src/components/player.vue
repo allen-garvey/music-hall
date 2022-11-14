@@ -12,6 +12,7 @@
                 :track-button-clicked="slotProps.trackButtonClicked"
                 :play-state="slotProps.playState"
                 :show-share-links="shouldShowTrackShareLinks"
+                :show-album-share-links="shouldShowAlbumShareLinks"
             />
         </template>
     </Page>
@@ -37,6 +38,10 @@ export default defineComponent({
         shouldShowTrackShareLinks: {
             type: Boolean,
             default: true,
+        },
+        shouldShowAlbumShareLinks: {
+            type: Boolean,
+            default: false,
         },
     },
 });

@@ -9,6 +9,7 @@
             :album="album"
             :is-playing="isCurrentTrack(album.tracks[0]) && isCurrentlyPlaying"
             :play-button-clicked="() => trackButtonClicked(album.tracks[0])"
+            :show-share-link="showAlbumShareLinks"
         />
         <table :class="$style.table">
             <thead>
@@ -52,7 +53,7 @@
                     <td v-if="showShareLinks">
                         <a 
                             :class="$style.shareLink"
-                            :href="shareLinkForTrack(track)" 
+                            :href="shareLinkFor(track)" 
                             target="_blank"
                         >
                             <svg 
@@ -192,6 +193,10 @@ export default defineComponent({
             type: Boolean,
             default: false,
         },
+        showAlbumShareLinks: {
+            type: Boolean,
+            default: true,
+        },
     },
     components: {
         AlbumHeader,
@@ -207,7 +212,7 @@ export default defineComponent({
         isCurrentTrack(track: Track): boolean{
             return areTracksEqual(this.currentTrack, track);
         },
-        shareLinkForTrack(track: Track): string{
+        shareLinkFor(track: Track): string{
             return `/player/track/${track.filename}`;
         },
     }

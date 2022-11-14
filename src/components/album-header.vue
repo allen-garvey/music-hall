@@ -34,6 +34,23 @@
                     <td></td>
                     <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
                 </tr>
+                <tr v-if="showShareLink">
+                    <td></td>
+                    <td>
+                        <a 
+                            :class="$style.shareLink"
+                            :href="shareLinkFor(album)" 
+                            target="_blank"
+                        >
+                            <svg 
+                                :class="$style.icon"
+                                viewBox="0 0 24 24"
+                            >
+                                <use xlink:href="#icon-share" />
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
                 <tr v-if="descriptionRows.length > 0">
                     <td colspan="2">
                         <ul :class="$style.description">
@@ -99,11 +116,31 @@
         list-style-type: none;
         font-family: monospace;
         font-size: 0.8rem;
-        padding: 1em 0;
+        padding: 0 0 1em;
         margin: 0;
 
         li {
             min-height: 1em; // for empty rows for spacing purposes
+        }
+    }
+
+    .icon {
+        color: #000;
+        opacity: 0.35;
+        cursor: pointer;
+        
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .shareLink {
+        display: block;
+        width: 100%;
+        text-align: right;
+        padding: 0.5em 0 0;
+
+        svg {
+            width: 22px;
         }
     }
 
@@ -146,6 +183,10 @@ export default defineComponent({
             required: true,
             type: Boolean,
         },
+        showShareLink: {
+            required: true,
+            type: Boolean,
+        },
     },
     computed: {
         descriptionRows(): string[]{
@@ -171,6 +212,9 @@ export default defineComponent({
     methods: {
         yearDescriptionForAlbum,
         albumTime,
+        shareLinkFor(album: Album): string{
+            return `/player/album/${album.meta.slug}`;
+        },
     }
 });
 </script>

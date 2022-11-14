@@ -5,6 +5,7 @@ import Player from '../components/player.vue';
 interface PageProps {
     albums: Album[];
     shouldShowTrackShareLinks?: boolean;
+    shouldShowAlbumShareLinks?: boolean;
 };
 
 export const routes: RouteRecordRaw[] = [
@@ -16,7 +17,10 @@ export const routes: RouteRecordRaw[] = [
                 name: 'home',
                 component: Player,
                 props(): PageProps {
-                    return { albums };
+                    return { 
+                        albums,
+                        shouldShowAlbumShareLinks: true,
+                    };
                 },
             },
             {
@@ -67,7 +71,10 @@ export const routes: RouteRecordRaw[] = [
                 path: '/:pathMatch(.*)*',
                 component: Player,
                 props(): PageProps {
-                    return { albums };
+                    return { 
+                        albums,
+                        shouldShowAlbumShareLinks: true,
+                    };
                 },
             }
         ]
