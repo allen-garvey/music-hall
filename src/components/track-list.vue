@@ -1,14 +1,14 @@
 <template>
 <div>
     <div
-        v-for="(album, albumIndex) in albums" 
+        v-for="album in albums" 
         :key="album.meta.title"
         :class="$style.overallTrackContainer"
     >
         <AlbumHeader 
             :album="album"
-            :is-playing="isCurrentTrack({albumIndex, trackIndex: 0}) && isCurrentlyPlaying"
-            :play-button-clicked="() => trackButtonClicked({albumIndex, trackIndex: 0})"
+            :is-playing="isCurrentTrack(album.tracks[0]) && isCurrentlyPlaying"
+            :play-button-clicked="() => trackButtonClicked(album.tracks[0])"
         />
         <table :class="$style.table">
             <thead>
@@ -27,8 +27,8 @@
                 >
                     <td :class="$style.iconContainer">
                         <button 
-                            @click="() => trackButtonClicked({albumIndex, trackIndex})"
-                            :title="isCurrentTrack({albumIndex, trackIndex}) ? 'Pause' : 'Play'"
+                            @click="() => trackButtonClicked(track)"
+                            :title="isCurrentTrack(track) ? 'Pause' : 'Play'"
                             :class="$style.trackButton"
                         >
                             <svg 
@@ -37,7 +37,7 @@
                             >
                                 <use 
                                     xlink:href="#icon-pause"
-                                    v-if="isCurrentTrack({albumIndex, trackIndex}) && isCurrentlyPlaying" />
+                                    v-if="isCurrentTrack(track) && isCurrentlyPlaying" />
                                 <use 
                                     xlink:href="#icon-play"
                                     v-else />
@@ -140,8 +140,8 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import AlbumHeader from './album-header.vue';
-import { Album } from '../models/tracks';
-import { PlayState, TrackIndex, areTrackIndexesEqual } from '../models/media-helpers';
+import { Album, Track } from '../models/tracks';
+import { PlayState, areTracksEqual } from '../models/media-helpers';
 import { yearDescriptionForAlbum } from '../models/album-helpers';
 import { formatSeconds } from '../view-helpers/time';
 
@@ -151,12 +151,12 @@ export default defineComponent({
             required: true,
             type: Object as PropType<Array<Album>>,
         },
-        currentTrackIndex: {
-            type: Object as PropType<TrackIndex | undefined>,
+        currentTrack: {
+            type: Object as PropType<Track | undefined>,
         },
         trackButtonClicked: {
             required: true,
-            type: Function as PropType<(trackIndex: TrackIndex) => void>,
+            type: Function as PropType<(track: Track) => void>,
         },
         playState: {
             type: Number,
@@ -174,8 +174,8 @@ export default defineComponent({
     methods: {
         formatSeconds,
         yearDescriptionForAlbum,
-        isCurrentTrack(trackIndex: TrackIndex): boolean{
-            return areTrackIndexesEqual(this.currentTrackIndex, trackIndex);
+        isCurrentTrack(track: Track): boolean{
+            return areTracksEqual(this.currentTrack, track);
         },
     }
 });

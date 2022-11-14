@@ -7,18 +7,7 @@ export enum PlayState {
     IS_EMPTY = 4,
 };
 
-export interface TrackIndex {
-    albumIndex: number;
-    trackIndex: number;
-}
-
-export const areTrackIndexesEqual = (currentTrackIndex: TrackIndex | undefined, trackIndex: TrackIndex): boolean => {
-    if(currentTrackIndex === undefined){
-        return false;
-    }
-    return currentTrackIndex.albumIndex === trackIndex.albumIndex 
-        && currentTrackIndex.trackIndex === trackIndex.trackIndex;
-};
+export const areTracksEqual = (currentTrack: Track | undefined, track: Track): boolean => currentTrack?.filename === track.filename;
 
 const extensionForTrack = (isMp3: boolean, canPlayOpus: boolean): string => {
     if(canPlayOpus){

@@ -6,7 +6,7 @@
         <template v-slot="slotProps: PageSlotProps">
             <TrackList 
                 :albums="slotProps.albums"
-                :current-track-index="slotProps.currentTrackIndex"
+                :current-track="slotProps.currentTrack"
                 :track-button-clicked="slotProps.trackButtonClicked"
                 :play-state="slotProps.playState"
             />

@@ -3,7 +3,7 @@
         <h1 :class="$style.title"><slot name="title" text="Allen Garvey"></slot></h1>
         <slot 
             :albums="albums"
-            :current-track-index="currentTrackIndex"
+            :current-track="currentTrack"
             :track-button-clicked="trackButtonClicked"
             :play-state="playState"
         ></slot>
@@ -33,7 +33,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { Track, Album } from '../models/tracks';
-import { PlayState, mediaUrlForTrack, TrackIndex, areTrackIndexesEqual } from '../models/media-helpers';
+import { PlayState, mediaUrlForTrack, areTracksEqual } from '../models/media-helpers';
 import { getUserVolume, saveUserVolume } from '../models/user-settings';
 import MediaControls from './media-controls.vue';
 
@@ -54,15 +54,9 @@ export default defineComponent({
             this.playState = PlayState.IS_PLAYING;
             (this.audio as HTMLAudioElement).volume = this.volume;
         });
-        this.audio.addEventListener('ended', () => {
-            const currentTrackIndex = (this.currentTrackIndex as TrackIndex);
-            const nextTrackIndex = currentTrackIndex.trackIndex + 1;
-            
-            if(this.albums[currentTrackIndex.albumIndex].tracks.length > nextTrackIndex){
-                this.currentTrackIndex = {
-                    ...currentTrackIndex,
-                    trackIndex: nextTrackIndex,
-                };
+        this.audio.addEventListener('ended', () => {            
+            if(this.nextTrack){
+                this.currentTrack = this.nextTrack;
                 this.startAudio();
             }
             else {
@@ -78,19 +72,31 @@ export default defineComponent({
         return {
             audio: undefined as HTMLAudioElement | undefined,
             canPlayOpus: true,
-            currentTrackIndex: undefined as TrackIndex | undefined,
+            currentTrack: undefined as Track | undefined,
             playState: PlayState.IS_EMPTY,
             volume: 1,
             elapsedTime: 0,
         };
     },
     computed: {
-        currentTrack(): Track | undefined{
-            if(this.currentTrackIndex === undefined){
+        nextTrack(): Track|undefined {
+            if(!this.currentTrack){
                 return undefined;
             }
-            return this.albums[this.currentTrackIndex.albumIndex].tracks[this.currentTrackIndex.trackIndex];
-        }
+            let currentTrackIndex = 0;
+            const currentAlbum = this.albums.find(album => {
+                let found = false;
+                album.tracks.forEach((track, i) => {
+                    if(areTracksEqual(this.currentTrack, track)){
+                        currentTrackIndex = i;
+                        found = true;
+                    }
+                });
+
+                return found;
+            });
+            return currentAlbum?.tracks[currentTrackIndex + 1];
+        },
     },
     methods: {
         startAudio(){
@@ -124,8 +130,8 @@ export default defineComponent({
             (this.audio as HTMLAudioElement).volume = newVolume;
             saveUserVolume(newVolume);
         },
-        trackButtonClicked(trackIndex: TrackIndex){
-            if(areTrackIndexesEqual(this.currentTrackIndex, trackIndex)){
+        trackButtonClicked(track: Track){
+            if(areTracksEqual(this.currentTrack, track)){
                 if(this.playState === PlayState.IS_PAUSED){
                     this.restartAudio();
                 }
@@ -134,7 +140,7 @@ export default defineComponent({
                 }
                 return;
             }
-            this.currentTrackIndex = trackIndex;
+            this.currentTrack = track;
             this.startAudio();
         },
     }

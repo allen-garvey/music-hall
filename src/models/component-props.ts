@@ -1,5 +1,5 @@
-import { Album } from './tracks';
-import { TrackIndex, PlayState } from './media-helpers';
+import { Album, Track } from './tracks';
+import { PlayState } from './media-helpers';
 
 
 export interface PageTitleProps {
@@ -7,7 +7,7 @@ export interface PageTitleProps {
 }
 export interface PageSlotProps {
     albums: Album[];
-    currentTrackIndex: TrackIndex|undefined;
+    currentTrack: Track | undefined;
     playState: PlayState;
-    trackButtonClicked: (trackIndex: TrackIndex) => void;
+    trackButtonClicked: (track: Track) => void;
 };
