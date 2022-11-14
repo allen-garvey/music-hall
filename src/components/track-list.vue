@@ -92,10 +92,10 @@
         width: 6em;
     }
     .yearColumn {
-        width: 5em;
+        width: 4em;
     }
     .shareColumn {
-        width: 28px;
+        width: 40px;
     }
     .trackRow {
         td {
@@ -144,7 +144,9 @@
         }
     }
     .shareLink {
+        display: block;
         visibility: hidden;
+        padding-right: 12px;
     }
     .playIcon {
         max-height: 100%;
