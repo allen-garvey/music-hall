@@ -1,6 +1,6 @@
 <template>
     <div :class="$style.container">
-        <h1 :class="$style.title">Allen Garvey</h1>
+        <h1 :class="$style.title"><slot name="title" text="Allen Garvey"></slot></h1>
         <slot 
             :albums="albums"
             :current-track-index="currentTrackIndex"

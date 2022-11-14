@@ -16,6 +16,14 @@ img{
     max-width: 100%;
 }
 
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 button {
     background-color: transparent;
     border: none;

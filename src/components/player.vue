@@ -1,18 +1,25 @@
 <template>
-    <Page :albums="albums" v-slot="slotProps: PageSlotProps">
-        <track-list
-            :albums="slotProps.albums"
-            :current-track-index="slotProps.currentTrackIndex"
-            :track-button-clicked="slotProps.trackButtonClicked"
-            :play-state="slotProps.playState"
-        />
+    <Page :albums="albums">
+        <template v-slot:title="slotProps: PageTitleProps">
+            <router-link :to="{ name: 'home' }">
+                {{ slotProps.text }}
+            </router-link>
+        </template>
+        <template v-slot="slotProps: PageSlotProps">
+            <TrackList 
+                :albums="slotProps.albums"
+                :current-track-index="slotProps.currentTrackIndex"
+                :track-button-clicked="slotProps.trackButtonClicked"
+                :play-state="slotProps.playState"
+            />
+        </template>
     </Page>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import TrackList from './track-list.vue';
-import { PageSlotProps } from '../models/component-props';
+import { PageSlotProps, PageTitleProps } from '../models/component-props';
 import { Album } from '../models/tracks';
 import Page from './page.vue';
 
