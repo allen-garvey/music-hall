@@ -1,5 +1,10 @@
 import { RouteRecordRaw } from 'vue-router';
-import TrackList from '../components/track-list.vue';
+import { albums, Track, Album } from './tracks';
+import Player from '../components/player.vue';
+
+interface PageProps {
+    albums: Album[];
+};
 
 export const routes: RouteRecordRaw[] = [
     {
@@ -8,12 +13,42 @@ export const routes: RouteRecordRaw[] = [
             {
                 path: '',
                 name: 'home',
-                component: TrackList,
+                component: Player,
+                props(): PageProps{
+                    return { albums };
+                },
             },
             {
                 path: 'track/:filename(.*)',
                 name: 'trackShow',
-                component: TrackList,
+                component: Player,
+                props(route): PageProps{
+                    let currentTrackFilename: string | undefined = route.params.filename as string;
+                    if(!currentTrackFilename){
+                        return { albums };
+                    }
+                    currentTrackFilename = currentTrackFilename.split('/').map(path => encodeURIComponent(path)).join('/');
+                    const currentAlbum = albums.find(album => 
+                        album.tracks.reduce((isFound, track) => isFound || track.filename === currentTrackFilename, false)
+                    );
+                    if(!currentAlbum){
+                        return { albums };
+                    }
+                    const currentTracks: Track[] = (currentAlbum as Album).tracks.filter(track => track.filename === currentTrackFilename);
+
+                    if(currentTracks.length === 0){
+                        return { albums };
+                    }
+                    
+                    return {
+                        albums: [
+                            {
+                                ...currentAlbum,
+                                tracks: currentTracks,
+                            }
+                        ],
+                    }
+                },
             },
         ]
     },

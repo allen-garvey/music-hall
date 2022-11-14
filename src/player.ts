@@ -1,9 +1,9 @@
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import Player from './components/player.vue';
+import PlayerApp from './components/player-app.vue';
 import { routes } from './models/routes';
 
-const app = createApp(Player);
+const app = createApp(PlayerApp);
 const router = createRouter({routes, history: createWebHistory()});
 app.use(router);
 app.mount('#app');
