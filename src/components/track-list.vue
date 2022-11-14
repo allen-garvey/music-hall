@@ -5,7 +5,11 @@
         :key="album.meta.title"
         :class="$style.overallTrackContainer"
     >
-        <AlbumHeader :album="album" />
+        <AlbumHeader 
+            :album="album"
+            :is-playing="isCurrentTrack({albumIndex, trackIndex: 0}) && isCurrentlyPlaying"
+            :play-button-clicked="() => trackButtonClicked({albumIndex, trackIndex: 0})"
+        />
         <table :class="$style.table">
             <thead>
                 <tr>

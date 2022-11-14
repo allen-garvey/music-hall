@@ -7,6 +7,16 @@
                 :class="$style.coverImage"
                 loading="lazy"
             />
+            <div :class="$style.albumCoverOverlay" @click="playButtonClicked">
+                <svg viewBox="0 0 24 24">
+                    <use 
+                        xlink:href="#icon-pause"
+                        v-if="isPlaying" />
+                    <use 
+                        xlink:href="#icon-play"
+                        v-else />
+                </svg>
+            </div>
         </div>
         <div :class="$style.infoContainer">
             <table :class="$style.table">
@@ -39,8 +49,27 @@
         margin-bottom: 1.5rem;
         max-width: 784px;
     }
+    .albumCoverOverlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+        color: #dedede;
+        opacity: 0.7;
+        mix-blend-mode: screen;
+    }
     .imageContainer {
-        padding-left: 1rem;
+        position: relative;
+        margin-left: 1rem;
+
+        &:hover {
+            .albumCoverOverlay {
+                display: block;
+            }
+        }
     }
     .table {
         padding: 0 1rem;
@@ -103,6 +132,14 @@ export default defineComponent({
         album: {
             required: true,
             type: Object as PropType<Album>,
+        },
+        playButtonClicked: {
+            required: true,
+            type: Function as PropType<() => void>,
+        },
+        isPlaying: {
+            required: true,
+            type: Boolean,
         },
     },
     computed: {
