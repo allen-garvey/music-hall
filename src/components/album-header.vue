@@ -28,6 +28,10 @@
                 </tr>
                 <tr>
                     <td>{{ album.meta.artist }}</td>
+                    <td :class="$style.secondaryInfo">{{ albumTime(album.tracks) }}</td>
+                </tr>
+                <tr>
+                    <td></td>
                     <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
                 </tr>
                 <tr v-if="descriptionRows.length > 0">
@@ -126,6 +130,7 @@
 import { defineComponent, PropType } from 'vue';
 import { Album } from '../models/tracks';
 import { yearDescriptionForAlbum } from '../models/album-helpers';
+import { albumTime } from '../view-helpers/time';
 
 export default defineComponent({
     props: {
@@ -165,6 +170,7 @@ export default defineComponent({
     },
     methods: {
         yearDescriptionForAlbum,
+        albumTime,
     }
 });
 </script>
