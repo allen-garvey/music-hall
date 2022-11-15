@@ -13,6 +13,7 @@ module.exports = (options) => {
   };
   config.entry = {
       app: path.join(__dirname, '..', 'src', 'components', 'app.vue'),
+      routes: path.join(__dirname, '..', 'src', 'models', 'routes.ts'),
   };
   config.output = {
       path: path.join(__dirname, '..', 'dist'),
