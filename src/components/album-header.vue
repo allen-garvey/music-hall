@@ -37,10 +37,9 @@
                 <tr v-if="showShareLink">
                     <td></td>
                     <td>
-                        <a 
+                        <router-link 
+                            :to="{ name: 'albumShow', params: { slug: album.meta.slug } }"
                             :class="$style.shareLink"
-                            :href="shareLinkFor(album)" 
-                            target="_blank"
                         >
                             <svg 
                                 :class="$style.icon"
@@ -48,7 +47,7 @@
                             >
                                 <use xlink:href="#icon-share" />
                             </svg>
-                        </a>
+                        </router-link>
                     </td>
                 </tr>
                 <tr v-if="descriptionRows.length > 0">
@@ -212,9 +211,6 @@ export default defineComponent({
     methods: {
         yearDescriptionForAlbum,
         albumTime,
-        shareLinkFor(album: Album): string{
-            return `/player/album/${album.meta.slug}`;
-        },
     }
 });
 </script>

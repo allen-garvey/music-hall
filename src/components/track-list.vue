@@ -51,10 +51,9 @@
                     <td>{{ formatSeconds(track.length) }}</td>
                     <td>{{ track.year }}</td>
                     <td v-if="showShareLinks">
-                        <a 
+                        <router-link 
+                            :to="{ name: 'trackShow', params: { filename: track.filename } }"
                             :class="$style.shareLink"
-                            :href="shareLinkFor(track)" 
-                            target="_blank"
                         >
                             <svg 
                                 :class="$style.icon"
@@ -62,7 +61,7 @@
                             >
                                 <use xlink:href="#icon-share" />
                             </svg>
-                        </a>
+                        </router-link>
                     </td>
                 </tr>
             </tbody>
@@ -211,9 +210,6 @@ export default defineComponent({
         yearDescriptionForAlbum,
         isCurrentTrack(track: Track): boolean{
             return areTracksEqual(this.currentTrack, track);
-        },
-        shareLinkFor(track: Track): string{
-            return `/player/track/${track.filename}`;
         },
     }
 });
