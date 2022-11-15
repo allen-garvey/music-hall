@@ -8,21 +8,23 @@ interface PageProps {
     shouldShowAlbumShareLinks?: boolean;
 };
 
+const defaultProps = (): PageProps => {
+    return { 
+        albums,
+        shouldShowAlbumShareLinks: true,
+    };
+};
+
 export const routes: RouteRecordRaw[] = [
+    {
+        path: '',
+        name: 'home',
+        component: Player,
+        props: defaultProps,
+    },
     {
         path: '/player/',
         children: [
-            {
-                path: '',
-                name: 'home',
-                component: Player,
-                props(): PageProps {
-                    return { 
-                        albums,
-                        shouldShowAlbumShareLinks: true,
-                    };
-                },
-            },
             {
                 path: 'album/:slug',
                 name: 'albumShow',
@@ -67,16 +69,11 @@ export const routes: RouteRecordRaw[] = [
                     }
                 },
             },
-            {
-                path: '/:pathMatch(.*)*',
-                component: Player,
-                props(): PageProps {
-                    return { 
-                        albums,
-                        shouldShowAlbumShareLinks: true,
-                    };
-                },
-            }
         ]
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        component: Player,
+        props: defaultProps,
     },
 ];

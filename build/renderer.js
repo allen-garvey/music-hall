@@ -16,6 +16,9 @@ module.exports = {
     render: () => 
       Promise.all([
         fs.promises.readFile(templateFileName, 'utf-8'),
-        renderToString(app)
+        (() => {
+          router.push({name: 'home'});
+          return router.isReady().then(() => renderToString(app));
+        })(),
       ]).then(([templateHtml, appHtml]) => templateHtml.replace('<!--vue-ssr-outlet-->', appHtml))
 };
