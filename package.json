@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config ./webpack/webpack.config.js",
-    "deploy": "webpack --config ./webpack/webpack.config.js --mode production",
+    "build": "vue-tsc --noEmit && webpack --config ./webpack/webpack.config.js",
+    "deploy": "vue-tsc --noEmit && webpack --config ./webpack/webpack.config.js --mode production",
     "watch": "webpack --config ./webpack/webpack.watch.config.js --watch",
     "typecheck": "vue-tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
