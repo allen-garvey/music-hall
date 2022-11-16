@@ -1,6 +1,9 @@
 <template>
     <div :class="$style.container">
         <h1 :class="$style.title"><slot name="title" text="Allen Garvey"></slot></h1>
+        <p :class="$style.description">
+            Selected musical compositions and recordings
+        </p>
         <slot 
             :albums="albums"
             :current-track="currentTrack"
@@ -27,6 +30,11 @@
     }
     .title {
         padding: 0 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .description {
+        padding: 0 1rem;
+        margin: 0 0 2rem;
     }
 </style>
 
