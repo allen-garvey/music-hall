@@ -6,12 +6,14 @@ interface PageProps {
     albums: Album[];
     shouldShowTrackShareLinks?: boolean;
     shouldShowAlbumShareLinks?: boolean;
+    shouldLinkToHome?: boolean;
 };
 
 const defaultProps = (): PageProps => {
     return { 
         albums,
         shouldShowAlbumShareLinks: true,
+        shouldLinkToHome: true,
     };
 };
 

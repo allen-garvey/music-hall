@@ -1,7 +1,10 @@
 <template>
     <Page :albums="albums">
         <template v-slot:title="slotProps: PageTitleProps">
-            <router-link :to="{ name: 'home' }">
+            <a href="https://allengarvey.com" v-if="shouldLinkToHome">
+                {{ slotProps.text }}
+            </a>
+            <router-link :to="{ name: 'home' }" v-else>
                 {{ slotProps.text }}
             </router-link>
         </template>
@@ -40,6 +43,10 @@ export default defineComponent({
             default: true,
         },
         shouldShowAlbumShareLinks: {
+            type: Boolean,
+            default: false,
+        },
+        shouldLinkToHome: {
             type: Boolean,
             default: false,
         },
