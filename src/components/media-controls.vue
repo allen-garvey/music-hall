@@ -270,7 +270,7 @@ export default defineComponent({
     },
     methods: {
         formatSeconds,
-        progressBarUpdated(e: InputEvent){
+        progressBarUpdated(e: Event){
             clearTimeout(this.trackSeekTimeout);
             const time = parseInt((e.target as HTMLInputElement).value);
             this.trackSeekTimeout = setTimeout(() => {
