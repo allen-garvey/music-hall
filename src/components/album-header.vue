@@ -24,17 +24,17 @@
                     <td>
                         <h3 :class="$style.title">{{ album.meta.title }}</h3>
                     </td>
-                    <td :class="$style.secondaryInfo">{{ yearDescriptionForAlbum(album) }}</td>
+                    <td :class="[$style.secondaryInfo, $style.mobileHide]">{{ yearDescriptionForAlbum(album) }}</td>
                 </tr>
                 <tr>
                     <td>{{ album.meta.artist }}</td>
-                    <td :class="$style.secondaryInfo">{{ albumTime(album.tracks) }}</td>
+                    <td :class="[$style.secondaryInfo, $style.mobileHide]">{{ albumTime(album.tracks) }}</td>
                 </tr>
-                <tr>
+                <tr :class="$style.mobileHide">
                     <td></td>
                     <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
                 </tr>
-                <tr v-if="showShareLink">
+                <tr v-if="showShareLink" :class="$style.mobileHide">
                     <td></td>
                     <td>
                         <router-link 
@@ -153,10 +153,16 @@
         .infoContainer {
             flex-basis: calc(100% - #{$cover-image-width} - 1rem);
         }
+
+        .description {
+            position: relative;
+            top: -30px;
+            padding-right: 30px;
+        }
     }
 
     @media screen and (max-width: ($breakpoint - 1px)) {
-        .secondaryInfo {
+        .mobileHide {
             display: none;
         }
     }
