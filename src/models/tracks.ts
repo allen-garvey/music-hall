@@ -98,6 +98,31 @@ export const albums: Album[] = [
     },
     {
         meta: {
+            title: 'Swiss Army Band',
+            slug: 'swiss-army-band',
+            artist: Artist.allen,
+            coverImage: 'secondary-colors.webp',
+            tags: [Tag.electronic, Tag.rock, Tag.jazz, Tag.funk],
+        },
+        tracks: [
+            {
+                title: 'World of Dreams',
+                // completion_date: '2020-06-03',
+                year: 2020,
+                filename: 'swiss-army-band/world-of-dreams',
+                length: 263,
+            },
+            {
+                title: 'Like So Many Grains of Sand',
+                // completion_date: '2022-11-16',
+                year: 2015,
+                filename: 'swiss-army-band/like-so-many-grains-of-sand',
+                length: 230,
+            },
+        ],
+    },
+    {
+        meta: {
             title: 'Secondary Colors',
             slug: 'secondary-colors',
             artist: Artist.allen,
