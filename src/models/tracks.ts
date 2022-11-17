@@ -49,7 +49,7 @@ export const albums: Album[] = [
             title: 'Rise and Fall',
             slug: 'rise-and-fall',
             artist: Artist.allen,
-            coverImage: 'rise-and-fall.webp',
+            coverImage: 'rise-and-fall',
             tags: [Tag.electronic, Tag.classical],
         },
         tracks: [
@@ -101,7 +101,7 @@ export const albums: Album[] = [
             title: 'Swiss Army Band',
             slug: 'swiss-army-band',
             artist: Artist.allen,
-            coverImage: 'secondary-colors.webp',
+            coverImage: 'swiss-army-band',
             tags: [Tag.electronic, Tag.rock, Tag.jazz, Tag.funk],
         },
         tracks: [
@@ -126,7 +126,7 @@ export const albums: Album[] = [
             title: 'Secondary Colors',
             slug: 'secondary-colors',
             artist: Artist.allen,
-            coverImage: 'secondary-colors.webp',
+            coverImage: 'secondary-colors',
             tags: [Tag.electronic],
         },
         tracks: [
@@ -224,7 +224,7 @@ export const albums: Album[] = [
             title: 'nightscapes:dreamscapes',
             slug: 'nightscapes-dreamscapes',
             artist: Artist.allen,
-            coverImage: 'nightscapes-dreamscapes.webp',
+            coverImage: 'nightscapes-dreamscapes',
             tags: [Tag.ambient],
         },
         tracks: [
@@ -284,7 +284,7 @@ export const albums: Album[] = [
             title: 'Primary Colors',
             slug: 'primary-colors',
             artist: Artist.allen,
-            coverImage: 'primary-colors.webp',
+            coverImage: 'primary-colors',
             tags: [Tag.electronic],
         },
         tracks: [
@@ -454,7 +454,7 @@ export const albums: Album[] = [
             title: 'Senior Composition Recital',
             slug: 'senior-composition-recital',
             artist: Artist.allen,
-            coverImage: 'allen-garvey-senior-composition-recital.webp',
+            coverImage: 'allen-garvey-senior-composition-recital',
             tags: [Tag.classical, Tag.jazz],
         },
         tracks: [
@@ -498,7 +498,7 @@ export const albums: Album[] = [
             title: 'With the Hofstra University Jazz Ensemble',
             slug: 'with-the-hofstra-jazz-ensemble',
             artist: Artist.hofstraBigBand,
-            coverImage: 'allen-garvey-junior-composition-recital.webp',
+            coverImage: 'allen-garvey-junior-composition-recital',
             tags: [Tag.jazz],
         },
         tracks: [
@@ -524,7 +524,7 @@ export const albums: Album[] = [
             title: '5/13/09 Jam',
             slug: 'superbad-05-13-09-jam',
             artist: Artist.superbadQuintet,
-            coverImage: 'superbad-2009-05.webp',
+            coverImage: 'superbad-2009-05',
             tags: [Tag.jazz],
             description: [
                 'Trumpet: Dan Wendelken',
@@ -565,7 +565,7 @@ export const albums: Album[] = [
             title: 'The Departure of Adam Pin',
             slug: 'superbad-the-departure-of-adam-pin',
             artist: Artist.superbad,
-            coverImage: 'departure-of-adam-pin.webp',
+            coverImage: 'departure-of-adam-pin',
             tags: [Tag.jazz],
             description: [
                 'Sax: Brian Carter',
@@ -639,7 +639,7 @@ export const albums: Album[] = [
             title: '5/16/08 Jam',
             slug: 'feldergarb-5-16-08-jam',
             artist: Artist.feldergarb,
-            coverImage: 'feldergarb-trio-bridge.webp',
+            coverImage: 'feldergarb-trio-bridge',
             tags: [Tag.jazz],
             description: [
                 'Guitar: Dave Powell',
@@ -715,7 +715,7 @@ export const albums: Album[] = [
             title: '1/28/08 Jam',
             slug: 'feldergarb-w-jen-wells-1-28-08-jam',
             artist: Artist.feldergarbWJWells,
-            coverImage: 'feldergarb-trio-with-jen-wells.webp',
+            coverImage: 'feldergarb-trio-with-jen-wells',
             tags: [Tag.jazz],
             description: [
                 'Guitar: Dave Powell',
@@ -772,7 +772,7 @@ export const albums: Album[] = [
             title: '10/13/07 Jam',
             slug: 'feldergarb-10-13-07-jam',
             artist: Artist.feldergarb,
-            coverImage: 'feldergarb-trio.webp',
+            coverImage: 'feldergarb-trio',
             tags: [Tag.jazz],
             description: [
                 'Guitar: Dave Powell',
