@@ -34,7 +34,7 @@ interface AlbumMeta {
     slug: string;
     artist: Artist;
     description?: string[];
-    coverImage: string;
+    coverImage?: string;
     tags: Tag[];
 }
 
@@ -49,7 +49,6 @@ export const albums: Album[] = [
             title: 'Rise and Fall',
             slug: 'rise-and-fall',
             artist: Artist.allen,
-            coverImage: 'rise-and-fall',
             tags: [Tag.electronic, Tag.classical],
         },
         tracks: [
@@ -101,7 +100,6 @@ export const albums: Album[] = [
             title: 'Swiss Army Band',
             slug: 'swiss-army-band',
             artist: Artist.allen,
-            coverImage: 'swiss-army-band',
             tags: [Tag.electronic, Tag.rock, Tag.jazz, Tag.funk],
         },
         tracks: [
@@ -126,7 +124,6 @@ export const albums: Album[] = [
             title: 'Secondary Colors',
             slug: 'secondary-colors',
             artist: Artist.allen,
-            coverImage: 'secondary-colors',
             tags: [Tag.electronic],
         },
         tracks: [
@@ -224,7 +221,6 @@ export const albums: Album[] = [
             title: 'nightscapes:dreamscapes',
             slug: 'nightscapes-dreamscapes',
             artist: Artist.allen,
-            coverImage: 'nightscapes-dreamscapes',
             tags: [Tag.ambient],
         },
         tracks: [
@@ -284,7 +280,6 @@ export const albums: Album[] = [
             title: 'Primary Colors',
             slug: 'primary-colors',
             artist: Artist.allen,
-            coverImage: 'primary-colors',
             tags: [Tag.electronic],
         },
         tracks: [

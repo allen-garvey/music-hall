@@ -2,7 +2,7 @@
     <div :class="$style.container">
         <div :class="$style.imageContainer">
             <img 
-                :src="`/media/images/${album.meta.coverImage}.webp`" 
+                :src="`/media/images/${album.meta.coverImage || album.meta.slug}.webp`" 
                 :alt="`${album.meta.title} by ${album.meta.artist} album cover`" 
                 :class="$style.coverImage"
                 loading="lazy"
