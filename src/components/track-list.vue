@@ -27,7 +27,7 @@
                     :key="`${album.meta.title}-${track.filename}-${track.title}`"
                     :class="$style.trackRow"
                 >
-                    <td :class="$style.iconContainer">
+                    <td :class="$style.iconContainer" tabindex="0">
                         <button 
                             @click="() => trackButtonClicked(track)"
                             :title="isCurrentTrack(track) ? 'Pause' : 'Play'"
@@ -102,7 +102,7 @@
             padding: 0.75em 0.25em;
         }
 
-        &:hover {
+        &:hover, &:focus, &:focus-within {
             background-color: #bdeeff;
             .trackButton, .shareLink {
                 visibility: visible;
