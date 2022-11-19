@@ -17,7 +17,7 @@ const formatTimeDescription = (count: number, descriptor: string): string => {
 export const albumTime = (tracks: Track[]): string => {
     const totalLengthInSeconds = tracks.reduce((total, track) => total + track.length, 0);
     const hours = Math.floor(totalLengthInSeconds / 3600);
-    const minutes = Math.floor((totalLengthInSeconds - (hours * 3600)) / 60);
+    const minutes = Math.round((totalLengthInSeconds - (hours * 3600)) / 60);
 
     return [
         formatTimeDescription(hours, 'hour'),
