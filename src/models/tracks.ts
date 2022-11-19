@@ -111,6 +111,13 @@ export const albums: Album[] = [
                 length: 263,
             },
             {
+                title: 'We Are All On The Same Team',
+                // completion_date: '2022-11-19',
+                year: 2022,
+                filename: 'swiss-army-band/we-are-all-on-the-same-team',
+                length: 97,
+            },
+            {
                 title: 'Like So Many Grains of Sand',
                 // completion_date: '2022-11-16',
                 year: 2015,
