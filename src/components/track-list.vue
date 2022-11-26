@@ -7,8 +7,8 @@
     >
         <AlbumHeader 
             :album="album"
-            :is-playing="isCurrentTrack(album.tracks[0]) && isCurrentlyPlaying"
-            :play-button-clicked="() => trackButtonClicked(album.tracks[0])"
+            :is-playing="isCurrentTrack(album, 0) && isCurrentlyPlaying"
+            :play-button-clicked="() => trackButtonClicked(album, 0)"
             :show-share-link="showAlbumShareLinks"
         />
         <table :class="$style.table">
@@ -29,8 +29,8 @@
                 >
                     <td :class="$style.iconContainer" tabindex="0">
                         <button 
-                            @click="() => trackButtonClicked(track)"
-                            :title="isCurrentTrack(track) ? 'Pause' : 'Play'"
+                            @click="() => trackButtonClicked(album, trackIndex)"
+                            :title="isCurrentTrack(album, trackIndex) ? 'Pause' : 'Play'"
                             :class="$style.trackButton"
                         >
                             <svg 
@@ -39,7 +39,7 @@
                             >
                                 <use 
                                     xlink:href="#icon-pause"
-                                    v-if="isCurrentTrack(track) && isCurrentlyPlaying" />
+                                    v-if="isCurrentTrack(album, trackIndex) && isCurrentlyPlaying" />
                                 <use 
                                     xlink:href="#icon-play"
                                     v-else />
@@ -167,7 +167,7 @@
 import { defineComponent, PropType } from 'vue';
 import AlbumHeader from './album-header.vue';
 import { Album, Track } from '../models/tracks';
-import { PlayState, areTracksEqual } from '../models/media-helpers';
+import { PlayState } from '../models/media-helpers';
 import { yearDescriptionForAlbum } from '../models/album-helpers';
 import { formatSeconds } from '../view-helpers/time';
 
@@ -177,12 +177,13 @@ export default defineComponent({
             required: true,
             type: Object as PropType<Array<Album>>,
         },
-        currentTrack: {
-            type: Object as PropType<Track | undefined>,
+        isCurrentTrack: {
+            required: true,
+            type: Function as PropType<(album: Album, trackIndex: number) => boolean>,
         },
         trackButtonClicked: {
             required: true,
-            type: Function as PropType<(track: Track) => void>,
+            type: Function as PropType<(album: Album, trackIndex: number) => void>,
         },
         playState: {
             type: Number,
@@ -208,9 +209,6 @@ export default defineComponent({
     methods: {
         formatSeconds,
         yearDescriptionForAlbum,
-        isCurrentTrack(track: Track): boolean{
-            return areTracksEqual(this.currentTrack, track);
-        },
     }
 });
 </script>

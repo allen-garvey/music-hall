@@ -1,4 +1,4 @@
-import { Track } from './tracks';
+import { Album, Track } from './tracks';
 
 export enum PlayState {
     IS_LOADING = 1,
@@ -7,7 +7,7 @@ export enum PlayState {
     IS_EMPTY = 4,
 };
 
-export const areTracksEqual = (currentTrack: Track | undefined, track: Track): boolean => currentTrack?.filename === track.filename;
+export const areAlbumsEqual = (currentAlbum: Album | undefined, album: Album): boolean => currentAlbum?.meta.slug === album.meta.slug;
 
 const extensionForTrack = (isMp3: boolean, canPlayOpus: boolean): string => {
     if(canPlayOpus){

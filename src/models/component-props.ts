@@ -7,7 +7,7 @@ export interface PageTitleProps {
 }
 export interface PageSlotProps {
     albums: Album[];
-    currentTrack: Track | undefined;
+    isCurrentTrack: (album: Album, trackIndex: number) => boolean;
     playState: PlayState;
-    trackButtonClicked: (track: Track) => void;
+    trackButtonClicked: (album: Album, trackIndex: number) => void;
 };

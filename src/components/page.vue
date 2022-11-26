@@ -6,7 +6,7 @@
         </p>
         <slot 
             :albums="albums"
-            :current-track="currentTrack"
+            :is-current-track="isCurrentTrack"
             :track-button-clicked="trackButtonClicked"
             :play-state="playState"
         ></slot>
@@ -41,7 +41,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { Track, Album } from '../models/tracks';
-import { PlayState, mediaUrlForTrack, areTracksEqual } from '../models/media-helpers';
+import { PlayState, mediaUrlForTrack, areAlbumsEqual } from '../models/media-helpers';
 import { getUserVolume, saveUserVolume } from '../models/user-settings';
 import MediaControls from './media-controls.vue';
 
@@ -64,7 +64,7 @@ export default defineComponent({
         });
         this.audio.addEventListener('ended', () => {            
             if(this.nextTrack){
-                this.currentTrack = this.nextTrack;
+                this.currentTrackIndex = this.currentTrackIndex + 1;
                 this.startAudio();
             }
             else {
@@ -80,30 +80,19 @@ export default defineComponent({
         return {
             audio: undefined as HTMLAudioElement | undefined,
             canPlayOpus: true,
-            currentTrack: undefined as Track | undefined,
+            currentAlbum: undefined as Album | undefined,
+            currentTrackIndex: -1,
             playState: PlayState.IS_EMPTY,
             volume: 1,
             elapsedTime: 0,
         };
     },
     computed: {
+        currentTrack(): Track|undefined {
+            return this.currentAlbum?.tracks[this.currentTrackIndex];
+        },
         nextTrack(): Track|undefined {
-            if(!this.currentTrack){
-                return undefined;
-            }
-            let currentTrackIndex = 0;
-            const currentAlbum = this.albums.find(album => {
-                let found = false;
-                album.tracks.forEach((track, i) => {
-                    if(areTracksEqual(this.currentTrack, track)){
-                        currentTrackIndex = i;
-                        found = true;
-                    }
-                });
-
-                return found;
-            });
-            return currentAlbum?.tracks[currentTrackIndex + 1];
+            return this.currentAlbum?.tracks[this.currentTrackIndex + 1];
         },
     },
     methods: {
@@ -138,8 +127,8 @@ export default defineComponent({
             (this.audio as HTMLAudioElement).volume = newVolume;
             saveUserVolume(newVolume);
         },
-        trackButtonClicked(track: Track){
-            if(areTracksEqual(this.currentTrack, track)){
+        trackButtonClicked(album: Album, trackIndex: number){
+            if(this.isCurrentTrack(album, trackIndex)){
                 if(this.playState === PlayState.IS_PAUSED){
                     this.restartAudio();
                 }
@@ -148,8 +137,12 @@ export default defineComponent({
                 }
                 return;
             }
-            this.currentTrack = track;
+            this.currentAlbum = album;
+            this.currentTrackIndex = trackIndex;
             this.startAudio();
+        },
+        isCurrentTrack(album: Album, trackIndex: number): boolean{
+            return areAlbumsEqual(this.currentAlbum, album) && this.currentTrackIndex === trackIndex;
         },
     }
 });

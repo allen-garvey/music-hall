@@ -11,7 +11,7 @@
         <template v-slot="slotProps: PageSlotProps">
             <TrackList 
                 :albums="slotProps.albums"
-                :current-track="slotProps.currentTrack"
+                :is-current-track="slotProps.isCurrentTrack"
                 :track-button-clicked="slotProps.trackButtonClicked"
                 :play-state="slotProps.playState"
                 :show-share-links="shouldShowTrackShareLinks"
