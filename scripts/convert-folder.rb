@@ -11,7 +11,7 @@ Dir.glob("#{SRC_ROOT_DIR}/**/*").each do |file|
 
     extension = File.extname(file)
     
-    unless ['.wav', '.mp3', '.m4a'].include? extension
+    unless ['.wav', '.mp3', '.m4a', '.aif'].include? extension
         next
     end
 
@@ -31,7 +31,7 @@ Dir.glob("#{SRC_ROOT_DIR}/**/*").each do |file|
         `ffmpeg -i "#{file}" -c:a libopus -b:a #{opus_bitrate} -vbr:a on -strict -2 -y "#{filename_base_dest}.opus"`
     end
 
-    if extension === '.wav'
+    if extension === '.wav' or extension === '.aif'
         # if .wav convert to aac as fallback
         unless File.exist?("#{filename_base_dest}.m4a")
             `ffmpeg -i "#{file}" -c:a aac -b:a 196k -y "#{filename_base_dest}.m4a"`
