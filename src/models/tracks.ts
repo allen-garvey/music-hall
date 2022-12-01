@@ -120,7 +120,7 @@ export const albums: Album[] = [
             {
                 title: 'Like So Many Grains of Sand',
                 // completion_date: '2022-11-16',
-                year: 2015,
+                year: 2014,
                 filename: 'swiss-army-band/like-so-many-grains-of-sand',
                 length: 230,
             },
