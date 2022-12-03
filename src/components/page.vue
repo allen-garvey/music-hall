@@ -1,15 +1,24 @@
 <template>
     <div :class="$style.container">
-        <h1 :class="$style.title"><slot name="title" text="Allen Garvey"></slot></h1>
+        <h1 :class="$style.title">
+            <a href="https://allengarvey.com" v-if="shouldLinkToHome">
+                Allen Garvey
+            </a>
+            <router-link :to="{ name: 'home' }" v-else>
+                Allen Garvey
+            </router-link>
+        </h1>
         <p :class="$style.description">
             Selected musical compositions and recordings
         </p>
-        <slot 
+        <TrackList 
             :albums="albums"
             :is-current-track="isCurrentTrack"
             :track-button-clicked="trackButtonClicked"
             :play-state="playState"
-        ></slot>
+            :show-share-links="shouldShowTrackShareLinks"
+            :show-album-share-links="shouldShowAlbumShareLinks"
+        />
         <MediaControls 
             :current-track="currentTrack" 
             :play-state="playState" 
@@ -43,6 +52,7 @@ import { defineComponent, PropType } from 'vue';
 import { Track, Album } from '../models/tracks';
 import { PlayState, mediaUrlForTrack, areAlbumsEqual } from '../models/media-helpers';
 import { getUserVolume, saveUserVolume } from '../models/user-settings';
+import TrackList from './track-list.vue';
 import MediaControls from './media-controls.vue';
 
 export default defineComponent({
@@ -51,8 +61,21 @@ export default defineComponent({
             required: true,
             type: Object as PropType<Array<Album>>,
         },
+        shouldShowTrackShareLinks: {
+            type: Boolean,
+            default: true,
+        },
+        shouldShowAlbumShareLinks: {
+            type: Boolean,
+            default: false,
+        },
+        shouldLinkToHome: {
+            type: Boolean,
+            default: false,
+        },
     },
     components: {
+        TrackList,
         MediaControls,
     },
     mounted(){

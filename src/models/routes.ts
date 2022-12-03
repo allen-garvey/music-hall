@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import { albums, Track, Album } from './tracks';
-import Player from '../components/player.vue';
+import Page from '../components/page.vue';
 
 interface PageProps {
     albums: Album[];
@@ -21,7 +21,7 @@ export const routes: RouteRecordRaw[] = [
     {
         path: '',
         name: 'home',
-        component: Player,
+        component: Page,
         props: defaultProps,
     },
     {
@@ -30,7 +30,7 @@ export const routes: RouteRecordRaw[] = [
             {
                 path: 'album/:slug',
                 name: 'albumShow',
-                component: Player,
+                component: Page,
                 props(route): PageProps {
                     const album = albums.find(album => album.meta.slug === route.params.slug);
                     return { 
@@ -41,7 +41,7 @@ export const routes: RouteRecordRaw[] = [
             {
                 path: 'track/:filename(.*)',
                 name: 'trackShow',
-                component: Player,
+                component: Page,
                 props(route): PageProps {
                     let currentTrackFilename: string | undefined = route.params.filename as string;
                     if(!currentTrackFilename){
@@ -75,7 +75,7 @@ export const routes: RouteRecordRaw[] = [
     },
     {
         path: '/:pathMatch(.*)*',
-        component: Player,
+        component: Page,
         props: defaultProps,
     },
 ];
