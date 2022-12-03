@@ -13,9 +13,10 @@
         </p>
         <TrackList 
             :albums="albums"
-            :is-current-track="isCurrentTrack"
+            :is-track-playing="isTrackPlaying"
+            :is-album-playing="isAlbumPlaying"
             :track-button-clicked="trackButtonClicked"
-            :play-state="playState"
+            :album-play-button-clicked="albumPlayButtonClicked"
             :show-share-links="shouldShowTrackShareLinks"
             :show-album-share-links="shouldShowAlbumShareLinks"
         />
@@ -117,6 +118,9 @@ export default defineComponent({
         nextTrack(): Track|undefined {
             return this.currentAlbum?.tracks[this.currentTrackIndex + 1];
         },
+        isCurrentlyPlaying(): boolean {
+            return this.playState === PlayState.IS_PLAYING || this.playState === PlayState.IS_LOADING;
+        }
     },
     methods: {
         startAudio(){
@@ -166,6 +170,20 @@ export default defineComponent({
         },
         isCurrentTrack(album: Album, trackIndex: number): boolean{
             return areAlbumsEqual(this.currentAlbum, album) && this.currentTrackIndex === trackIndex;
+        },
+        isTrackPlaying(album: Album, trackIndex: number): boolean{
+            return this.isCurrentTrack(album, trackIndex) && this.isCurrentlyPlaying;
+        },
+        isAlbumPlaying(album: Album): boolean{
+            return areAlbumsEqual(this.currentAlbum, album) && this.isCurrentlyPlaying;
+        },
+        albumPlayButtonClicked(album: Album){
+            if(areAlbumsEqual(this.currentAlbum, album)){
+                this.trackButtonClicked(album, this.currentTrackIndex);
+            }
+            else {
+                this.trackButtonClicked(album, 0);
+            }
         },
     }
 });

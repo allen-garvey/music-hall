@@ -7,8 +7,8 @@
     >
         <AlbumHeader 
             :album="album"
-            :is-playing="isCurrentTrack(album, 0) && isCurrentlyPlaying"
-            :play-button-clicked="() => trackButtonClicked(album, 0)"
+            :is-playing="isAlbumPlaying(album)"
+            :play-button-clicked="() => albumPlayButtonClicked(album)"
             :show-share-link="showAlbumShareLinks"
         />
         <table :class="$style.table">
@@ -30,7 +30,7 @@
                     <td :class="$style.iconContainer" tabindex="0">
                         <button 
                             @click="() => trackButtonClicked(album, trackIndex)"
-                            :title="isCurrentTrack(album, trackIndex) ? 'Pause' : 'Play'"
+                            :title="isTrackPlaying(album, trackIndex) ? 'Pause' : 'Play'"
                             :class="$style.trackButton"
                         >
                             <svg 
@@ -39,7 +39,7 @@
                             >
                                 <use 
                                     xlink:href="#icon-pause"
-                                    v-if="isCurrentTrack(album, trackIndex) && isCurrentlyPlaying" />
+                                    v-if="isTrackPlaying(album, trackIndex)" />
                                 <use 
                                     xlink:href="#icon-play"
                                     v-else />
@@ -166,8 +166,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import AlbumHeader from './album-header.vue';
-import { Album, Track } from '../models/tracks';
-import { PlayState } from '../models/media-helpers';
+import { Album } from '../models/tracks';
 import { yearDescriptionForAlbum } from '../models/album-helpers';
 import { formatSeconds } from '../view-helpers/time';
 
@@ -177,17 +176,21 @@ export default defineComponent({
             required: true,
             type: Object as PropType<Array<Album>>,
         },
-        isCurrentTrack: {
+        isTrackPlaying: {
             required: true,
             type: Function as PropType<(album: Album, trackIndex: number) => boolean>,
+        },
+        isAlbumPlaying: {
+            required: true,
+            type: Function as PropType<(album: Album) => boolean>,
         },
         trackButtonClicked: {
             required: true,
             type: Function as PropType<(album: Album, trackIndex: number) => void>,
         },
-        playState: {
-            type: Number,
+        albumPlayButtonClicked: {
             required: true,
+            type: Function as PropType<(album: Album) => void>,
         },
         showShareLinks: {
             type: Boolean,
@@ -200,11 +203,6 @@ export default defineComponent({
     },
     components: {
         AlbumHeader,
-    },
-    computed: {
-        isCurrentlyPlaying(): boolean{
-            return this.playState === PlayState.IS_PLAYING || this.playState === PlayState.IS_LOADING;
-        },
     },
     methods: {
         formatSeconds,
