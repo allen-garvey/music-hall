@@ -13,10 +13,7 @@ const extensionForTrack = (isMp3: boolean, canPlayOpus: boolean): string => {
     if(canPlayOpus){
         return 'opus';
     }
-    if(isMp3){
-        return 'mp3';
-    }
-    return 'm4a';
+    return isMp3 ? 'mp3' : 'm4a';
 };
 
 export const mediaUrlForTrack = (track: Track, canPlayOpus: boolean): string => {
