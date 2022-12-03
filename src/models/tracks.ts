@@ -64,7 +64,7 @@ export const albums: Album[] = [
                 // completion_date: '2022-07-02',
                 year: 2015,
                 filename: 'rise-and-fall/a-new-world',
-                length: 211,
+                length: 206,
             },
             {
                 title: 'Stirrings of Catharsis',
