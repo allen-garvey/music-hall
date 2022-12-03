@@ -351,8 +351,7 @@ export const albums: Album[] = [
                 title: 'Return of the ___',
                 // completion_date: '2013-10-25',
                 year: 2013,
-                filename: 'primary-colors/Return%20of%20the ___',
-                isMp3: true,
+                filename: 'primary-colors/return-of-the-___',
                 length: 155,
             },
             {
@@ -388,8 +387,7 @@ export const albums: Album[] = [
                 title: 'Interstellar Funk',
                 // completion_date: '2013-10-25',
                 year: 2013,
-                filename: 'primary-colors/Interstellar%20Funk',
-                isMp3: true,
+                filename: 'primary-colors/interstellar-funk',
                 length: 226,
             },
             {
