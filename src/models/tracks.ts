@@ -118,6 +118,13 @@ export const albums: Album[] = [
                 length: 97,
             },
             {
+                title: 'Ataxite',
+                // completion_date: '2023-01-30',
+                year: 2023,
+                filename: 'swiss-army-band/ataxite',
+                length: 136,
+            },
+            {
                 title: 'Like So Many Grains of Sand',
                 // completion_date: '2022-11-16',
                 year: 2014,
