@@ -142,6 +142,13 @@ export const albums: Album[] = [
         },
         tracks: [
             {
+                title: 'Welcome to the Antechamber',
+                // completion_date: '2023-02-07',
+                year: 2023,
+                filename: 'secondary-colors/welcome-to-the-antechamber',
+                length: 128,
+            },
+            {
                 title: 'Acid Confusion',
                 // completion_date: '2022-10-20',
                 year: 2022,
