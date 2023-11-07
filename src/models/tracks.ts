@@ -53,6 +53,13 @@ export const albums: Album[] = [
         },
         tracks: [
             {
+                title: 'Thought of Canada',
+                // completion_date: '2023-11-06',
+                year: 2023,
+                filename: 'rise-and-fall/thoughts-of-canada',
+                length: 184,
+            },
+            {
                 title: 'Adieu',
                 // completion_date: '2020-06-25',
                 year: 2020,
