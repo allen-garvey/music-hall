@@ -53,7 +53,7 @@ export const albums: Album[] = [
         },
         tracks: [
             {
-                title: 'Thought of Canada',
+                title: 'Thoughts of Canada',
                 // completion_date: '2023-11-06',
                 year: 2023,
                 filename: 'rise-and-fall/thoughts-of-canada',
