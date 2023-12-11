@@ -274,6 +274,13 @@ export const albums: Album[] = [
                 length: 281,
             },
             {
+                title: 'Quest for Solitude',
+                // completion_date: '2023-12-10',
+                year: 2023,
+                filename: 'nightscapes-dreamscapes/quest-for-solitude',
+                length: 78,
+            },
+            {
                 title: 'Crystal Remembrances',
                 // completion_date: '2021-03-20',
                 year: 2021,
