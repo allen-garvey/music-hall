@@ -21,6 +21,10 @@ Web app to explore an artist's albums and music tracks, built with Vue, using se
 
 * `npm run deploy`
 
+## How to convert master wav files
+
+* `ruby scripts/convert-folder.rb` (Update paths inside convert-folder.rb as necessary)
+
 ## Attribution
 
 Icons are from [Feather Icons](https://feathericons.com/)
