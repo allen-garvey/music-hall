@@ -99,6 +99,13 @@ $breakpoint: 600px;
     }
 }
 
+@media (prefers-color-scheme: dark) {
+    .container {
+        background-color: #22234b;
+        background-color: #111840;
+    }
+}
+
 .innerContainer {
     display: flex;
     align-items: center;

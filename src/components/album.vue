@@ -111,6 +111,7 @@
         .trackRow {
             &:hover, &:focus, &:focus-within {
                 color: #000;
+                background-color: #cee6ff;
             }
         }
     }
