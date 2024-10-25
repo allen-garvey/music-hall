@@ -23,7 +23,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <h3 :class="$style.title">{{ album.meta.title }}</h3>
+                            <h3>{{ album.meta.title }}</h3>
                         </td>
                         <td :class="[$style.secondaryInfo, $style.mobileHide]">{{ yearDescriptionForAlbum(album) }}</td>
                     </tr>
@@ -100,9 +100,6 @@
         td {
             height: 1em;
         }
-    }
-    .title {
-        margin: 0;
     }
     .secondaryInfo {
         opacity: 0.5;
