@@ -1,72 +1,66 @@
 <template>
-<div>
-    <div
-        v-for="album in albums" 
-        :key="album.meta.title"
-        :class="$style.overallTrackContainer"
-    >
-        <AlbumHeader 
-            :album="album"
-            :is-playing="isAlbumPlaying(album)"
-            :play-button-clicked="() => albumPlayButtonClicked(album)"
-            :show-share-link="showAlbumShareLinks"
-        />
-        <table :class="$style.table">
-            <thead>
-                <tr>
-                    <th :class="$style.playButtonColumn"></th>
-                    <th :class="$style.titleColumn">Title</th>
-                    <th :class="$style.timeColumn">Time</th>
-                    <th :class="$style.yearColumn">Year</th>
-                    <th :class="$style.shareColumn" v-if="showShareLinks"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr 
-                    v-for="(track, trackIndex) in album.tracks" 
-                    :key="`${album.meta.title}-${track.filename}-${track.title}`"
-                    :class="$style.trackRow"
-                >
-                    <td :class="$style.iconContainer" tabindex="0">
-                        <button 
-                            @click="() => trackButtonClicked(album, trackIndex)"
-                            :title="isTrackPlaying(album, trackIndex) ? 'Pause' : 'Play'"
-                            :class="$style.trackButton"
+<div :class="$style.overallTrackContainer">
+    <AlbumHeader 
+        :album="album"
+        :is-playing="isAlbumPlaying(album)"
+        :play-button-clicked="() => albumPlayButtonClicked(album)"
+        :show-share-link="showAlbumShareLinks"
+    />
+    <table :class="$style.table">
+        <thead>
+            <tr>
+                <th :class="$style.playButtonColumn"></th>
+                <th :class="$style.titleColumn">Title</th>
+                <th :class="$style.timeColumn">Time</th>
+                <th :class="$style.yearColumn">Year</th>
+                <th :class="$style.shareColumn" v-if="showShareLinks"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr 
+                v-for="(track, trackIndex) in album.tracks" 
+                :key="`${album.meta.title}-${track.filename}-${track.title}`"
+                :class="$style.trackRow"
+            >
+                <td :class="$style.iconContainer" tabindex="0">
+                    <button 
+                        @click="() => trackButtonClicked(album, trackIndex)"
+                        :title="isTrackPlaying(album, trackIndex) ? 'Pause' : 'Play'"
+                        :class="$style.trackButton"
+                    >
+                        <svg 
+                            :class="[$style.icon, $style.playIcon]"
+                            viewBox="0 0 24 24"
                         >
-                            <svg 
-                                :class="[$style.icon, $style.playIcon]"
-                                viewBox="0 0 24 24"
-                            >
-                                <use 
-                                    xlink:href="#icon-pause"
-                                    v-if="isTrackPlaying(album, trackIndex)" />
-                                <use 
-                                    xlink:href="#icon-play"
-                                    v-else />
-                            </svg>
-                        </button>
-                        <span :class="$style.trackNumber">{{ trackIndex + 1 }}</span>
-                    </td>
-                    <td>{{ track.title }}</td>
-                    <td>{{ formatSeconds(track.length) }}</td>
-                    <td>{{ track.year }}</td>
-                    <td v-if="showShareLinks">
-                        <router-link 
-                            :to="{ name: 'trackShow', params: { filename: track.filename } }"
-                            :class="$style.shareLink"
+                            <use 
+                                xlink:href="#icon-pause"
+                                v-if="isTrackPlaying(album, trackIndex)" />
+                            <use 
+                                xlink:href="#icon-play"
+                                v-else />
+                        </svg>
+                    </button>
+                    <span :class="$style.trackNumber">{{ trackIndex + 1 }}</span>
+                </td>
+                <td>{{ track.title }}</td>
+                <td>{{ formatSeconds(track.length) }}</td>
+                <td>{{ track.year }}</td>
+                <td v-if="showShareLinks">
+                    <router-link 
+                        :to="{ name: 'trackShow', params: { filename: track.filename } }"
+                        :class="$style.shareLink"
+                    >
+                        <svg 
+                            :class="$style.icon"
+                            viewBox="0 0 24 24"
                         >
-                            <svg 
-                                :class="$style.icon"
-                                viewBox="0 0 24 24"
-                            >
-                                <use xlink:href="#icon-share" />
-                            </svg>
-                        </router-link>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                            <use xlink:href="#icon-share" />
+                        </svg>
+                    </router-link>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 </template>
 
@@ -172,9 +166,9 @@ import { formatSeconds } from '../view-helpers/time';
 
 export default defineComponent({
     props: {
-        albums: {
+        album: {
             required: true,
-            type: Object as PropType<Array<Album>>,
+            type: Object as PropType<Album>,
         },
         isTrackPlaying: {
             required: true,

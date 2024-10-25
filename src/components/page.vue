@@ -11,8 +11,10 @@
         <p :class="$style.description">
             Selected musical compositions and recordings
         </p>
-        <TrackList 
-            :albums="albums"
+        <AlbumComponent 
+            v-for="album in albums" 
+            :key="album.meta.title"
+            :album="album"
             :is-track-playing="isTrackPlaying"
             :is-album-playing="isAlbumPlaying"
             :track-button-clicked="trackButtonClicked"
@@ -53,7 +55,7 @@ import { defineComponent, PropType } from 'vue';
 import { Track, Album } from '../models/tracks';
 import { PlayState, mediaUrlForTrack, areAlbumsEqual } from '../models/media-helpers';
 import { getUserVolume, saveUserVolume } from '../models/user-settings';
-import TrackList from './track-list.vue';
+import AlbumComponent from './album.vue';
 import MediaControls from './media-controls.vue';
 
 export default defineComponent({
@@ -76,7 +78,7 @@ export default defineComponent({
         },
     },
     components: {
-        TrackList,
+        AlbumComponent,
         MediaControls,
     },
     mounted(){
