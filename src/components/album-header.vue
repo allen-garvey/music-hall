@@ -20,43 +20,45 @@
         </div>
         <div :class="$style.infoContainer">
             <table :class="$style.table">
-                <tr>
-                    <td>
-                        <h3 :class="$style.title">{{ album.meta.title }}</h3>
-                    </td>
-                    <td :class="[$style.secondaryInfo, $style.mobileHide]">{{ yearDescriptionForAlbum(album) }}</td>
-                </tr>
-                <tr>
-                    <td>{{ album.meta.artist }}</td>
-                    <td :class="[$style.secondaryInfo, $style.mobileHide]">{{ albumTime(album.tracks) }}</td>
-                </tr>
-                <tr :class="$style.mobileHide">
-                    <td></td>
-                    <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
-                </tr>
-                <tr v-if="showShareLink" :class="$style.mobileHide">
-                    <td></td>
-                    <td>
-                        <router-link 
-                            :to="{ name: 'albumShow', params: { slug: album.meta.slug } }"
-                            :class="$style.shareLink"
-                        >
-                            <svg 
-                                :class="$style.icon"
-                                viewBox="0 0 24 24"
+                <tbody>
+                    <tr>
+                        <td>
+                            <h3 :class="$style.title">{{ album.meta.title }}</h3>
+                        </td>
+                        <td :class="[$style.secondaryInfo, $style.mobileHide]">{{ yearDescriptionForAlbum(album) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ album.meta.artist }}</td>
+                        <td :class="[$style.secondaryInfo, $style.mobileHide]">{{ albumTime(album.tracks) }}</td>
+                    </tr>
+                    <tr :class="$style.mobileHide">
+                        <td></td>
+                        <td :class="$style.secondaryInfo">{{ album.meta.tags.join(', ') }}</td>
+                    </tr>
+                    <tr v-if="showShareLink" :class="$style.mobileHide">
+                        <td></td>
+                        <td>
+                            <router-link 
+                                :to="{ name: 'albumShow', params: { slug: album.meta.slug } }"
+                                :class="$style.shareLink"
                             >
-                                <use xlink:href="#icon-share" />
-                            </svg>
-                        </router-link>
-                    </td>
-                </tr>
-                <tr v-if="descriptionRows.length > 0">
-                    <td colspan="2">
-                        <ul :class="$style.description">
-                            <li v-for="row in descriptionRows">{{ row }}</li>
-                        </ul>
-                    </td>
-                </tr>
+                                <svg 
+                                    :class="$style.icon"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <use xlink:href="#icon-share" />
+                                </svg>
+                            </router-link>
+                        </td>
+                    </tr>
+                    <tr v-if="descriptionRows.length > 0">
+                        <td colspan="2">
+                            <ul :class="$style.description">
+                                <li v-for="row in descriptionRows">{{ row }}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
