@@ -107,6 +107,14 @@
         }
     }
 
+    @media (prefers-color-scheme: dark) {
+        .trackRow {
+            &:hover, &:focus, &:focus-within {
+                color: #000;
+            }
+        }
+    }
+
     $icon-controls-dimensions: 40px;
     .iconContainer {
         display: inline-block;
