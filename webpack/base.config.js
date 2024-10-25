@@ -2,14 +2,14 @@ const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-function buildConfig({ skipTypecheck }){
+function buildConfig({ skipTypecheck }) {
     return {
         mode: 'development',
         module: {
             rules: [
                 {
                     test: /\.vue$/,
-                    loader: 'vue-loader'
+                    loader: 'vue-loader',
                 },
                 {
                     test: /\.scss$/,
@@ -26,14 +26,15 @@ function buildConfig({ skipTypecheck }){
                                     options: {
                                         esModule: false,
                                         modules: {
-                                            localIdentName: '[local]_[hash:base64:8]',
+                                            localIdentName:
+                                                '[local]_[hash:base64:8]',
                                         },
-                                    }
+                                    },
                                 },
                                 {
                                     loader: 'sass-loader',
                                 },
-                            ]
+                            ],
                         },
                         {
                             use: [
@@ -42,7 +43,7 @@ function buildConfig({ skipTypecheck }){
                                 },
                                 'css-loader',
                                 'sass-loader',
-                            ]
+                            ],
                         },
                     ],
                 },
@@ -55,7 +56,7 @@ function buildConfig({ skipTypecheck }){
                         transpileOnly: skipTypecheck,
                     },
                 },
-            ]
+            ],
         },
         resolve: {
             extensions: ['.ts', '.js', '.vue', '.json'],
@@ -66,6 +67,7 @@ function buildConfig({ skipTypecheck }){
             new webpack.DefinePlugin({
                 __VUE_OPTIONS_API__: true,
                 __VUE_PROD_DEVTOOLS__: false,
+                __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: true,
             }),
         ],
     };
