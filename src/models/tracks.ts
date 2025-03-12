@@ -23,7 +23,7 @@ enum Artist {
 export interface Track {
     title: string;
     year: number;
-    length: number; // length in seconds
+    length: number; // length in seconds, rounded down to the nearest second
     filename: string;
     description?: string;
     isMp3?: boolean;
@@ -100,6 +100,13 @@ export const albums: Album[] = [
                 filename: 'rise-and-fall/a-dance-of-love-and-death',
                 length: 371,
             },
+            {
+                title: 'A Visit to the Barony',
+                // completion_date: '2025-02-20',
+                year: 2025,
+                filename: 'rise-and-fall/a-visit-to-the-barony',
+                length: 122,
+            },
         ],
     },
     {
@@ -148,6 +155,13 @@ export const albums: Album[] = [
             tags: [Tag.electronic],
         },
         tracks: [
+            {
+                title: 'Night in the Arcade',
+                // completion_date: '2025-01-29',
+                year: 2025,
+                filename: 'secondary-colors/night-in-the-arcade',
+                length: 146,
+            },
             {
                 title: 'Welcome to the Antechamber',
                 // completion_date: '2023-02-07',
