@@ -40,3 +40,5 @@ public_html/media/music/*
 
 #Elixir phoenix dialyzer
 .elixir_ls/*
+music
+music/*

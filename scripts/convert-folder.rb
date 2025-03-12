@@ -1,7 +1,7 @@
 require 'pathname'
 
 # Open src folder and get list of music files
-SRC_ROOT_DIR = '/media/allen/Mx-data-2/allen/Music/Music-Hall/music'
+SRC_ROOT_DIR = File.expand_path(File.join(__dir__, '../music'))
 DEST_ROOT_DIR = File.expand_path(File.join(__dir__, '../public_html/media/music'))
 
 Dir.glob("#{SRC_ROOT_DIR}/**/*").each do |file|
