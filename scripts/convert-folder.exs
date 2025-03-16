@@ -63,12 +63,9 @@ defmodule ConvertFolder do
     # get unique target folders to create, and create with mkdir_p
     target_directories_to_create =
       Enum.map(source_files, fn source_file -> source_file.targets end)
-      |> Enum.flat_map(fn targets ->
-        Enum.map(targets, fn target -> Path.dirname(target) |> Path.relative_to(target_dir()) end)
-      end)
+      |> Enum.flat_map(fn targets -> Enum.map(targets, &Path.dirname/1) end)
       |> MapSet.new()
       |> MapSet.to_list()
-      |> Enum.map(fn path -> Path.join(target_dir(), path) end)
       |> Enum.filter(fn path -> !File.exists?(path) end)
 
     target_directories_to_create_count = Enum.count(target_directories_to_create)
