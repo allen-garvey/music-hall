@@ -43,8 +43,60 @@ defmodule ConvertFolder do
           ["#{relative_path_without_extension}.mp3"]
       end
       |> Enum.filter(fn name -> !MapSet.member?(target_files_set, name) end)
+      |> Enum.map(fn path -> Path.join(target_dir(), path) end)
 
     %SourceFile{path: path, targets: targets}
+  end
+
+  defp convert_audio_file(source, destination, ".opus") do
+    opus_bitrate =
+      case Path.extname(source) do
+        ".wav" -> "128k"
+        ".aif" -> "128k"
+        _ -> "96k"
+      end
+
+    System.cmd("ffmpeg", [
+      "-i",
+      source,
+      "-c:a",
+      "libopus",
+      "-b:a",
+      opus_bitrate,
+      "-vbr:a",
+      "on",
+      "-strict",
+      "-2",
+      "-y",
+      destination
+    ])
+  end
+
+  defp convert_audio_file(source, destination, ".m4a") do
+    System.cmd("ffmpeg", [
+      "-i",
+      source,
+      "-c:a",
+      "aac",
+      "-b:a",
+      "196k",
+      "-y",
+      destination
+    ])
+  end
+
+  defp convert_source_file(%SourceFile{} = source_file) do
+    for target <- source_file.targets do
+      case Path.extname(source_file.path) == Path.extname(target) do
+        true ->
+          IO.puts("Copying #{source_file.path} to #{target}")
+          File.cp!(source_file.path, target)
+
+        false ->
+          IO.puts("Converting #{source_file.path} to #{target}")
+          convert_audio_file(source_file.path, target, Path.extname(target))
+      end
+    end
   end
 
   def main do
@@ -77,11 +129,10 @@ defmodule ConvertFolder do
     end
 
     source_files_count = Enum.count(source_files)
-    # IO.inspect(source_files)
     IO.puts("\n#{source_files_count} files to convert")
 
-    # https://hexdocs.pm/elixir/1.12/Task.html#async_stream/5
-    # convert with Task.async_stream |> Enum.to_list()
+    Task.async_stream(source_files, &convert_source_file/1, timeout: :infinity)
+    |> Stream.run()
   end
 end
 

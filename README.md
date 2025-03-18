@@ -8,7 +8,7 @@ Web app to explore an artist's albums and music tracks, built with Vue, using se
 
 ### Script dependencies
 
-* Ruby
+* elixir
 * ffmpeg
 
 ## Getting Started
@@ -29,7 +29,7 @@ Web app to explore an artist's albums and music tracks, built with Vue, using se
 ## How to convert master wav files
 
 * Add link to master wav files `ln -s /path/to/wavs music`
-* `ruby scripts/convert-folder.rb` 
+* `time elixir scripts/convert-masters.exs` 
 
 ## Attribution
 
