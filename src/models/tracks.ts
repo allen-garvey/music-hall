@@ -481,14 +481,6 @@ export const albums: Album[] = [
                 filename: 'primary-colors/graduation',
                 length: 282,
             },
-            // {
-            //     // TODO master and length
-            //     title: 'Like So Many Grains of Sand',
-            //     // completion_date: '2014-03-18',
-            //     year: 2014,
-            //     filename: 'primary-colors/like-so-many-grains-of-sand',
-            //     length: 1,
-            // },
         ],
     },
     {
