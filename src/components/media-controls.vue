@@ -1,81 +1,76 @@
 <template>
-<div :class="$style.container">
-    <template v-if="currentTrack">
-        <div :class="$style.progressBarContainer">
-            <input 
-                type="range" 
-                min="0" 
-                :max="(currentTrack as Track).length" 
-                step="1" 
-                :value="elapsedTime"
-                @input="progressBarUpdated"
-            />
-        </div>
-        <div :class="$style.mobileTitle">
-            <span>{{ currentTrack?.title }}</span>
-            <span :class="$style.time">
-                {{ formatSeconds(elapsedTime) }} - {{ formatSeconds((currentTrack as Track).length) }}
-            </span>
-        </div>
-        <div :class="$style.innerContainer">
-            <div
-                :class="$style.buttonContainer"
-                v-if="hasAudio"
-            >
-                <button @click="buttonClicked()" tabindex="1">
-                    <svg 
-                        :class="$style.icon"
-                        viewBox="0 0 24 24"
-                    >
-                        <use 
-                            xlink:href="#icon-play"
-                            v-if="isPaused" />
-                        <use 
-                            xlink:href="#icon-pause"
-                            v-if="isPlaying" />
-                    </svg>
-                </button>
-            </div>
-            <div :class="$style.desktopTitle">
-                {{ currentTrack?.title }}
-            </div>
-            <div :class="$style.desktopTitle">
-                {{ formatSeconds(elapsedTime) }} - {{ formatSeconds((currentTrack as Track).length) }}
-            </div>
-            <div :class="$style.volumeContainer" v-show="!isAudioEmpty">
-                <svg 
-                    :class="$style.volumeIcon"
-                    viewBox="0 0 24 24"
-                >
-                    <use 
-                        xlink:href="#icon-volume-x"
-                        v-if="audioVolume === 0" />
-                    <use 
-                        xlink:href="#icon-volume-1"
-                        v-else-if="audioVolume <= 0.6" />
-                    <use 
-                        xlink:href="#icon-volume-2"
-                        v-else />
-                </svg>
-                <input 
-                    tabindex="2"
+    <div :class="$style.container">
+        <template v-if="currentTrack">
+            <div :class="$style.progressBarContainer">
+                <input
                     type="range"
                     min="0"
-                    max="1"
-                    :value="audioVolume"
-                    step="0.05"
-                    :class="$style.volumeInput"
-                    @input="volumeChanged(parseFloat(($event.target as HTMLInputElement).value))"
+                    :max="(currentTrack as Track).length"
+                    step="1"
+                    :value="elapsedTime"
+                    @input="progressBarUpdated"
                 />
             </div>
-        </div>
-    </template>
-</div>
+            <div :class="$style.innerContainer">
+                <div :class="$style.titleContainer">
+                    <span>
+                        {{ currentTrack?.title }}
+                    </span>
+                    <span>
+                        {{ formatSeconds(elapsedTime) }} -
+                        {{ formatSeconds((currentTrack as Track).length) }}
+                    </span>
+                </div>
+                <div :class="$style.controlsContainer">
+                    <div :class="$style.buttonContainer" v-if="hasAudio">
+                        <button @click="buttonClicked()" tabindex="1">
+                            <svg :class="$style.icon" viewBox="0 0 24 24">
+                                <use xlink:href="#icon-play" v-if="isPaused" />
+                                <use
+                                    xlink:href="#icon-pause"
+                                    v-if="isPlaying"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div :class="$style.volumeContainer" v-show="!isAudioEmpty">
+                        <svg :class="$style.volumeIcon" viewBox="0 0 24 24">
+                            <use
+                                xlink:href="#icon-volume-x"
+                                v-if="audioVolume === 0"
+                            />
+                            <use
+                                xlink:href="#icon-volume-1"
+                                v-else-if="audioVolume <= 0.6"
+                            />
+                            <use xlink:href="#icon-volume-2" v-else />
+                        </svg>
+                        <input
+                            tabindex="2"
+                            type="range"
+                            min="0"
+                            max="1"
+                            :value="audioVolume"
+                            step="0.05"
+                            :class="$style.volumeInput"
+                            @input="
+                                volumeChanged(
+                                    parseFloat(
+                                        ($event.target as HTMLInputElement)
+                                            .value
+                                    )
+                                )
+                            "
+                        />
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
 </template>
-    
+
 <style lang="scss" module>
 $icon-controls-dimensions: 50px;
-$breakpoint: 600px;
 
 .container {
     position: fixed;
@@ -83,7 +78,7 @@ $breakpoint: 600px;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 90px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,9 +87,9 @@ $breakpoint: 600px;
     color: #fff;
     text-align: center;
     box-shadow: 0 -5px 15px rgba(84, 22, 8, 0.2);
-    padding: 0.5rem 0 0;
+    padding: 1rem;
 
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (max-width: 600px) {
         height: 104px;
     }
 }
@@ -109,22 +104,21 @@ $breakpoint: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
 }
 
-.mobileTitle {
-    margin: 0 0 0.75rem;
-    
-    @media screen and (min-width: $breakpoint) {
-        display: none;
-    }
+.titleContainer {
+    display: flex;
+    gap: 0.5em 1em;
+    flex-wrap: wrap;
 }
 
-.desktopTitle {
-    margin-left: 1em;
-    
-    @media screen and (max-width: $breakpoint) {
-        display: none;
-    }
+.controlsContainer {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-self: center;
 }
 
 .time {
@@ -135,8 +129,8 @@ $breakpoint: 600px;
     width: calc(100% - 20px);
     position: absolute;
     top: -6px;
-    
-    input[type="range"] {
+
+    input[type='range'] {
         width: 100%;
     }
 }
@@ -153,7 +147,7 @@ $breakpoint: 600px;
     max-height: 100%;
     width: $icon-controls-dimensions;
     cursor: pointer;
-    
+
     &:hover {
         color: #888;
     }
@@ -162,7 +156,6 @@ $breakpoint: 600px;
 .volumeContainer {
     display: flex;
     align-items: center;
-    margin-left: 40px;
 }
 
 .volumeIcon {
@@ -191,7 +184,7 @@ $volume-slider-range-color: #dbd9d6;
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        
+
         width: $volume-slider-handle-dimensions;
         height: $volume-slider-handle-dimensions;
         border-radius: $volume-slider-handle-border-radius;
@@ -209,10 +202,10 @@ $volume-slider-range-color: #dbd9d6;
 
     &::-moz-range-progress {
         height: 100%;
-        background-color: $volume-slider-progress-color; 
+        background-color: $volume-slider-progress-color;
     }
 
-    &::-moz-range-track {  
+    &::-moz-range-track {
         height: 100%;
         background-color: $volume-slider-range-color;
     }
@@ -255,34 +248,37 @@ export default defineComponent({
             required: true,
         },
     },
-    data(){
+    data() {
         return {
             trackSeekTimeout: undefined as NodeJS.Timeout | undefined,
         };
     },
     computed: {
-        isAudioEmpty(){
+        isAudioEmpty() {
             return this.playState === PlayState.IS_EMPTY;
         },
-        hasAudio(){
-            return this.playState !== PlayState.IS_EMPTY && this.playState !== PlayState.IS_LOADING;
+        hasAudio() {
+            return (
+                this.playState !== PlayState.IS_EMPTY &&
+                this.playState !== PlayState.IS_LOADING
+            );
         },
-        isPlaying(){
+        isPlaying() {
             return this.playState === PlayState.IS_PLAYING;
         },
-        isPaused(){
+        isPaused() {
             return this.playState === PlayState.IS_PAUSED;
         },
     },
     methods: {
         formatSeconds,
-        progressBarUpdated(e: Event){
+        progressBarUpdated(e: Event) {
             clearTimeout(this.trackSeekTimeout);
             const time = parseInt((e.target as HTMLInputElement).value);
             this.trackSeekTimeout = setTimeout(() => {
                 this.onTrackSeekRequested(time);
             }, 300);
         },
-    }
+    },
 });
 </script>
