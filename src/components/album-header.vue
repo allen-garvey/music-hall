@@ -113,6 +113,7 @@ $cover-image-width: 220px;
     text-align: right;
 }
 .coverImage {
+    display: inline-block;
     width: $cover-image-width;
     height: $cover-image-width;
 }
