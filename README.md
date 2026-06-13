@@ -1,10 +1,10 @@
 # Music Hall
 
-Web app to explore an artist's albums and music tracks, built with Vue, using server side rendering. Based on [https://github.com/allen-garvey/vue-server-side-rendering](https://github.com/allen-garvey/vue-server-side-rendering).
+Web app to explore an artist's albums and music tracks, built with Vue.
 
 ## Dependencies
 
-* node >= 20
+* node >= 22
 
 ### Script dependencies
 

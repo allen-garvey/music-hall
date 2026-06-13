@@ -34,7 +34,6 @@ Thumbs.db
 *.swp
 *.csv
 dist/*
-public_html/*.html
 public_html/assets/*
 public_html/media/music/*
 
