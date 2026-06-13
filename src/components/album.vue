@@ -49,17 +49,16 @@
                     <td>{{ track.title }}</td>
                     <td>{{ formatSeconds(track.length) }}</td>
                     <td v-if="showShareLinks">
-                        <router-link
-                            :to="{
-                                name: 'trackShow',
-                                params: { filename: track.filename },
-                            }"
+                        <a
+                            :href="`/?track=${encodeURIComponent(
+                                track.filename
+                            )}`"
                             :class="$style.shareLink"
                         >
                             <svg :class="$style.icon" viewBox="0 0 24 24">
                                 <use xlink:href="#icon-share" />
                             </svg>
-                        </router-link>
+                        </a>
                     </td>
                 </tr>
             </tbody>
