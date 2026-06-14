@@ -36,8 +36,8 @@ Thumbs.db
 dist/*
 public_html/assets/*
 public_html/media/music/*
+music/*
+music-dist/*
 
 #Elixir phoenix dialyzer
 .elixir_ls/*
-music
-music/*

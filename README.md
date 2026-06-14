@@ -14,13 +14,7 @@ Web app to explore an artist's albums and music tracks, built with Vue.
 ## Getting Started
 
 * `npm install`
-* `npm run build`
-* Generated html and assets are in `public_html`
-
-## Live code reload for development
-
-* Run `npm run watch`
-* Run a local webserver with `public_html` as the base directory
+* `npm start`
 
 ## Deployment
 

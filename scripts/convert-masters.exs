@@ -11,7 +11,7 @@ defmodule ConvertFolder do
   end
 
   defp target_dir do
-    Path.join([__DIR__, "..", "public_html", "media", "music"]) |> Path.expand()
+    Path.join([__DIR__, "..", "music-dist"]) |> Path.expand()
   end
 
   defp get_files_recursive(source_path, %MapSet{} = extension_set) do
