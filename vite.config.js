@@ -26,7 +26,6 @@ const serveStaticMiddleware = (req, res, next) => {
     });
     const readStream = fs.createReadStream(musicFileSourcePath);
     readStream.pipe(res);
-    next();
 };
 
 export default defineConfig({
